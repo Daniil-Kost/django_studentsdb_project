@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="uk">
+
+<head>
+
+  <meta charset="UTF-8"/>
+  
+  <title>Сервіс Обліку Студентів</title>
+
+  <meta name="description" value="Система Обліку Студентів Навчального Закладу" />
+
+  <!-- Include Stylesheet -->
+
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="./css/main.css">
+
+  <style type="text/css">.col-xs-12, .col-xs-5, .col-xs-7 {border: 1px solid red;} </style>
+
+</head>
+
+<body>
+	
+	<!-- Start Container -->
+	<div class="container">
+
+	<!-- Start Header -->
+	<div class="row" id ="header">
+
+	<!--Logo -->
+	<div class="col-xs-7"><h1>Сервіс обліку студентів</h1></div>
+
+
+	<!-- Groups Seclector -->
+	  <div class="col-xs-5" id ="group-selector">
+	  	<strong>Група</strong>
+		<select>
+			<option value ="">Усі студенти</option>
+			<option value="">МтМ-21, Турчинов Олександр (№ 3492)</option>
+			<option value="">МтМ-22, Саакашвілі Михайло (№ 8826)</option>
+			<option value="">МтМ-23, Порошенко Петро (№ 2123)</option>
+		</select>
+	  </div>
+	</div>
+	<!-- End Header -->
+	
+
+	<!-- Start SubHeader -->
+	<div class="row" id ="sub-header">
+	  <div class="col-xs-12">
+	  <ul class="nav nav-tabs" role="tablist">
+	  	<li role ="presentation" class="active">
+	  	<a href="#">Студенти</a>
+	  	</li>
+	  	<li role ="presentation">
+	  	<a href="#">Відвідування</a>
+	  	</li>
+	  	<li role ="presentation">
+	  	<a href="#">Групи</a>
+	  	</li>
+	  </ul>
+	  </div>
+	</div>
+	  <!-- End SubHeader -->
+
+	<!-- Start Main Page Content -->
+	<div class="row" id ="content-columns">
+		
+		<div class="col-xs-12" id="content-column">
+
+		<!-- Status Message -->
+		<div class="alert alert-waring">Зміни скасовано</div>
+
+		<h2>База Студентів</h2>
+
+		<!-- Add Student Button -->
+		<a class ="btn btn-primary" href="#">Додати Студента</a>
+
+		<!-- Start Students Listing -->
+		<table class="table table-hover table-striped">
+			<thead>
+				<tr>
+					<th><a href="#">№</a></th>
+					<th>Фото</th>
+					<th><a href="#">Прізвище &uarr;</a></th>
+					<th><a href="#">Імʼя</a></th>
+					<th><a href="#">№ Білету</a></th>
+					<th>Дії</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr>
+					<td>1</td>
+					<td>
+					<img height="50" width="50" src="./image/president.jpeg"
+					 class="img-circle"> 
+					</td>
+					<td><a title="Редагувати" href="#">Порошенко</a></td>
+					<td><a title="Редагувати" href="#">Петро</a></td>
+					<td>2123</td>
+					<td>
+						<div class="dropdown">
+							<button class="btn btn-default dropdown-toggle"
+							type="button" data-toggle="dropdown">Дія
+							<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" role ="menu">
+								<li role="presentation">
+									<a role ="menuitem" tabindex ="-1"
+									href ="#">Відвідування</a>
+								</li>
+								<li role="presentation">
+									<a role="menuitem" tabindex="-1" href="#">
+										Редагувати</a>
+								</li>
+								<li role="presentation">
+									<a role="menuitem" tabindex="-1" href="#">
+										Видалити</a>
+								</li>
+							</ul>
+						
+						</div>
+					</td>
+				</tr>
+
+				<tr>
+					<td>2</td>
+					<td>
+					<img height="50" width="50" src="./image/pastor.jpg"
+					 class="img-circle"> 
+					</td>
+					<td><a title="Редагувати" href="#">Турчинов</a></td>
+					<td><a title="Редагувати" href="#">Олександр</a></td>
+					<td>3492</td>
+					<td>
+						<div class="dropdown">
+							<button class="btn btn-default dropdown-toggle"
+							type="button" data-toggle="dropdown">Дія
+							<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" role ="menu">
+								<li role="presentation">
+									<a role ="menuitem" tabindex ="-1"
+									href ="#">Відвідування</a>
+								</li>
+								<li role="presentation">
+									<a role="menuitem" tabindex="-1" href="#">
+										Редагувати</a>
+								</li>
+								<li role="presentation">
+									<a role="menuitem" tabindex="-1" href="#">
+										Видалити</a>
+								</li>
+							</ul>
+						
+						</div>
+					</td>
+				</tr>
+
+				<tr>
+					<td>3</td>
+					<td>
+					<img height="50" width="50" src="./image/mixail.jpg"
+						class="img-circle"> 
+					</td>
+					<td><a title="Редагувати" href="#">Саакашвілі</a></td>
+					<td><a title="Редагувати" href="#">Михайло</a></td>
+					<td>8826</td>
+					<td>
+						<div class="dropdown">
+							<button class="btn btn-default dropdown-toggle"
+							type="button" data-toggle="dropdown">Дія
+							<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" role ="menu">
+								<li role="presentation">
+									<a role ="menuitem" tabindex ="-1"
+									href ="#">Відвідування</a>
+								</li>
+								<li role="presentation">
+									<a role="menuitem" tabindex="-1" href="#">
+										Редагувати</a>
+								</li>
+								<li role="presentation">
+									<a role="menuitem" tabindex="-1" href="#">
+										Видалити</a>
+								</li>
+							</ul>
+						
+						</div>
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+
+		<!-- End Students Listing -->
+
+		<nav>
+			<ul class="pagination">
+				<li><a href="#">&laquo;</a></li>
+				<li><a href="#">1</a></li>
+				<li class="active"><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">&raquo;</a></li>
+			</ul>
+		</nav>
+
+
+		</div>
+
+	</div>
+	<!-- End Main Page Content-->
+
+	<!-- Start Footer -->
+	<div class="row" id ="footer">
+		<div class="col-xs-12">
+			&copy; 2016 Сервіс Обліку Студентів 
+		</div>
+	</div>
+	<!-- End Footer -->
+
+	</div>
+	<!-- End Container -->
+
+	<!-- Javascript section -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js">
+	
+</script>
+
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js">
+	
+</script>
+
+</body>
+
+</html>
