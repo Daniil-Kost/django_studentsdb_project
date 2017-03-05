@@ -1,0 +1,238 @@
+{% extends "students/base.html" %}
+
+{% load i18n %}
+
+{% load static from staticfiles %}
+
+{% include "students.py" %}
+
+{% block meta_title %}{% trans 'Students' %}{% endblock meta_title %}
+
+{% block extra_css %}
+
+<style>
+ td {
+    text-align: left;
+  vertical-align: bottom;
+  }
+  table{
+    margin-top: 15px;
+  }
+ 
+  h3{
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+form{
+			float: left;
+			width: 100%;
+
+			background-color: #d9edf7;
+
+			padding-left:15px;
+			padding-top:15px;
+			padding-bottom:15px;
+
+			color:black;
+
+		}
+
+label {
+
+    		float:left; 
+    		padding-right:10px; 
+    		margin-top: 15px; 
+    		margin-bottom: 15px;
+    	}
+
+
+    	input {
+    		margin-top: 15px;
+    	 	margin-bottom: 15px;
+    	 	max-width: 250px;
+    	 
+
+    	}
+
+  select{
+			clear:both;
+			
+			margin-top: 10px;
+    	 	margin-bottom: 15px;
+    	 	width:195px;
+    	 	height: 38px;
+    	 	width: 250px;
+    	 	
+		}
+
+	
+
+		textarea{
+			max-height: 100px;
+			max-width: 200px;
+			
+		}
+
+
+		.form-control{
+
+    		height:50px;
+
+ 			padding-right:5px; 
+
+ 			padding-left:10px; 
+
+ 			width:200px;
+
+
+    		border-color:black;
+
+    		text-align:left;
+
+    		color: #555;
+
+    		box-shadow:none;
+
+    	}
+
+    	
+		.label {
+
+		float:center;
+    
+    	color: black;
+    	display: inline;
+    	font-size: 110%;
+    	font-weight: 700;
+    	line-height: 2;
+    	
+    	text-align: right;
+    	white-space: nowrap;
+			}
+
+		.field {
+    		clear:both;
+    	 text-align:right; 
+    	 line-height:25px;
+    	}
+
+    	#select-groups{
+    		width: 75%;
+    	}
+
+	#photo-clear_id{
+    		margin: 0px;
+    	}
+
+
+</style>
+
+{% endblock extra_css %}
+
+{% block title %}{% trans 'Monthly Journal' %}{% endblock title %}
+
+{% block content %}
+
+  <!-- Start Main Page Content -->
+
+<div id="journal-content">
+{% if not students %}
+
+  <!--<div class="alert alert-warning">
+    Поки немає жодного студента в базі. Будь-ласка,
+    <a href="{% url 'students_add' %}">додайте</a> першого.
+  </div> -->
+
+  <div class="alert alert-warning">
+   {% trans 'There are no students in the database yet. Please, ' %}
+    <a href="{% url 'students_add' %}">{% trans 'add' %}</a> {% trans 'your first student.' %}
+  </div>
+
+{% else %}
+
+  <div class="alert alert-warning" id ="alert-warning">
+    <!--Зміни в журнал зберігаються автоматично при кожному кліку в клітинці
+    таблиці. -->
+    {% trans 'We automatically save changes into journal while you click inside table cells.' %}
+    <span id="ajax-progress-indicator">{% trans 'Saving...' %}</span>
+  </div>
+
+    <div id ="alert-danger" class="alert alert-danger" >
+    <!-- Під час обробки даних виникла непередбачувана помилка. Спробуйте заповнити журнал відвідувань пізніше. -->
+    {% trans 'When data is unpredictable error occurred. Try to fill the browsing history later.' %}
+    </div>
+  
+  <p id="journal-nav" class="text-center">
+    <a href="?month={{ prev_month }}" title="{% trans 'Previous Month' %}">
+    &larr;</a>
+    <!-- TODO: translate month name -->
+    <strong>{% trans month_verbose %} {{ year }}</strong>
+    <a href="?month={{ next_month }}" title="{% trans 'Next Month' %}">
+    &rarr;</a>
+  </p>
+
+    
+  <!-- Start Monts Listing -->
+  <table class="table table-hover table-striped table-bordered" 
+  id ="students-journal">
+    <thead>
+      <tr class="header">
+          <th class="num">#</th>
+          <th class="name">{% trans 'Student' %}</th>
+          {% for day in month_header %}
+          <th class="day-header">
+          {% trans day.verbose %}
+          <br>
+          {{ day.day }}
+          </th>
+          {% endfor %}
+        </tr>
+      </thead>
+
+      <tbody>
+        
+      {% csrf_token %}
+
+      {% for student in students %}
+
+        <tr>
+          <td>
+          {% if is_paginated %}
+              {{ page_obj.start_index|add:forloop.counter|add:'-1' }}
+          {% else %}
+              {{ forloop.counter }}
+          {% endif %}
+          </td>
+          <td>
+            <a href="{% url 'students_edit' student.id %}" 
+            title="{% trans 'Edit' %}" class ="modal-edit-form-link">
+            {{ student.fullname }}
+            </a>
+          </td>
+
+          {% for day in student.days %}
+          <td class="day-box">
+            <input type="checkbox" data-student-id="{{ student.id }}"  data-date="{{ day.date }}" data-url="{{ student.update_url }}" value="1" {% if day.present %} checked ="checked"{% endif %}>
+          </td>
+          {% endfor %}
+            
+        </tr>
+      {% endfor %}
+
+      </tbody>
+    </table>
+
+{% endif %}
+
+
+    {% with object_list=students %}
+      {% include "students/pagination.html" %}
+    {% endwith %}
+
+    <!-- End Monts Listing -->
+
+</div>  
+{% endblock content %}
+   
+

@@ -1,0 +1,37 @@
+/* Global Styles */
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold; 
+}
+
+/* Корегування повідомлення */
+.alert{
+	/* Ми додали відстань лише зверху елемента: -top */
+	margin-top: 10px;
+	border-top: 3px solid #428bca;
+}
+
+
+
+/* Знайшли елемент футера по його унікальному ідентифікатору footer */
+#footer {
+	/* задаємо верхню межу елемента: ширина лінії, тип лінії,колір лінії */
+	border-top: 3px solid #428bca;
+	/* задаємо внутрішню відстань елемента до верхнього краю */
+	padding-top: 10px; 
+}
+
+/* Groups Selector */
+#group-selector {
+	margin-top: 30px;
+}
+
+#group-selector select{
+	margin: 0;
+	width: 75%;
+	background-color: #F8F8FF;
+	border: 3px solid #428bca;
+	height: 30px;
+	line-height: 30px;
+	color: #104E8B;
+}
+

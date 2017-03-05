@@ -1,0 +1,208 @@
+{% extends "students/base.html" %}
+
+{% load i18n %}
+
+{% load static from staticfiles %}
+
+{% block meta_title %}{% trans 'Exams' %}{% endblock meta_title %}
+
+{% block extra_css %}
+
+<style type="text/css">
+
+	form{
+			float: left;
+			width: 100%;
+
+			background-color: #d9edf7;
+
+			padding-left:15px;
+			padding-top:15px;
+			padding-bottom:15px;
+
+			color:black;
+
+		}
+
+label {
+
+    		float:left; 
+    		padding-right:10px; 
+    		margin-top: 15px; 
+    		margin-bottom: 15px;
+    	}
+
+
+    	input {
+    		margin-top: 15px;
+    	 	margin-bottom: 15px;
+    	 	max-width: 250px;
+    	 
+
+    	}
+
+  select{
+			clear:both;
+			
+			margin-top: 10px;
+    	 	margin-bottom: 15px;
+    	 	width:195px;
+    	 	height: 38px;
+    	 	width: 250px;
+    	 	
+		}
+
+	
+
+		textarea{
+			max-height: 100px;
+			max-width: 200px;
+			
+		}
+
+		p{
+			font-size: 17px;
+		}
+
+
+		.form-control{
+
+    		height:50px;
+
+ 			padding-right:5px; 
+
+ 			padding-left:10px; 
+
+ 			width:200px;
+
+
+    		border-color:black;
+
+    		text-align:left;
+
+    		color: #555;
+
+    		box-shadow:none;
+
+    	}
+
+    	
+		.label {
+
+		float:center;
+    
+    	color: black;
+    	display: inline;
+    	font-size: 110%;
+    	font-weight: 700;
+    	line-height: 2;
+    	
+    	text-align: right;
+    	white-space: nowrap;
+			}
+
+		.field {
+    		clear:both;
+    	 text-align:right; 
+    	 line-height:25px;
+    	}
+
+    	#select-groups{
+    		width: 75%;
+    	}
+
+</style>
+
+{% endblock extra_css %}
+
+{% block menu %}
+<li role ="presentation" {% if '/results/' in request.path %}
+	  	class="active" {% endif %}>
+	  	<a href="{% url 'results' %}">{% trans 'Exam Results' %}</a>
+</li>
+{% endblock menu %}
+
+{% block title %}{% trans 'Exams' %}{% endblock title %}
+
+
+{% block content %}
+
+	<!-- Add new exam -->
+	<a href="{% url 'exams_add' %}" class="exam-add-form-link"><button class ="btn btn-primary">
+		{% trans 'Add Exam' %}</button></a>
+
+	<!-- Exam-->
+	<table class="table table-hover table-striped">
+	<thead>
+	<tr>
+		<th><a href="{% url 'exams' %}">№</a></th>
+		<th><a href="{% url 'exams' %}">{% trans 'Science' %}</a></th>
+		<th><a href="{% url 'exams' %}">{% trans 'Time' %}</a></th>
+      	<th><a href="{% url 'exams' %}">{% trans 'Teacher' %}</a></th>
+		<th><a href="#">{% trans 'Group' %}</a></th>
+		<th>{% trans 'Actions' %}</th>
+	</tr>	 
+	</thead>
+
+
+	<tbody>
+	{% for exam in exams %}
+	<tr>
+		<td>{{ forloop.counter }}</td>
+		<td><a title="{% trans 'Edit' %}" 
+		href="{% url 'exams_edit' exam.id %}" class ="modal-edit-form-link">
+		{{ exam.science }}</a></td>
+		<td><a title="{% trans 'Edit' %}" 
+		href="{% url 'exams_edit' exam.id %}" class ="modal-edit-form-link">{{ exam.date }}</a></td>
+		<td><a title="{% trans 'Edit' %}" 
+		href="{% url 'exams_edit' exam.id %}" class ="modal-edit-form-link">
+		{{ exam.teacher }}</a></td>
+		<td><a title="{% trans 'Edit' %}" 
+		href="{% url 'exams_edit' exam.id %}" class ="modal-edit-form-link">{{ exam.gr }}</a></td>
+		<td>
+			<div class="dropdown">
+				<button class="btn btn-default dropdown-toggle"
+							type="button" data-toggle="dropdown">{% trans 'Action' %}
+				<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role ="menu">
+					<li role="presentation">
+						<a role ="menuitem" tabindex ="-1"
+							href ="{% url 'results' %}">{% trans 'Results' %}</a>
+					</li>
+					<li role="presentation">
+						<a role="menuitem" tabindex="-1" 
+						href="{% url 'exams_edit' exam.id %}" class ="modal-edit-form-link">
+						{% trans 'Edit' %}</a>
+					</li>
+					<li role="presentation">
+						<a role="menuitem" tabindex="-1" class ="modal-delete-form-link"   
+							href="{% url 'exams_delete' exam.id %}">
+							{% trans 'Delete' %}</a>
+					</li>
+				</ul>
+						
+			</div>
+			</td>
+	</tr>
+
+	{% endfor %}
+				
+	</tbody>
+	</table>
+
+		<!-- End Exam-->
+
+		{% endblock content %}
+
+
+	{% block pagination %}
+		
+
+		{% with object_list=exams %}
+      			{% include "students/pagination.html" %}
+    		{% endwith %}
+
+	{% endblock pagination %}
+
+	

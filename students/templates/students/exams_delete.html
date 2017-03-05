@@ -1,0 +1,88 @@
+{% extends "students/form.html" %}
+
+{% load i18n %}
+
+{% load static from staticfiles %}
+
+{% load crispy_forms_tags %}
+
+{% block meta_title %}{% trans 'Delete Exam' %}{% endblock meta_title %}
+
+{% block extra_css %}
+	<style>
+
+		form{
+			float: left;
+			width: 100%;
+
+			background-color: #d9edf7;
+			
+			padding-left:15px;
+			padding-top:15px;
+			padding-bottom:15px;
+
+			color:black;
+
+		}
+
+		p{
+			font-size: 25px;
+		}
+
+
+	.label {
+    
+    	color: black;
+    	display: inline;
+    	font-size: 95%;
+    	font-weight: 700;
+    	line-height: 2;
+    	
+    	text-align: left;
+    	white-space: nowrap;
+}
+		
+		.btn{
+			font-size: 25px;
+		}
+
+	
+	</style> 
+{% endblock extra_css %}
+
+{% block selector %}<select>
+			<a title="Редагувати" href="{% url 'students_add' %}">
+			<option value ="">{% trans 'Delete Exam' %}</option>
+			</a>
+		</select>
+{% endblock selector %}
+
+
+{% block content %}
+
+	<!-- Start Main Page Content -->
+
+	<div class="row" id ="content-columns">
+		
+	<div class="col-xs-12" id="content-column">
+	  <h3>{% trans 'Form delete exam' %}</h3></div>
+
+	<form action="{% url "exams_delete" object.id %}" method="post" id ="form-delete">
+	<div class="form-actions">
+		{% csrf_token %}
+		<p>{% blocktrans %}Do you really want to delete exam: "{{ object }}" ?{% endblocktrans %}<p>
+		<div class="controls col-sm-8">
+			<input id="submit-id-add_button"
+ 			class="btn btn-primary btn btn-primary" name="add_button" value="{% trans 'Delete' %}" type="submit">
+			<input id="submit-id-exam_cancel_button" class="btn btn-primary btn btn-danger" name="cancel_button"
+			value="{% trans 'Cancel' %}" type="button">
+		</div>
+	</div>
+	</form>
+
+
+	</div>
+	<!-- End Main Page Content-->
+	
+
+{% endblock content %}
