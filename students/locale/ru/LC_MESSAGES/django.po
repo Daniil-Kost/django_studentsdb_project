@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-28 22:01+0000\n"
+"POT-Creation-Date: 2017-03-06 11:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "Student"
 msgstr "Студент"
 
-#: models.py:19 models.py:94 templates/students/base.html:107
+#: models.py:19 models.py:94 templates/students/base.html:138
 #: templates/students/journal_list.html:9
 #: templates/students/students_list.html:7
 msgid "Students"
@@ -36,7 +36,7 @@ msgstr "Студенты"
 msgid "Name"
 msgstr "Имя"
 
-#: models.py:30 templates/students/students_list.html:138
+#: models.py:30 templates/students/students_list.html:149
 msgid "Last Name"
 msgstr "Фамилия"
 
@@ -48,7 +48,7 @@ msgstr "Отчество"
 msgid "Birthday"
 msgstr "Дата рождения"
 
-#: models.py:45 templates/students/students_list.html:135
+#: models.py:45 templates/students/students_list.html:146
 msgid "Photo"
 msgstr "Фото"
 
@@ -59,7 +59,7 @@ msgstr "Билет"
 #: models.py:54 models.py:77 models.py:140 models.py:178
 #: templates/students/exams_list.html:142
 #: templates/students/exams_result.html:159
-#: templates/students/students_list.html:160
+#: templates/students/students_list.html:171
 msgid "Group"
 msgstr "Группа"
 
@@ -71,7 +71,7 @@ msgstr "Заметки"
 msgid "Place Born"
 msgstr "Место рождения"
 
-#: models.py:78 templates/students/base.html:117
+#: models.py:78 templates/students/base.html:148
 #: templates/students/groups_list.html:7
 #: templates/students/groups_list.html:118
 msgid "Groups"
@@ -89,7 +89,7 @@ msgstr "Аудитория"
 msgid "Exam"
 msgstr "Экзамен"
 
-#: models.py:119 templates/students/base.html:124
+#: models.py:119 templates/students/base.html:155
 #: templates/students/exams_list.html:7 templates/students/exams_list.html:125
 #: templates/students/exams_result.html:121
 msgid "Exams"
@@ -146,28 +146,28 @@ msgstr "База Студентов"
 msgid "App to manage students database"
 msgstr "Система учета студентов учебного заведения"
 
-#: templates/students/base.html:79
+#: templates/students/base.html:95
 msgid "Students Accouting Service"
 msgstr "Сервис Учета Студентов"
 
-#: templates/students/base.html:86
+#: templates/students/base.html:103
 msgid "Group:"
 msgstr "Группа"
 
-#: templates/students/base.html:88
+#: templates/students/base.html:105
 msgid "All Students"
 msgstr "Все Студенты"
 
-#: templates/students/base.html:112 templates/students/groups_list.html:157
-#: templates/students/students_list.html:198
+#: templates/students/base.html:143 templates/students/groups_list.html:157
+#: templates/students/students_list.html:209
 msgid "Journal"
 msgstr "Посещения"
 
-#: templates/students/base.html:132
+#: templates/students/base.html:163
 msgid "Contact"
 msgstr "Контакты"
 
-#: templates/students/base.html:183 templates/students/form.html:11
+#: templates/students/base.html:214 templates/students/form.html:11
 #: templates/students/form.html:240
 msgid "Students Accounting Service"
 msgstr "Сервис Учета Студентов"
@@ -194,6 +194,7 @@ msgid "Form delete exam"
 msgstr "Форма удаления экзамена"
 
 #: templates/students/exams_delete.html:73
+#, python-format
 msgid "Do you really want to delete exam: \"%(object)s\" ?"
 msgstr "Ви действительно хотите удалить экзамен: \"%(object)s\" ?"
 
@@ -204,7 +205,7 @@ msgstr "Ви действительно хотите удалить экзаме
 #: templates/students/groups_list.html:167
 #: templates/students/results_delete.html:76
 #: templates/students/students_delete.html:76
-#: templates/students/students_list.html:208
+#: templates/students/students_list.html:219
 msgid "Delete"
 msgstr "Удалить"
 
@@ -236,7 +237,7 @@ msgstr "Добавить Экзамен"
 #: templates/students/exams_list.html:143
 #: templates/students/exams_result.html:182
 #: templates/students/groups_list.html:132
-#: templates/students/students_list.html:161
+#: templates/students/students_list.html:172
 msgid "Actions"
 msgstr "Действия"
 
@@ -257,17 +258,17 @@ msgstr "Действия"
 #: templates/students/groups_list.html:145
 #: templates/students/groups_list.html:162
 #: templates/students/journal_list.html:209
-#: templates/students/students_list.html:181
-#: templates/students/students_list.html:183
-#: templates/students/students_list.html:187
-#: templates/students/students_list.html:203
+#: templates/students/students_list.html:192
+#: templates/students/students_list.html:194
+#: templates/students/students_list.html:198
+#: templates/students/students_list.html:214
 msgid "Edit"
 msgstr "Редактировать"
 
 #: templates/students/exams_list.html:165
 #: templates/students/exams_result.html:202
 #: templates/students/groups_list.html:151
-#: templates/students/students_list.html:192
+#: templates/students/students_list.html:203
 msgid "Action"
 msgstr "Действия"
 
@@ -341,7 +342,9 @@ msgstr "первого"
 msgid ""
 "We automatically save changes into journal while you click inside table "
 "cells."
-msgstr "Изменения в журнале сохраняются автоматически, при каждом клике в клетке таблицы."
+msgstr ""
+"Изменения в журнале сохраняются автоматически, при каждом клике в клетке "
+"таблицы."
 
 #: templates/students/journal_list.html:158
 msgid "Saving..."
@@ -351,7 +354,9 @@ msgstr "Сохранение..."
 msgid ""
 "When data is unpredictable error occurred. Try to fill the browsing history "
 "later."
-msgstr "Во время обработки данных возникла непредвиденная ошибка. Попробуйте заполнить журнал посещений позже."
+msgstr ""
+"Во время обработки данных возникла непредвиденная ошибка. Попробуйте "
+"заполнить журнал посещений позже."
 
 #: templates/students/journal_list.html:167
 msgid "Previous Month"
@@ -371,6 +376,7 @@ msgid "Form delete exam result"
 msgstr "Форма удаления результата экзамена"
 
 #: templates/students/results_delete.html:73
+#, python-format
 msgid "Do you really want to delete exam result: \"%(object)s\" ?"
 msgstr "Ви действительно хотите удалить результат экзамена: \"%(object)s\" ?"
 
@@ -392,6 +398,7 @@ msgid "Form delete student"
 msgstr "Форма удаления студента"
 
 #: templates/students/students_delete.html:73
+#, python-format
 msgid "Do you really want to delete student: \"%(object)s\" ?"
 msgstr "Ви действительно хотите удалить студента: \"%(object)s\" ?"
 
@@ -403,19 +410,19 @@ msgstr "Редактирование Студента"
 msgid "Form edit student"
 msgstr "Форма редактирования студента"
 
-#: templates/students/students_list.html:121
+#: templates/students/students_list.html:132
 msgid "Students List"
 msgstr "Список Студентов"
 
-#: templates/students/students_list.html:127
+#: templates/students/students_list.html:138
 msgid "Add Student"
 msgstr "Добавить Студента"
 
-#: templates/students/students_list.html:146
+#: templates/students/students_list.html:157
 msgid "First Name"
 msgstr "Имя"
 
-#: templates/students/students_list.html:154
+#: templates/students/students_list.html:165
 msgid "Ticket №"
 msgstr "№ Билета"
 
@@ -437,7 +444,9 @@ msgstr "Текст сообщения"
 
 #: views/contact_admin.py:75
 msgid "When you send an unexpected error occurred. Try this form later."
-msgstr "Во время отправки возникла непредвиденная ошибка. Попробуйте возпользоватся данной формой позже."
+msgstr ""
+"Во время отправки возникла непредвиденная ошибка. Попробуйте возпользоватся "
+"данной формой позже."
 
 #: views/contact_admin.py:86
 msgid "Message sent successfully !"
@@ -478,6 +487,7 @@ msgid "Exam result succesfully deleted !"
 msgstr "Результат экзамена успешно удален !"
 
 #: views/groups.py:80
+#, python-format
 msgid "Group %(title)s succesfully added !"
 msgstr "Группа %(title)s успешно добавленна !"
 

@@ -41,10 +41,26 @@ body{
 
 /* Groups Selector */
 #group-selector {
-	margin-top: 30px;
+	margin-top: 20px;
 }
 
 #group-selector select{
+	margin: 0;
+	width: 75%;
+	background-color: #F8F8FF;
+	border: 3px solid #428bca;
+	height: 30px;
+	line-height: 30px;
+	color: #104E8B;
+}
+
+/* Lang Selector*/
+
+#lang-selector {
+	margin-top: 20px;
+}
+
+#lang-selector select{
 	margin: 0;
 	width: 75%;
 	background-color: #F8F8FF;

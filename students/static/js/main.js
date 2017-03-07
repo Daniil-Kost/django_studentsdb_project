@@ -676,6 +676,19 @@ function initFormSelector(){
 
 }
 
+function initLangSelector() {
+    $('#lang-selector select').change(function(event){
+        var lan = $(this).val();
+        if (lan) {
+            $.cookie('django_language', lan, {'path': '/', 'expires': 365});
+        } else {
+            $.removeCookie('django_language', {'path': '/'});
+        }
+        location.reload(true);
+        return true;
+     });
+}
+
 function initDateFields(){
   $('input.dateinput').datetimepicker({
     'format': 'YYYY-MM-DD',
@@ -752,6 +765,7 @@ $(document).ready(function(){
   initDeleteModalPage();
   FormPhotoPage();
   initDateTimeFields();
+  initLangSelector();
 
   initAddStudentPage();
   initAddGroupPage();

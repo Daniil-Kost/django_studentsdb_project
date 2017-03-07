@@ -24,16 +24,32 @@
   <link rel="stylesheet" 
   href="{{ PORTAL_URL }}{% static 'css/main.css' %}">
 
-   <style type="text/css">.col-xs-12, .col-xs-8, .col-xs-4 {}>
+   <style type="text/css">.col-xs-12, .col-xs-8, .col-xs-6,.col-xs-4, .col-xs-2 {}>
 
    		.label {
    			color: #000000;
    			font-size: 100%;
     	}
 
+    	.form-lang{
+
+    		float: right;
+			background-color: #FFFAFA;
+			
+			padding-left:1px;
+			padding-top:1px;
+			padding-bottom:1px;
+			color:black;
+		}
+
     	#select-groups{
     		width: 75%;
     	}
+
+    	#select-lang{
+    		width: 75%;
+    	}
+
 
 		.modal {
 			display:    none;
@@ -76,8 +92,9 @@
 
 	<!--Logo -->
 	{% block logo %}
-	<div class="col-xs-8"><h1>{% trans 'Students Accouting Service' %}</h1></div>
+	<div class="col-xs-6"><h1>{% trans 'Students Accouting Service' %}</h1></div>
 	{% endblock logo %}
+
 
 
 	<!-- Groups Seclector -->
@@ -90,9 +107,23 @@
 			<option value="{{ group.id }}"{% if group.selected %}selected="1"{% endif %}>{{ group.title }}{% if group.leader %}, {{ group.leader }}{% endif %}</option>
 			{% endfor %}
 		</select>
+
 	  </div>
-	</div>
 	{% endblock group %}
+
+	<!-- Language Select -->
+	<div class="col-xs-2" id ="lang-selector">
+	
+   	<select id="select-lang"> 
+		<option value="">{{PK}}</option>
+		<option value="en">English</option>
+		<option value="uk">Українська</option>
+		<option value="ru">Русский</option>    
+	</select> 
+    </div>
+
+<!-- End Language Select -->
+	</div>
 	<!-- End Header -->
 	
 

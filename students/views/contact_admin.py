@@ -18,13 +18,13 @@ import logging
 from django.utils.translation import ugettext as _
 
 
-
-class ContactForm(forms.Form):
-	"""docstring for ContactForm"""
+#English locale
+class ContactFormEng(forms.Form):
+	"""docstring for ContactFormEng"""
 
 	def __init__(self, *args, **kwargs):
 		#call original initializator
-		super(ContactForm, self).__init__(*args, **kwargs)
+		super(ContactFormEng, self).__init__(*args, **kwargs)
 
 		#this helper object allows us to us to customize form
 		self.helper =FormHelper()
@@ -41,56 +41,175 @@ class ContactForm(forms.Form):
 		self.helper.field_class ='col-sm-10'
 
 		#from buttons
-		self.helper.add_input(Submit('send_button', _(u"Send")))
+		self.helper.add_input(Submit('send_button', "Send"))
 
 
-	from_email =forms.EmailField(label =_(u"Your email adress"))
+	from_email =forms.EmailField(label ="Your email adress")
 
 	subject =forms.CharField(
-		label =_(u"Title"),
+		label ="Title",
 		max_length =128)
 
 	message =forms.CharField(
-		label =_(u"Text message"),
+		label ="Text message",
+		widget =forms.Textarea)
+
+#Ukranian locale
+class ContactFormUkr(forms.Form):
+	"""docstring for ContactFormUkr"""
+
+	def __init__(self, *args, **kwargs):
+		#call original initializator
+		super(ContactFormUkr, self).__init__(*args, **kwargs)
+
+		#this helper object allows us to us to customize form
+		self.helper =FormHelper()
+
+		#form tag attributes
+		self.helper.form_class ='form-horizontal'
+		self.helper.form_method ='post'
+		self.helper.form_action =reverse('contact_admin')
+
+		#twitter bootstrap styles
+		self.helper.help_text_inline =True
+		self.helper.html5_required =True
+		self.helper.label_class ='col-sm-2 control label'
+		self.helper.field_class ='col-sm-10'
+
+		#from buttons
+		self.helper.add_input(Submit('send_button', "Надіслати"))
+
+
+	from_email =forms.EmailField(label ="Ваша емайл адресса")
+
+	subject =forms.CharField(
+		label ="Заголовок",
+		max_length =128)
+
+	message =forms.CharField(
+		label ="Текст повідомлення",
+		widget =forms.Textarea)
+
+#Russian Locale
+class ContactFormRus(forms.Form):
+	"""docstring for ContactFormRus"""
+
+	def __init__(self, *args, **kwargs):
+		#call original initializator
+		super(ContactFormRus, self).__init__(*args, **kwargs)
+
+		#this helper object allows us to us to customize form
+		self.helper =FormHelper()
+
+		#form tag attributes
+		self.helper.form_class ='form-horizontal'
+		self.helper.form_method ='post'
+		self.helper.form_action =reverse('contact_admin')
+
+		#twitter bootstrap styles
+		self.helper.help_text_inline =True
+		self.helper.html5_required =True
+		self.helper.label_class ='col-sm-2 control label'
+		self.helper.field_class ='col-sm-10'
+
+		#from buttons
+		self.helper.add_input(Submit('send_button', "Отправить"))
+
+
+	from_email =forms.EmailField(label ="Ваш емайл адресс")
+
+	subject =forms.CharField(
+		label ="Заголовок",
+		max_length =128)
+
+	message =forms.CharField(
+		label ="Текст сообщения",
 		widget =forms.Textarea)
 		
 		
 def contact_admin(request):
 
-	if request.method =='POST':
-		form =ContactForm(request.POST)
+	#if english locale
+	if request.COOKIES.get('django_language') == 'en':
+		if request.method =='POST':
+			form =ContactFormEng(request.POST)
+			if form.is_valid():
+				subject =form.cleaned_data['subject']
+				message =form.cleaned_data['message']
+				from_email =form.cleaned_data['from_email']
 
-		if form.is_valid():
-			subject =form.cleaned_data['subject']
-			message =form.cleaned_data['message']
-			from_email =form.cleaned_data['from_email']
+				try:
+					send_mail(subject, message, from_email, [ADMIN_EMAIL])
 
-			try:
-				send_mail(subject, message, from_email, [ADMIN_EMAIL])
+				except Exception:
+					message = "When you send an unexpected"\
+					"error occurred. Try this form later."
+					logger =logging.getLogger(__name__)
+					logger.exception(message)
+				else:
+					message = "Message sent successfully !"
 
-			except Exception:
-				#message =u'Під час відправки виникла непередбачувана' \
-				#u' помилка. Спробуйте скористатись данною формою пізніше.'
+				return HttpResponseRedirect(
+					u'%s?status_message=%s' % (reverse('contact_admin'), message))
+		else:
+			form =ContactFormEng()
 
-				message = _(u"When you send an unexpected error occurred. Try this form later.")
+		return render(request, 'students/contact_admin.html', {'form': form})
 
+	#if ukranian locale
+	if request.COOKIES.get('django_language') == 'uk':
+		if request.method =='POST':
+			form =ContactFormUkr(request.POST)
+			if form.is_valid():
+				subject =form.cleaned_data['subject']
+				message =form.cleaned_data['message']
+				from_email =form.cleaned_data['from_email']
 
-				logger =logging.getLogger(__name__)
-				logger.exception(message)
-				#pdb.set_trace()
-				#pdb.pm()
+				try:
+					send_mail(subject, message, from_email, [ADMIN_EMAIL])
 
+				except Exception:
+					message = "Під час відправки виникла"\
+					"непередбачувана помилка."\
+					 " Спробуйте скористатись данною формою пізніше."
+					logger =logging.getLogger(__name__)
+					logger.exception(message)
+				else:
+					message = "Повідомлення успішно надіслане !"
 
-			else:
-				#message =u'Повідомлення успішно надіслане !'
-				message = _(u"Message sent successfully !")
+				return HttpResponseRedirect(
+					u'%s?status_message=%s' % (reverse('contact_admin'), message))
+		else:
+			form =ContactFormUkr()
 
-			return HttpResponseRedirect(
-				u'%s?status_message=%s' % (reverse('contact_admin'), message))
+		return render(request, 'students/contact_admin.html', {'form': form})
 
-	else:
-		form =ContactForm()
+	#if russian locale
+	if request.COOKIES.get('django_language') == 'ru':
+		if request.method =='POST':
+			form =ContactFormRus(request.POST)
+			if form.is_valid():
+				subject =form.cleaned_data['subject']
+				message =form.cleaned_data['message']
+				from_email =form.cleaned_data['from_email']
 
-	return render(request, 'students/contact_admin.html', {'form': form})
+				try:
+					send_mail(subject, message, from_email, [ADMIN_EMAIL])
+
+				except Exception:
+					message = "Во время отправки сообщения возникла"\
+					"непредвиденная ошибка. Попробуйте воспользоватся"\
+					"данной формой позже."
+					logger =logging.getLogger(__name__)
+					logger.exception(message)
+				else:
+					message = "Сообщение успешно отправлено !"
+
+				return HttpResponseRedirect(
+					u'%s?status_message=%s' % (reverse('contact_admin'), message))
+		else:
+			form =ContactFormRus()
+
+		return render(request, 'students/contact_admin.html', {'form': form})
 
 

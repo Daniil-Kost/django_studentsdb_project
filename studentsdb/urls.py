@@ -82,6 +82,9 @@ url(r'^contact-admin/$',
 url(r'^jsi18n\.js$', 'django.views.i18n.javascript_catalog',
 	js_info_dict),
 
+#url(r'^set-language/$',
+ #       'students.views.set_language.set_language', name='set_language'),
+
 url(r'^admin/', include(admin.site.urls)),
 
 
