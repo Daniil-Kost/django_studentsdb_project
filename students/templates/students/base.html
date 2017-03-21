@@ -87,12 +87,38 @@
 	<!-- Start Container -->
 	<div class="container">
 
+	<!-- Start Toolbar -->
+	<div class="row" id ="toolbar">
+
+	<!-- User’s toolbar for authenticated users -->
+	
+	{% if user.is_authenticated %}
+
+	<div class="col-xs-12" id="user-toolbar">
+	<span>{{ user.username }}</span> |
+	<a href="{% url 'users:auth_logout' %}">{% trans "Logout" %}</a>
+	</div>
+
+	{% else %}
+
+	<div class="col-xs-12" id="user-toolbar">
+	<a href="{% url 'users:auth_login' %}" class="login-form-link">{% trans "Login" %}</a> |
+	<a href="{% url 'users:registration_register' %}" class="registration-form-link">{% trans "Register" %}</a>
+	</div>
+
+	{% endif %}
+		
+	</div>
+
+	<!-- End Toolbar -->
+
+
 	<!-- Start Header -->
 	<div class="row" id ="header">
 
 	<!--Logo -->
 	{% block logo %}
-	<div class="col-xs-6"><h1>{% trans 'Students Accouting Service' %}</h1></div>
+	<div class="col-xs-6" id ="logo"><h1>{% trans 'Students Accouting Service' %}</h1></div>
 	{% endblock logo %}
 
 
@@ -211,7 +237,7 @@
 	{% block footer %}
 	<div class="row" id ="footer">
 		<div class="col-xs-12">
-			&copy; 2016 {% trans 'Students Accounting Service' %} 
+			&copy; 2017 {% trans 'Students Accounting Service' %} 
 		</div>
 	</div>
 	{% endblock footer %}

@@ -79,7 +79,8 @@ def get_lang(request):
      return pk
   elif request.COOKIES.get('django_language') == 'ru':
      pk = 'Русский'
-     return pk 
+     return pk
+  #if we dont selected language - Ukranian will be default
   else:
   	 pk = 'Українська'
   	 return pk

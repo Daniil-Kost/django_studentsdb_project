@@ -19,38 +19,38 @@ class Student(models.Model):
 		verbose_name_plural =_(u"Students")
 			
 
-	first_name =models.CharField(
+	first_name = models.CharField(
 		max_length =256,
 		blank =False,
-		verbose_name = _(u"Name"))
+		verbose_name =_(u"Name"))
 
-	last_name =models.CharField(
+	last_name = models.CharField(
 		max_length =256,
 		blank =False,
 		verbose_name =_(u"Last Name"))
 
-	middle_name =models.CharField(
+	middle_name = models.CharField(
 		max_length =256,
 		blank =True,
 		verbose_name =_(u"Middle Name"),
 		default ='')
 
-	birthday =models.DateField(
+	birthday = models.DateField(
 		blank =False,
 		verbose_name =_(u"Birthday"),
 		null =True)
 
-	photo =models.ImageField(
+	photo = models.ImageField(
 		blank =True,
 		verbose_name =_(u"Photo"),
 		null =True)
 
-	ticket =models.CharField(
+	ticket = models.CharField(
 		max_length =256,
 		blank =False,
 		verbose_name =_(u"Ticket"))
 
-	student_group =models.ForeignKey('Group',
+	student_group = models.ForeignKey('Group',
 		verbose_name =_(u"Group"),
 		blank =False,
 		null =True,
@@ -60,7 +60,7 @@ class Student(models.Model):
 		blank = True,
 		verbose_name =_(u"Notes"))
 
-	place_born =models.CharField(
+	place_born = models.CharField(
 		max_length =256,
 		blank =True,
 		verbose_name =_(u"Place Born"))
@@ -77,12 +77,12 @@ class Group(models.Model):
 		verbose_name =_(u"Group")
 		verbose_name_plural =_(u"Groups")
 			
-	title=models.CharField(
+	title = models.CharField(
 		max_length =256,
 		blank =False,
 		verbose_name = _(u"Name"))
 
-	leader =models.OneToOneField('Student',
+	leader = models.OneToOneField('Student',
 		verbose_name =_(u"Leader"),
 		blank =True,
 		null =True,
@@ -94,11 +94,11 @@ class Group(models.Model):
 		verbose_name =_(u"Students"),
 		blank =True)
 
-	notes =models.TextField(
+	notes = models.TextField(
 		blank = True,
 		verbose_name =_(u"Notes"))
 
-	place=models.CharField(
+	place = models.CharField(
 		max_length =256,
 		blank =True,
 		verbose_name =_(u"Audience"))
@@ -119,33 +119,33 @@ class Exam(models.Model):
 		verbose_name_plural =_(u"Exams")
 			
 
-	science =models.CharField(
+	science = models.CharField(
 		max_length =256,
 		blank =False,
-		verbose_name = _(u"Science"))
+		verbose_name =_(u"Science"))
 
-	teacher =models.CharField(
+	teacher = models.CharField(
 		max_length =256,
 		blank =False,
 		verbose_name =_(u"Teacher"))
 
 
-	date =models.DateTimeField(
+	date = models.DateTimeField(
 		blank =False,
 		verbose_name =_(u"Time"),
 		null =True)
 
 	
-	gr =models.ForeignKey('Group',
+	gr = models.ForeignKey('Group',
 		verbose_name =_(u"Group"),
 		blank =False,
 		null =True,
-		on_delete =models.PROTECT)
+		on_delete =models.CASCADE)
 
-	place_exam =models.CharField(
+	place_exam = models.CharField(
 		max_length =256,
 		blank =True,
-		verbose_name = _(u"Audience"))
+		verbose_name =_(u"Audience"))
 
 
 
@@ -166,7 +166,7 @@ class Result(models.Model):
 		verbose_name_plural =_(u"Exams Results")
 			
 
-	exams =models.ForeignKey('Exam',
+	exams = models.ForeignKey('Exam',
 		verbose_name = _(u"Exam"),
 		blank =False,
 		null =True,
@@ -174,25 +174,25 @@ class Result(models.Model):
 		on_delete =models.CASCADE)
 
 	
-	groups =models.ForeignKey('Group',
+	groups = models.ForeignKey('Group',
 		verbose_name =_(u"Group"),
 		blank =False,
 		null =True,
 		on_delete =models.CASCADE)
 
-	students =models.ForeignKey('Student',
+	students = models.ForeignKey('Student',
 		verbose_name =_(u"Student"),
 		blank =False,
 		null =True,
 		on_delete =models.CASCADE,
 		related_name='+')
 
-	results_exam =models.CharField(
+	results_exam = models.CharField(
 		max_length =256,
 		blank =False,
 		verbose_name = _(u"Result"))
 
-	credit =models.CharField(
+	credit = models.CharField(
 		max_length =256,
 		blank =True,
 		verbose_name = _(u"Test(Yes or No)"))
@@ -208,8 +208,8 @@ class MonthJournal(models.Model):
     """Student Month Journal"""
 
     class Meta:
-        verbose_name = _(u"Monthly Journal")
-        verbose_name_plural = _(u"Mounthly Journals")
+        verbose_name =_(u"Monthly Journal")
+        verbose_name_plural =_(u"Mounthly Journals")
 
     student = models.ForeignKey('Student',
         verbose_name=_(u"Student"),

@@ -434,6 +434,7 @@ function initAddResultForm(form, modal){
   });
 }
 
+
 //11111111111111111111111111111111111111111111111111111111
 //1111111111111111111111111111111111111111111111111111111111
 //111111111111111111111111111111111111111111111111
@@ -689,8 +690,12 @@ function initLangSelector() {
      });
 }
 
+
+
 function initDateFields(){
-  $('input.dateinput').datetimepicker({
+//find class dateinput in HTML code and set function with plagin
+//set function datetimepicker with plagin 
+  $('input.dateinput').datetimepicker({ 
     'format': 'YYYY-MM-DD',
     locale: 'uk',
     dayViewHeaderFormat: 'MMM YYYY',
@@ -701,6 +706,8 @@ function initDateFields(){
 }
 
 function initDateTimeFields(){
+//find class dateinput in HTML code
+//set function datetimepicker with plagin 
   $('input.datetimeinput').datetimepicker({
     'format': 'YYYY-MM-DD hh:mm',
     locale: 'uk',
@@ -751,6 +758,10 @@ function initCancelButton(){
   $('#submit-id-result_cancel_button').click(function(event){
     document.location.href ='http://localhost:8000/exams/results/';
   });
+  //login-registration
+  $('#submit-id-login_cancel_button').click(function(event){
+    document.location.href ='http://localhost:8000/';
+  });
 }
 
 
@@ -771,5 +782,4 @@ $(document).ready(function(){
   initAddGroupPage();
   initAddExamPage();
   initAddResultPage();
-
 });

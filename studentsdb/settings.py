@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'crispy_forms',
+    'registration',
     'students',
 
 ]
@@ -71,7 +73,7 @@ ROOT_URLCONF = 'studentsdb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -88,18 +90,11 @@ TEMPLATES = [
     },
 ]
 
+#TEMPLATE_DIRS = (
+ #   os.path.join(BASE_DIR, 'studentsdb', 'templates'),
+ #     )
+
 WSGI_APPLICATION = 'studentsdb.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR,'..','db.sqlite3'),
- #   }
-#}
 
 DATABASES = {
     'default': {
@@ -156,15 +151,7 @@ MEDIA_URL ='/media/'
 
 MEDIA_ROOT =os.path.join(BASE_DIR, '..', 'media')
 
-#email settings
-#please, set here your server details and your admin email
-#ADMIN_EMAIL = 'lemk1997@gmail.com'
-#EMAIL_HOST = 'smtp.mandrillapp.com'
-#EMAIL_PORT = '465'
-#EMAIL_HOST_USER = 'lemk1967@gmail.com'
-#EMAIL_HOST_PASSWORD = '****' 
-#EMAIL_USE_TLS = False
-#EMAIL_USE_SSL = True
+
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ADMIN_EMAIL = 'lemk1997@gmail.com'
@@ -184,9 +171,12 @@ ADMINS = (
 )
 
 
+#registration
+REGISTRATION_OPEN = True
+
 #MANAGERS = ADMINS
 
-CRISPY_TEMPLATE_PACK ='bootstrap3'
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 #logging
 LOG_FILE = os.path.join(BASE_DIR, 'studentsdb.log')
