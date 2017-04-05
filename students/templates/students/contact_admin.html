@@ -6,6 +6,105 @@
 
 {% load crispy_forms_tags %}
 
+{% block css %}{% endblock css %}
+
+{% block extra_css %}
+
+<style type="text/css">.col-xs-12, .col-xs-8, .col-xs-6,.col-xs-4, .col-xs-2 {}>
+
+    select {
+		clear:both;
+		margin-top: 10px;
+    	margin-bottom: 15px;
+    	width:195px;
+    	height: 38px;
+    	width: 250px;
+
+		}
+
+	p {
+		font-size: 17px;
+
+		}
+
+	a {
+		font-size: 17px;
+	}
+
+	label {
+
+    		float:left; 
+    		padding-right:10px; 
+    		margin-top: 0px; 
+    		margin-bottom: 0px;
+    	  }
+
+    i {
+		margin-right: 5px;
+
+	}
+
+    .form-lang {
+    	float: right;
+		background-color: #FFFAFA;
+		padding-left:1px;
+		padding-top:1px;
+		padding-bottom:1px;
+		color:black;
+
+		}
+
+	.btn-fb {
+    background-color: #3b5998;
+    color: white;
+		}
+
+    #select-lang {
+    	width: 75%;
+
+    	}
+
+    #select-groups {
+    	width: 75%;
+
+    	}
+
+    #photo-clear_id {
+    	margin: 0px;
+
+    	}
+
+     #user-toolbar {
+    	margin-top: 23px;
+    	margin-bottom: 8px;
+    }
+
+    #a-username {
+    	margin-right: 5px;
+    }
+
+    #a-logout {
+    	margin-left: 5px;
+    }
+
+    #footer {
+    	margin-bottom: 15px;
+    }
+
+	body.loading {
+    	overflow: hidden;
+
+	}
+
+	body.loading .modal {
+    	display: block;
+
+	}
+
+   </style>
+
+{% endblock extra_css %}
+
 {% block meta_title %}{% trans 'Contact with Admin' %}{% endblock meta_title %}
 
 {% block title %}{% trans 'Contact with Admin' %}{% endblock title %}
@@ -22,11 +121,8 @@
 
 {% endblock status_message %}
 
-
 {% block content %}
 
-
 	{% crispy form %}
-
 
 {% endblock content %}

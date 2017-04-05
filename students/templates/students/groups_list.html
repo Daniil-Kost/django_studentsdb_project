@@ -8,109 +8,32 @@
 
 {% block extra_css %}
 
-<style type="text/css">
+<style>
 
-	form{
-			float: left;
-			width: 100%;
-
-			background-color: #d9edf7;
-
-			padding-left:15px;
-			padding-top:15px;
-			padding-bottom:15px;
-
-			color:black;
+	form {
+		float: left;
+		width: 100%;
+		background-color: #d9edf7;
+		padding-left:15px;
+		padding-top:15px;
+		padding-bottom:15px;
+		color:black;
 
 		}
 
-label {
-
-    		float:left; 
-    		padding-right:10px; 
-    		margin-top: 15px; 
-    		margin-bottom: 15px;
-    	}
-
-
-    	input {
-    		margin-top: 15px;
-    	 	margin-bottom: 15px;
-    	 	max-width: 250px;
-    	 
-
-    	}
-
-  select{
-			clear:both;
-			
-			margin-top: 10px;
-    	 	margin-bottom: 15px;
-    	 	width:195px;
-    	 	height: 38px;
-    	 	width: 250px;
-    	 	
-		}
-
-	
-
-		textarea{
-			max-height: 100px;
-			max-width: 200px;
-			
-		}
-
-		p{
-			font-size: 17px;
-		}
-
-
-		.form-control{
-
-    		height:50px;
-
- 			padding-right:5px; 
-
- 			padding-left:10px; 
-
- 			width:200px;
-
-
-    		border-color:black;
-
-    		text-align:left;
-
-    		color: #555;
-
-    		box-shadow:none;
-
-    	}
-
-    	
-		.label {
+	.label {
 
 		float:center;
-    
     	color: black;
     	display: inline;
     	font-size: 110%;
     	font-weight: 700;
     	line-height: 2;
-    	
     	text-align: right;
     	white-space: nowrap;
-			}
-
-		.field {
-    		clear:both;
-    	 text-align:right; 
-    	 line-height:25px;
-    	}
-
-    	#select-groups{
-    		width: 75%;
-    	}
-
+			
+		}
+	
 </style>
 
 {% endblock extra_css %}
@@ -119,66 +42,113 @@ label {
 
 {% block content %}
 
-		<a href="{% url 'groups_add' %}" class="group-add-form-link"><button class ="btn btn-primary">
-		{% trans 'Add Group' %}</button></a>
+  <!-- Add Group Button -->
+  {% if user.is_authenticated %}
 
-		<!-- Start Groups Listing -->
-		<table class="table table-hover table-striped">
-			<thead>
-				<tr>
-					<th><a href="#">№</a></th>
-					<th><a href="#">{% trans 'Name' %} &uarr;</a></th>
-					<th><a href="#">{% trans 'Leader' %}</a></th>
-					<th>{% trans 'Actions' %}</th>
-				</tr>
-			</thead>
+	<a href="{% url 'groups_add' %}" class="group-add-form-link"><button class ="btn btn-primary"><i class="fa fa-users" aria-hidden="true"></i>{% trans ' Add Group' %}</button></a>
 
+  <!-- Add Group Button without link to modal window -->
+  {% else %}
 
-			<tbody>
-			
-			{% for group in GROUPS %}
-				<tr>
-					<td>{{ forloop.counter }}</td>
-					<td><a title="{% trans 'Edit' %}" 
-					href="{% url 'groups_edit' group.id %}" class ="modal-edit-form-link">
-					{{ group.title }}</a></td>
-					<td><a title="{% trans 'Edit' %}" 
-					href="{% url 'groups_edit' group.id %}" class ="modal-edit-form-link">
-					{{ group.leader }}</a></td>
-					<td>
-						<div class="dropdown">
-							<button class="btn btn-default dropdown-toggle"
-							type="button" data-toggle="dropdown">{% trans 'Action' %}
-							<span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu" role ="menu">
-								<li role="presentation">
-									<a role ="menuitem" tabindex ="-1"
-									href ="{% url 'journal' %}">{% trans 'Journal' %}</a>
-								</li>
-								<li role="presentation">
-									<a role="menuitem" tabindex="-1" 
-									href="{% url 'groups_edit' group.id %}" class ="modal-edit-form-link">
-										{% trans 'Edit' %}</a>
-								</li>
-								<li role="presentation">
-									<a role="menuitem" tabindex="-1" class ="modal-delete-form-link"   
-									href="{% url 'groups_delete' group.id %}" >
-										{% trans 'Delete' %}</a>
-								</li>
-							</ul>
+    <a href="{% url 'groups_add' %}"><button class ="btn btn-primary"><i class="fa fa-users" aria-hidden="true"></i>
+    {% trans ' Add Group' %}</button></a>
+
+  {% endif %}
+
+<!-- Start Groups Listing -->
+<table class="table table-hover table-striped">
+	<thead>
+	<tr>
+		<th><a href="#">№</a></th>
+		<th><a href="#">{% trans 'Name' %} &uarr;</a></th>
+		<th><a href="#">{% trans 'Leader' %}</a></th>
+		<th>{% trans 'Actions' %}</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	{% for group in GROUPS %}
+	<tr>
+		<td>{{ forloop.counter }}</td>
+
+	<!-- Content for authenticated users -->
+	{% if user.is_authenticated %}
+
+		<td>
+			<a title="{% trans 'Edit' %}" 
+			href="{% url 'groups_edit' group.id %}" class ="modal-edit-form-link">{{ group.title }}</a></td>
+		<td>
+			<a title="{% trans 'Edit' %}" 
+			href="{% url 'groups_edit' group.id %}" class ="modal-edit-form-link">{{ group.leader }}</a></td>
+		<td>
+			<div class="dropdown">
+				<button class="btn btn-default dropdown-toggle"
+					type="button" data-toggle="dropdown">{% trans 'Action' %}
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role ="menu">
+					<li role="presentation">
+						<a role ="menuitem" tabindex ="-1"
+						href ="{% url 'journal' %}">{% trans 'Journal' %}</a>
+					</li>
+					<li role="presentation">
+						<a role="menuitem" tabindex="-1" 
+						href="{% url 'groups_edit' group.id %}" class ="modal-edit-form-link">{% trans 'Edit' %}</a>
+					</li>
+					<li role="presentation">
+						<a role="menuitem" tabindex="-1" class ="modal-delete-form-link"   
+						href="{% url 'groups_delete' group.id %}" >
+						{% trans 'Delete' %}</a>
+					</li>
+				</ul>
 						
-						</div>
-					</td>
-				</tr>
+			</div>
+		</td>
 
-			{% endfor %}
+    <!-- Content for anonim users -->
+	<!-- all links redirect to login form -->
+	{% else %}
 
-			</tbody>
-		</table>
+		<td>
+			<a title="{% trans 'Edit' %}" 
+			href="{% url 'groups_edit' group.id %}">{{ group.title }}</a></td>
+		<td>
+			<a title="{% trans 'Edit' %}" 
+			href="{% url 'groups_edit' group.id %}">{{ group.leader }}</a></td>
+		<td>
+			<div class="dropdown">
+				<button class="btn btn-default dropdown-toggle"
+					type="button" data-toggle="dropdown">{% trans 'Action' %}
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role ="menu">
+					<li role="presentation">
+						<a role ="menuitem" tabindex ="-1"
+						href ="{% url 'journal' %}">{% trans 'Journal' %}</a>
+					</li>
+					<li role="presentation">
+						<a role="menuitem" tabindex="-1" 
+ 						href="{% url 'groups_edit' group.id %}">{% trans 'Edit' %}</a>
+					</li>
+					<li role="presentation">
+						<a role="menuitem" tabindex="-1" href="{% url 'groups_delete' group.id %}">
+						{% trans 'Delete' %}</a>
+					</li>
+				</ul>
+						
+			</div>
+		</td>
+	
+	{% endif %}
+
+	</tr>
+
+	{% endfor %}
+
+	</tbody>
+</table>
 
 		<!-- End Groups Listing -->
-
 
 	{% endblock content %}
 

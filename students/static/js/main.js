@@ -140,7 +140,7 @@ function initAddStudentForm(form, modal){
 //Groups JS
 //------------------------------------
 function initAddGroupPage(){
-  //a - tag <a>, student-add-form-link  - class in this tag
+  //a - tag <a>, group-add-form-link  - class in this tag
   $('a.group-add-form-link').click(function(event){
     var link =$(this);
     $.ajax({
@@ -238,7 +238,7 @@ function initAddGroupForm(form, modal){
 //Exams JS
 //------------------------------------
 function initAddExamPage(){
-  //a - tag <a>, student-add-form-link  - class in this tag
+  //a - tag <a>, exam-add-form-link  - class in this tag
   $('a.exam-add-form-link').click(function(event){
     var link =$(this);
     $.ajax({
@@ -338,7 +338,7 @@ function initAddExamForm(form, modal){
 //Results JS
 //------------------------------------
 function initAddResultPage(){
-  //a - tag <a>, student-add-form-link  - class in this tag
+  //a - tag <a>, result-add-form-link  - class in this tag
   $('a.result-add-form-link').click(function(event){
     var link =$(this);
     $.ajax({
@@ -444,7 +444,7 @@ function initAddResultForm(form, modal){
 //------------------------------------
 
 function initEditModalPage(){
-  //a - tag <a>, student-edit-form-link  - class in this tag
+  //a - tag <a>, modal-edit-form-link  - class in this tag
   $('a.modal-edit-form-link').click(function(event){
     var link =$(this);
     $.ajax({
@@ -690,8 +690,6 @@ function initLangSelector() {
      });
 }
 
-
-
 function initDateFields(){
 //find class dateinput in HTML code and set function with plagin
 //set function datetimepicker with plagin 
@@ -770,13 +768,13 @@ $(document).ready(function(){
 
   initGroupSelector();
   initFormSelector();
+  initLangSelector();
   initDateFields();
   initCancelButton();
   initEditModalPage();
   initDeleteModalPage();
   FormPhotoPage();
   initDateTimeFields();
-  initLangSelector();
 
   initAddStudentPage();
   initAddGroupPage();

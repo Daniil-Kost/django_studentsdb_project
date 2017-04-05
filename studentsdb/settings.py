@@ -47,14 +47,10 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'crispy_forms',
     'registration',
+    'social.apps.django_app.default',
     'students',
-
-]
-
-
-#!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-#i need to templeate in Middleware - 'django.middleware.locale.LocaleMiddleware',
-#but after this, i must translate web-site to russian and english language 
+    'studentsdb',
+	]
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -66,7 +62,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+	]
 
 ROOT_URLCONF = 'studentsdb.urls'
 
@@ -85,14 +81,12 @@ TEMPLATES = [
                 "studentsdb.context_processors.students_proc",
         "students.context_processors.groups_processor",
         "students.context_processors.lang_processor",
+        "social.apps.django_app.context_processors.backends",
+        "social.apps.django_app.context_processors.login_redirect",
             ],
         },
     },
 ]
-
-#TEMPLATE_DIRS = (
- #   os.path.join(BASE_DIR, 'studentsdb', 'templates'),
- #     )
 
 WSGI_APPLICATION = 'studentsdb.wsgi.application'
 
@@ -174,7 +168,43 @@ ADMINS = (
 #registration
 REGISTRATION_OPEN = True
 
-#MANAGERS = ADMINS
+LOGIN_URL = 'users:auth_login'
+LOGOUT_URL = 'users:auth_logout'
+
+AUTHENTICATION_BACKENDS = (
+	'social.backends.facebook.FacebookOAuth2',
+	'social.backends.google.GoogleOAuth2',
+	'social.backends.google.GoogleOpenId',
+	'django.contrib.auth.backends.ModelBackend',
+	)
+
+SOCIAL_AUTH_FACEBOOK_KEY = '414276622259701'
+SOCIAL_AUTH_FACEBOOK_SECRET = '6fd14960af6473dc246c5cd22a3362ae'
+
+# Google Keys
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '340441235543-jhhbmg5cn4hfst0eaca4djfrimb4tg9m.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'uB1h1COTNY9lt8_oGPeNs8OX'
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
+
+# Google OAuth2 (google-oauth2)
+SOCIAL_AUTH_GOOGLE_OAUTH2_IGNORE_DEFAULT_SCOPE = True
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
+'https://www.googleapis.com/auth/userinfo.email',
+'https://www.googleapis.com/auth/userinfo.profile'
+]
+
+# Google+ SignIn (google-plus)
+SOCIAL_AUTH_GOOGLE_PLUS_IGNORE_DEFAULT_SCOPE = True
+SOCIAL_AUTH_GOOGLE_PLUS_SCOPE = [
+'https://www.googleapis.com/auth/plus.login',
+'https://www.googleapis.com/auth/userinfo.email',
+'https://www.googleapis.com/auth/userinfo.profile'
+]
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_USE_DEPRECATED_API = True
+SOCIAL_AUTH_GOOGLE_PLUS_USE_DEPRECATED_API = True
+
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 

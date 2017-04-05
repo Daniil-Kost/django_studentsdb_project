@@ -8,104 +8,31 @@
 
 {% block meta_title %}{% trans 'Edit Student' %}{% endblock meta_title %}
 
-{% block extra_css %}
-	<style>
-		form{
-			float: left;
-			width: 100%;
-			background-color: #d9edf7;
-			
-			padding-left:15px;
-			padding-top:15px;
-			padding-bottom:15px;
-			color:black;
-		}
-	.label {
-    
-    	color: black;
-    	display: inline;
-    	font-size: 110%;
-    	font-weight: 700;
-    	line-height: 2;
-
-    	text-align: left;
-    	white-space: nowrap;
-			}
-
-	.form-control{
-
-    		height:50px;
-
- 			padding-right:5px; 
-
- 			padding-left:10px; 
-
- 			width:250px;
-
-    		border-color:black;
-
-    		text-align:left;
-
-    		color: #555;
-
-    		box-shadow:none;
-
-    	}
-
-    	textarea{
-			max-height: 120px;
-			max-width: 250px;
-		}
-
-    	#submit-id-add_button{
-    		float: center;
-    		margin-left: 50px;
-    	}
-
-		#submit-id-cancel_button{
-    		float: center;
-
-    	}
-
-	#photo-clear_id{
-    		margin: 0px;
-    	
-    	}
-
-	</style> 
-	
-
-{% endblock extra_css %}
-
-
 {% block content %}
 
 	<!-- Start Main Page Content -->
 
 	<div class="row" id ="content-columns">
 		
-	<div class="col-xs-12" id="content-column">
-	  <h3>{% trans 'Form edit student' %}</h3></div>
+		<div class="col-xs-12" id="content-column">
+	  		<h3>{% trans 'Form edit student' %}</h3>
+	  	</div>
 
-	{% if form.errors %}
+		{% if form.errors %}
 
-	<div class="alert alert-warning" role="alert">
-		<!-- Будь-ласка, виправте наступні помилки -->
-		{% trans 'Please correct the following errors' %}
+		<div class="alert alert-warning" role="alert">
+			<!-- Будь-ласка, виправте наступні помилки -->
+			{% trans 'Please correct the following errors' %}
+		</div>
+
+		{% endif %}
+
+		<div id='ajax_form'>
+		{% crispy form %}
+		</div>
+
 	</div>
-
-	{% endif %}
-
-
-	<div id='ajax_form'>
-	{% crispy form %}
-	</div>
-
-	 
-</div>
-
 
 	<!-- End Main Page Content-->
 	
-
 {% endblock content %}

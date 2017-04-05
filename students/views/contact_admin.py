@@ -16,6 +16,7 @@ from crispy_forms.layout import Submit
 import pdb
 import logging
 from django.utils.translation import ugettext as _
+from django.contrib.auth.decorators import permission_required
 
 
 #English locale
@@ -54,6 +55,7 @@ class ContactFormEng(forms.Form):
 		label ="Text message",
 		widget =forms.Textarea)
 
+
 #Ukranian locale
 class ContactFormUkr(forms.Form):
 	"""docstring for ContactFormUkr"""
@@ -89,6 +91,7 @@ class ContactFormUkr(forms.Form):
 	message =forms.CharField(
 		label ="Текст повідомлення",
 		widget =forms.Textarea)
+
 
 #Russian Locale
 class ContactFormRus(forms.Form):
@@ -126,7 +129,7 @@ class ContactFormRus(forms.Form):
 		label ="Текст сообщения",
 		widget =forms.Textarea)
 		
-		
+#@permission_required('auth.add_user')		
 def contact_admin(request):
 
 	#if english locale

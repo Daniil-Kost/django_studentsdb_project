@@ -15,6 +15,8 @@
 
   	<!-- Include Stylesheet -->
 
+  	<script src="https://use.fontawesome.com/e6d5a38ef9.js"></script>
+
   	<link rel="stylesheet"
     href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
 
@@ -24,13 +26,11 @@
 
   	<style type="text/css">.col-xs-12, .col-xs-10, .col-xs-11, .col-xs-8, .col-xs-6, .col-xs-4, .col-xs-2, .col-xs-1, {}>
    
-	button{
-
+	button {
 			margin-top: 15px;
-		}
+		   }
 
-
-	form{
+	form {
 			float: left;
 			width: 100%;
 
@@ -41,38 +41,42 @@
 			padding-bottom:15px;
 
 			color:black;
-
-		}
+		 }
 
 	label {
 
     		float:left; 
     		padding-right:10px; 
-    		margin-top: 15px; 
-    		margin-bottom: 15px;
-    	}
+    		margin-top: 10px; 
+    	  }
 
+    input {
+    		margin-top: 10px;
+    	 	margin-bottom: 10px;
+    	  }
 
-    	input {
-    		margin-top: 15px;
-    	 	margin-bottom: 15px;
-
-    	}
-
-    	img {
+    img {
 			float:left;
 			margin-left: 55px; 
     		margin-bottom: 10px;
 		}
 
-		textarea{
+	textarea {
 			max-height: 120px;
 			max-width: 250px;
-		}
-  
-  
+			 }
 
-	.form-control{
+
+	i {
+		margin-right: 5px;
+
+	}
+
+	a {
+		font-size: 17px;
+	}
+  
+	.form-control {
 
     		height:50px;
 
@@ -80,7 +84,7 @@
 
  			padding-left:10px; 
 
- 			width:200px;
+ 			width:250px;
 
 
     		border-color:black;
@@ -104,38 +108,13 @@
     	text-align: left;
     	white-space: nowrap;
 
-
-			}
-
-    #footer{
-    		margin-top:10px;
-    		border-top: 3px solid #428bca;
-    		padding-left: 10px;
-    		padding-top: 10px;
-    		margin-bottom:5px;
-    	}
-
-    #form-selector select {
-    	background-color: #f8f8ff;
-    	border: 3px solid #428bca;
-    	color: #104e8b;
-    	height: 30px;
-    	line-height: 30px;
-    	margin: 0;
-    	margin-top: 20px;
-    	width: 75%;
-							}
-
-	#lang-selector{
-			margin-top: 20px;
 		}
 
-    .field {
+	.field {
     		clear:both;
     	 text-align:right; 
     	 line-height:25px;
     	}
-
 
     .main {
     		float:left;
@@ -149,6 +128,48 @@
     		width:100%;
     	}
 
+    #footer{
+    		margin-top:10px;
+    		border-top: 3px solid #428bca;
+    		padding-left: 10px;
+    		padding-top: 10px;
+    		margin-bottom:5px;
+    	}
+
+     #a-username {
+    	margin-right: 5px;
+    }
+
+    #a-logout{ 
+    	margin-left: 5px;
+    }
+
+
+    #form-selector select {
+    	background-color: #f8f8ff;
+    	border: 3px solid #428bca;
+    	color: #104e8b;
+    	height: 30px;
+    	line-height: 30px;
+    	margin: 0;
+    	margin-top: 20px;
+    	width: 75%;
+
+		}
+
+	#lang-selector{
+			margin-top: 20px;
+		}
+
+	#submit-id-add_button{
+    		float: center;
+    		margin-left: 50px;
+    	}
+
+	#submit-id-cancel_button{
+    		float: center;
+    	}
+
   	</style>
   	{% block extra_css %}{% endblock extra_css %}	
 
@@ -157,7 +178,27 @@
 
 <body>
 <!-- Start Container -->
-	<div class="container">
+<div class="container">
+
+
+	{% block users_toolbar %}
+	<!-- Start Toolbar -->
+	<div class="row" id ="toolbar">
+
+	<!-- User’s toolbar for authenticated users -->
+	
+	<div class="col-xs-12" id="user-toolbar">
+	<!-- we use filter 'default' -->
+	<span>
+	<a href="{% url 'profile' %}" id="a-username">{{ user.get_full_name|default:user.username }}</a>
+	</span> |
+	<a href="{% url 'users:auth_logout' %}" id="a-logout"><i class="fa fa-sign-out" aria-hidden="true"></i>{% trans "Logout" %}</a>
+	</div>
+
+	</div>
+	<!-- End Toolbar -->
+
+	{% endblock users_toolbar %}
 
 	<!-- Start Header -->
 	<div class="row" id ="header">
@@ -166,30 +207,20 @@
 	<div class="col-xs-8"><h1>{% block logo %}{% trans 'Students Accouting Service' %} {% endblock logo %}</h1></div>
 
 	<!-- Groups Seclector -->
-	  <div class="col-xs-4" id ="form-selector">
-	  {% block selector %}<strong>{% trans 'Form' %}</strong>
+	<div class="col-xs-4" id ="form-selector">
+	  {% block selector %}
+	  <strong>{% trans 'Form' %}</strong>
 		<select id ="select-forms">
-			<a title="{% trans 'Edit' %}" href="#">
 			<option value ="">{% trans 'Edit' %}</option>
-			</a>
-			<a title="{% trans 'Edit' %}" href="{% url 'students_add' %}">
 			<option value ="" id="option-student-add">{% trans 'Add student' %}</option>
-			</a>
-			<a title="{% trans 'Edit' %}" href="{% url 'groups_add' %}"> 
 			<option value="" id="option-group-add">{% trans 'Add group' %}</option>
-			</a>
-			<a title="{% trans 'Edit' %}" href="{% url 'exams_add' %}"> 
 			<option value="" id="option-exam-add">{% trans 'Add exam' %}</option>
-			</a>
-			<a title="{% trans 'Edit' %}" href="{% url 'results_add' %}"> 
 			<option value="" id="option-result-add">{% trans 'Add exam result' %}</option>
-			</a>
-			
 		</select>{% endblock selector %}
-	  </div>
-
 	</div>
 
+
+	</div>
 	<!-- End Header -->
 
 <!-- Start SubHeader -->
@@ -226,7 +257,7 @@
 	{% endblock footer %}
 	<!-- End Footer -->
 
-	</div>
+</div>
 
 	<!-- Javascript section -->
 

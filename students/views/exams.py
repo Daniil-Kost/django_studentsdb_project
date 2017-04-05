@@ -19,6 +19,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from ..util import paginate, get_current_group
 from django.utils.translation import ugettext as _
+from .dispatch_view import Dispatch
 
 
 def exams_list(request):
@@ -71,7 +72,7 @@ class ExamAddForm(ModelForm):
 				css_class ="btn btn-danger"))
 
 
-class ExamAddView(SuccessMessageMixin, CreateView):
+class ExamAddView(SuccessMessageMixin, Dispatch, CreateView):
 
 	model =Exam
 	template_name ='students/exams_edit.html'
@@ -126,7 +127,7 @@ class ExamUpdateForm(ModelForm):
 
 
 
-class ExamUpdateView(SuccessMessageMixin, UpdateView):
+class ExamUpdateView(SuccessMessageMixin, Dispatch, UpdateView):
 	"""docstring for ExamUpdateView"""
 	model =Exam
 	template_name ='students/exams_edit.html'
@@ -147,7 +148,7 @@ class ExamUpdateView(SuccessMessageMixin, UpdateView):
 				ExamUpdateView, self).post(request, *args, **kwargs)
 	
 		
-class ExamDeleteView(SuccessMessageMixin, DeleteView):
+class ExamDeleteView(SuccessMessageMixin, Dispatch, DeleteView):
 	"""docstring for ExamDeleteView"""
 	model =Exam
 	template_name ='students/exams_delete.html'
@@ -222,7 +223,7 @@ class ResultAddForm(ModelForm):
 				css_class ="btn btn-danger"))
 
 
-class ResultAddView(SuccessMessageMixin, CreateView):
+class ResultAddView(SuccessMessageMixin, Dispatch, CreateView):
 
 	model =Result
 	template_name ='students/results_edit.html'
@@ -278,7 +279,7 @@ class ResultUpdateForm(ModelForm):
 
 
 
-class ResultUpdateView(SuccessMessageMixin, UpdateView):
+class ResultUpdateView(SuccessMessageMixin, Dispatch, UpdateView):
 	"""docstring for ExamUpdateView"""
 	model =Result
 	template_name ='students/results_edit.html'
@@ -299,7 +300,7 @@ class ResultUpdateView(SuccessMessageMixin, UpdateView):
 				ResultUpdateView, self).post(request, *args, **kwargs)
 	
 		
-class ResultDeleteView(SuccessMessageMixin, DeleteView):
+class ResultDeleteView(SuccessMessageMixin, Dispatch, DeleteView):
 	"""docstring for ExamDeleteView"""
 	model =Result
 	template_name ='students/results_delete.html'

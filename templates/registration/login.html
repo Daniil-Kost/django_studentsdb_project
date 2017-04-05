@@ -8,74 +8,32 @@
 
 {% block extra_css %}
 	<style>
-		form{
-			float: left;
-			width: 100%;
-			background-color: #d9edf7;
-			
-			padding-left:15px;
-			padding-top:15px;
-			padding-bottom:15px;
-			color:black;
-		}
-
+		
 		label {
-    
-    	color: black;
-    	display: inline;
-    	font-size: 110%;
-    	font-weight: 700;
-    	line-height: 2;
-    	float: right;
-
-    	text-align: left;
-    	white-space: nowrap;
-			}
-
-
-
-	.form-control{
-
-    		height:50px;
-
- 			padding-right:5px; 
-
- 			padding-left:10px; 
-
- 			width:250px;
-
-    		border-color:black;
-
-    		text-align:left;
-
-    		color: #555;
-
-    		box-shadow:none;
-
-    	}
-
-    	textarea{
-			max-height: 120px;
-			max-width: 250px;
+    		color: black;
+    		display: inline;
+    		font-size: 110%;
+    		font-weight: 700;
+    		line-height: 2;
+    		float: right;
+    		text-align: left;
+    		white-space: nowrap;
 		}
-
 
 		#div-btn{
 			float: center;
     		margin-left: 50px;
 		}
 		
-
-
 	</style> 
 	
-
 {% endblock extra_css %}
+
+{% block users_toolbar %}{% endblock users_toolbar %}
 
 {% block selector %}{% endblock selector %}
 
 {% block subhead %}{% trans 'Login' %}{% endblock subhead %}
-
 
 {% block content %}
 
@@ -84,7 +42,8 @@
 	<div class="row" id ="content-columns">
 		
 	<div class="col-xs-12" id="content-column">
-	  <h3>{% trans 'Login Form' %}</h3></div>
+	  <h3>{% trans 'Login Form' %}</h3>
+	</div>
 
 	{% if form.errors %}
 
@@ -118,20 +77,15 @@
 
 	<div class="form-group" id="div-btn">
 		<input id="submit-id-login_button"
- 			class="btn btn-primary btn btn-primary" name="add_button" value="{% trans 'Login' %}" type="submit">
-			<input id="submit-id-login_cancel_button" class="btn btn-primary btn btn-danger" name="login_cancel_button"
+ 			class="btn btn-primary" name="add_button" value="{% trans 'Login' %}" type="submit">
+			<input id="submit-id-login_cancel_button" class="btn btn-danger" name="login_cancel_button"
 			value="{% trans 'Cancel' %}" type="button">
 	</div>
 
 </form>
 
-
-
-
 </div>
-
 
 	<!-- End Main Page Content-->
 	
-
 {% endblock content %}

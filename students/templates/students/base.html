@@ -15,7 +15,13 @@
   <meta name="description" value="{% trans 'App to manage students database' %}" />
   <meta name="viewport" content="width=device-width, inital-scale=1">
 
+  <meta name="google-signin-client_id" content="340441235543-jhhbmg5cn4hfst0eaca4djfrimb4tg9m.apps.googleusercontent.com">
+
   <!-- Include Stylesheet -->
+
+  <script src="https://use.fontawesome.com/e6d5a38ef9.js"></script>
+
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
 
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
@@ -24,66 +30,186 @@
   <link rel="stylesheet" 
   href="{{ PORTAL_URL }}{% static 'css/main.css' %}">
 
-   <style type="text/css">.col-xs-12, .col-xs-8, .col-xs-6,.col-xs-4, .col-xs-2 {}>
+{% block css %}
+  <style type="text/css">.col-xs-12, .col-xs-8, .col-xs-6,.col-xs-4, .col-xs-2 {}>
 
-   		.label {
-   			color: #000000;
-   			font-size: 100%;
+  	form {
+		float: left;
+		width: 100%;
+		background-color: #d9edf7;
+		padding-left:15px;
+		padding-top:15px;
+		padding-bottom:15px;
+		color:black;
+
+		}
+
+	label {
+    	float:left; 
+    	padding-right:10px; 
+    	margin-top: 10px; 
+    	margin-bottom: 10px;
+
     	}
 
-    	.form-lang{
+    input {
+    	margin-top: 10px;
+    	margin-bottom: 10px;
+    	max-width: 250px;
 
-    		float: right;
-			background-color: #FFFAFA;
+    	}
+
+    select {
+		clear:both;
+		margin-top: 10px;
+    	margin-bottom: 15px;
+    	width:195px;
+    	height: 38px;
+    	width: 250px;
+
+		}
+
+	textarea {
+		max-height: 100px;
+		max-width: 200px;
+
+		}
+
+	p {
+		font-size: 17px;
+
+		}
+
+	i {
+		margin-right: 5px;
+
+	}
+
+	a {
+		font-size: 17px;
+	}
+
+	.form-control {
+
+    	height:50px;
+ 		padding-right:5px; 
+ 		padding-left:10px; 
+ 		width:200px;
+    	border-color:black;
+    	text-align:left;
+    	color: #555;
+    	box-shadow:none;
+
+    	}
+
+	.label {
+
+		float:center;
+    	color: black;
+    	display: inline;
+    	color: #000000;
+    	font-size: 110%;
+    	font-weight: 700;
+    	line-height: 2;
+    	text-align: right;
+    	white-space: nowrap;
 			
-			padding-left:1px;
-			padding-top:1px;
-			padding-bottom:1px;
-			color:black;
 		}
 
-    	#select-groups{
-    		width: 75%;
+	.field {
+    	clear:both;
+    	text-align:right; 
+    	line-height:25px;
+
     	}
 
-    	#select-lang{
-    		width: 75%;
+    .form-lang {
+    	float: right;
+		background-color: #FFFAFA;
+		padding-left:1px;
+		padding-top:1px;
+		padding-bottom:1px;
+		color:black;
+
+		}
+
+	.btn-fb {
+    background-color: #3b5998;
+    color: white;
+		}
+
+	.modal {
+		display:    none;
+    	position:   fixed;
+    	z-index:    1000;
+    	top:        0;
+    	left:       0;
+    	height:     100%;
+    	width:      100%;
+    	background: rgba( 255, 255, 255, .8 ) 
+            url('http://i.stack.imgur.com/FhHRx.gif') 
+            50% 50% 
+            no-repeat;
+
+		}
+
+    #select-lang{
+    	width: 75%;
+
     	}
 
+    #select-groups {
+    	width: 75%;
 
-		.modal {
-			display:    none;
-    		position:   fixed;
-    		z-index:    1000;
-    		top:        0;
-    		left:       0;
-    		height:     100%;
-    		width:      100%;
-    		background: rgba( 255, 255, 255, .8 ) 
-                url('http://i.stack.imgur.com/FhHRx.gif') 
-                50% 50% 
-                no-repeat;
+    	}
 
-		}
+    #photo-clear_id {
+    	margin: 0px;
+    	}
 
-		body.loading {
-    		overflow: hidden;   
-		}
+    #user-toolbar {
+    	margin-top: 23px;
+    	margin-bottom: 8px;
+    }
 
-		body.loading .modal {
-    		display: block;
-		}
+    #a-username {
+    	margin-right: 5px;
+    }
 
+    #a-logout{ 
+    	margin-left: 5px;
+    }
+
+     #footer {
+    	margin-bottom: 15px;
+    }
+
+
+	body.loading {
+    	overflow: hidden;
+
+	}
+
+	body.loading .modal {
+    	display: block;
+
+	}
 
    </style>
+{% endblock css %}
 
   {% block extra_css %}{% endblock extra_css %}
-
 
 </head>
 
 <body>
-	
+		
+
+	<!-- Google auth block -->
+    
+
+	<!-- End Google block -->
+
 	<!-- Start Container -->
 	<div class="container">
 
@@ -95,15 +221,22 @@
 	{% if user.is_authenticated %}
 
 	<div class="col-xs-12" id="user-toolbar">
-	<span>{{ user.username }}</span> |
-	<a href="{% url 'users:auth_logout' %}">{% trans "Logout" %}</a>
+	<!-- we use filter 'default' -->
+	<span>
+	<a href="{% url 'profile' %}" id="a-username">{{ user.get_full_name|default:user.username }}</a>
+	</span> | 
+	<a href="{% url 'users:auth_logout' %}" id="a-logout"><i class="fa fa-sign-out" aria-hidden="true"></i>{% trans "Logout" %}</a>
 	</div>
 
 	{% else %}
 
 	<div class="col-xs-12" id="user-toolbar">
-	<a href="{% url 'users:auth_login' %}" class="login-form-link">{% trans "Login" %}</a> |
-	<a href="{% url 'users:registration_register' %}" class="registration-form-link">{% trans "Register" %}</a>
+
+	<a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}"><button type="button" class="btn btn-fb"><i class="fa fa-facebook left" title="{% trans ' Sign in' %}"></i>{% trans ' Sign in' %}</button></a> | 
+	<a href="{% url 'social:begin' 'google-oauth2' %}" class="registration-form-link"><button type="button" class="btn btn-danger"><i class="fa fa-google-plus left" title="{% trans ' Sign in' %}"></i> {% trans ' Sign in' %}</button></a> |
+	<a href="{% url 'users:auth_login' %}" class="login-form-link"><button type="button" class="btn btn-primary"><i class="fa fa-sign-in" aria-hidden="true" title ="{% trans ' Login' %}"></i>{% trans ' Login' %}</button></a> |
+	<a href="{% url 'users:registration_register' %}" class="registration-form-link"><button type="button" class="btn btn-success"><i class="fa fa-address-card-o" aria-hidden="true"></i>{% trans ' Register' %}</button></a>
+	
 	</div>
 
 	{% endif %}
@@ -112,7 +245,6 @@
 
 	<!-- End Toolbar -->
 
-
 	<!-- Start Header -->
 	<div class="row" id ="header">
 
@@ -120,8 +252,6 @@
 	{% block logo %}
 	<div class="col-xs-6" id ="logo"><h1>{% trans 'Students Accouting Service' %}</h1></div>
 	{% endblock logo %}
-
-
 
 	<!-- Groups Seclector -->
 	{% block group %}
@@ -138,26 +268,25 @@
 	{% endblock group %}
 
 	<!-- Language Select -->
+
 	<div class="col-xs-2" id ="lang-selector">
-	
-   	<select id="select-lang"> 
-		<option value="">{{PK}}</option>
-		<option value="en">English</option>
-		<option value="uk">Українська</option>
-		<option value="ru">Русский</option>    
-	</select> 
+   		<select id="select-lang"> 
+			<option value="">{{PK}}</option>
+			<option value="en">English</option>
+			<option value="uk">Українська</option>
+			<option value="ru">Русский</option>    
+		</select> 
     </div>
 
 <!-- End Language Select -->
+
 	</div>
 	<!-- End Header -->
 	
-
 	<!-- Start SubHeader -->
 	<div class="row" id ="sub-header">
 	  <div class="col-xs-12">
 	  <ul class="nav nav-tabs" role="tablist">
-
 
 	  	<li role ="presentation" {% if request.path == '/' %}
 	  	class="active" {% endif %}>
@@ -174,7 +303,6 @@
 	  	<a href="{% url 'groups' %}">{% trans 'Groups' %}</a>
 	  	</li>
 
-	  	
 	  	{% block exam %}
 		<li role ="presentation" {% if '/exams/' in request.path %}
 	  	class="active" {% endif %}>
@@ -184,11 +312,15 @@
 
 		{% block menu %}{% endblock menu %}
 
+	 
+	  {% if user.is_authenticated %}
+
 		<li role ="presentation" {% if '/contact-admin/' in request.path %}
 	  	class="active"{% endif %}>
 	  	<a href="{% url 'contact_admin' %}">{% trans 'Contact' %}</a>
 	  	</li>
 
+	  {% endif %}
 
 	  </ul>
 	  </div>
@@ -217,7 +349,6 @@
 				</div>
 			{% endif %}
 
-			
 		{% endblock status_message %}
 
 		<h2>{% block title %}{% endblock title %}</h2>
@@ -245,7 +376,6 @@
 	
 	</div>
 	<!-- End Container -->
-
 
 	<!-- Modal Boilerplate -->
 	<!-- From Twitter Bootstrap -->
@@ -300,13 +430,11 @@
 
 <script src ='{% url "django.views.i18n.javascript_catalog" %}'>
 
- </script>
-
+</script>
 
 <script src ="{% static 'js/main.js' %}">
 	
 </script>
-
 
 {% block extra_js %}{% endblock extra_js %}
 

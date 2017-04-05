@@ -1,0 +1,118 @@
+{% extends "students/form.html" %}
+
+{% load i18n %}
+
+{% load static from staticfiles %}
+
+<!-- we use filter 'default' -->
+{% block meta_title %}{{ user.get_full_name|default:user.username }}{% endblock meta_title %}
+
+{% block extra_css %}
+	<style>
+		
+		label {
+    		color: black;
+    		display: inline;
+    		font-size: 110%;
+    		font-weight: 700;
+    		line-height: 2;
+    		float: right;
+    		text-align: left;
+    		white-space: nowrap;
+		}
+
+		#div-btn{
+			float: left;
+    		margin-left: 5px;
+		}
+		
+	</style> 
+	
+{% endblock extra_css %}
+
+{% block selector %}{% endblock selector %}
+
+{% block subhead %}{% trans 'Profile' %}{% endblock subhead %}
+
+{% block content %}
+
+	<!-- Start Main Page Content -->
+
+	<div class="row" id ="content-columns">
+		
+	<div class="col-xs-12" id="content-column">
+	  <h3>{% trans 'Profile Form' %}</h3>
+	</div>
+
+	{% if form.errors %}
+
+	<div class="alert alert-warning" role="alert">
+		<!-- Будь-ласка, виправте наступні помилки -->
+		{% trans 'Please correct the following errors' %}
+	</div>
+
+	{% endif %}
+
+<form method="post" accept-charset="utf-8" id="profile_form">
+
+	{% csrf_token %}
+
+	<table class="table table-striped">
+
+	{% if user.first_name %}
+		<tr>
+			<td>{% trans 'Name' %}:</td>
+			<td>{{ user.first_name }}</td>
+		</tr>
+	{% endif %}
+
+	{% if user.last_name %}
+		<tr>
+			<td>{% trans 'Last Name' %}:</td>
+			<td>{{ user.last_name }}</td>
+		</tr>
+	{% endif %}
+
+	{% if user.email %}
+		<tr>
+			<td>{% trans 'Email' %}</td>
+			<td>{{ user.email }}</td>
+		</tr>
+	{% endif %}
+
+	{% if user.username %}
+		<tr>
+			<td>{% trans 'Username' %}:</td>
+			<td>{{ user.username }}</td>
+		</tr>
+	{% endif %}
+
+	{% if user.date_joined %}
+		<tr>
+			<td>{% trans 'Joined' %}:</td>
+			<td>{{ user.date_joined }}</td>
+		</tr>
+	{% endif %}
+
+	{% if user.stprofile.mobile_phone %}
+		<tr>
+			<td>{% trans 'Mobile Phone' %}:</td>
+			<td>{{ user.stprofile.mobile_phone }}</td>
+		</tr>
+	{% endif %}
+		
+	</table>
+
+	<div class="form-group" id="div-btn">
+			<a href="{% url 'home' %}"><button id="submit-id-login_cancel_button" class="btn btn-primary" name="home_button" type="button">
+			<i class="fa fa-home" aria-hidden="true"></i>
+			{% trans ' Home' %}</button></a>
+	</div>
+	
+</form>
+
+</div>
+
+	<!-- End Main Page Content-->
+	
+{% endblock content %}

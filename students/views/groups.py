@@ -18,6 +18,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from ..util import paginate, get_current_group
 from django.utils.translation import ugettext as _
+from .dispatch_view import Dispatch
 
 def groups_list(request):
 
@@ -68,7 +69,7 @@ class GroupAddForm(ModelForm):
 				css_class ="btn btn-danger"))
 
 
-class GroupAddView(SuccessMessageMixin, CreateView):
+class GroupAddView(SuccessMessageMixin, Dispatch, CreateView):
 
 	model =Group
 	template_name ='students/groups_edit.html'
@@ -123,7 +124,7 @@ class GroupUpdateForm(ModelForm):
 
 
 
-class GroupUpdateView(SuccessMessageMixin, UpdateView):
+class GroupUpdateView(SuccessMessageMixin, Dispatch, UpdateView):
 	"""docstring for GroupUpdateView"""
 	model =Group
 	template_name ='students/groups_edit.html'
@@ -145,7 +146,7 @@ class GroupUpdateView(SuccessMessageMixin, UpdateView):
 				GroupUpdateView, self).post(request, *args, **kwargs)
 	
 		
-class GroupDeleteView(SuccessMessageMixin, DeleteView):
+class GroupDeleteView(SuccessMessageMixin, Dispatch, DeleteView):
 	"""docstring for GroupDeleteView"""
 	model =Group
 	template_name ='students/groups_delete.html'

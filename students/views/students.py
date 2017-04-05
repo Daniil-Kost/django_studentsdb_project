@@ -19,9 +19,7 @@ from crispy_forms.bootstrap import FormActions
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from ..util import paginate, get_current_group
-from django.utils.translation import ugettext as _
-
-
+from .dispatch_view import Dispatch
 
 def students_list(request):
 
@@ -80,7 +78,7 @@ class StudentAddForm(ModelForm):
 				css_class ="btn btn-danger"),)
 		
 
-class StudentAddView(SuccessMessageMixin, CreateView):
+class StudentAddView(SuccessMessageMixin, Dispatch, CreateView):
 	"""docstring for ContactForm"""
 
 	model =Student
@@ -137,7 +135,7 @@ class StudentUpdateForm(ModelForm):
 
 
 
-class StudentUpdateView(SuccessMessageMixin, UpdateView):
+class StudentUpdateView(SuccessMessageMixin, Dispatch, UpdateView):
 	"""docstring for StudentUpdateView"""
 	model =Student
 	template_name ='students/students_edit.html'
@@ -156,8 +154,9 @@ class StudentUpdateView(SuccessMessageMixin, UpdateView):
 			return super(
 				StudentUpdateView, self).post(request, *args, **kwargs)
 	
-		
-class StudentDeleteView(SuccessMessageMixin, DeleteView):
+	
+
+class StudentDeleteView(SuccessMessageMixin, Dispatch, DeleteView):
 	"""docstring for StudentDeleteView"""
 	model =Student
 	template_name ='students/students_delete.html'

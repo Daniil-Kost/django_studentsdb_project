@@ -4,128 +4,50 @@
 
 {% load static from staticfiles %}
 
-
 {% block meta_title %}{% trans 'Exams Results' %}{% endblock meta_title %}
 
 {% block extra_css %}
 
-<style type="text/css">
+<style>
 
-	form{
-			float: left;
-			width: 100%;
-
-			background-color: #d9edf7;
-
-			padding-left:15px;
-			padding-top:15px;
-			padding-bottom:15px;
-
-			color:black;
+	form {
+		float: left;
+		width: 100%;
+		background-color: #d9edf7;
+		padding-left:15px;
+		padding-top:15px;
+		padding-bottom:15px;
+		color:black;
 
 		}
 
-label {
-
-    		float:left; 
-    		padding-right:10px; 
-    		margin-top: 15px; 
-    		margin-bottom: 15px;
-    	}
-
-
-    	input {
-    		margin-top: 15px;
-    	 	margin-bottom: 15px;
-    	 	max-width: 250px;
-    	 
-
-    	}
-
-  select{
-			clear:both;
-			
-			margin-top: 10px;
-    	 	margin-bottom: 15px;
-    	 	width:195px;
-    	 	height: 38px;
-    	 	width: 250px;
-    	 	
-		}
-
-	
-
-		textarea{
-			max-height: 100px;
-			max-width: 200px;
-			
-		}
-
-		p{
-			font-size: 17px;
-		}
-
-
-		.form-control{
-
-    		height:50px;
-
- 			padding-right:5px; 
-
- 			padding-left:10px; 
-
- 			width:200px;
-
-
-    		border-color:black;
-
-    		text-align:left;
-
-    		color: #555;
-
-    		box-shadow:none;
-
-    	}
-
-    	
-		.label {
+	.label {
 
 		float:center;
-    
     	color: black;
     	display: inline;
     	font-size: 110%;
     	font-weight: 700;
     	line-height: 2;
-    	
     	text-align: right;
     	white-space: nowrap;
-			}
-
-		.field {
-    		clear:both;
-    	 text-align:right; 
-    	 line-height:25px;
-    	}
-
-    	#select-groups{
-    		width: 75%;
-    	}
-
+			
+		}
+	
 </style>
 
 {% endblock extra_css %}
 
 {% block exam %}
-		<li role ="presentation">
-	  	<a href="{% url 'exams' %}">{% trans 'Exams' %}</a>
-	  	</li>
+<li role ="presentation">
+	  <a href="{% url 'exams' %}">{% trans 'Exams' %}</a>
+</li>
 {% endblock exam %}
 
 {% block menu %}
 <li role ="presentation" {% if '/results/' in request.path %}
-	  	class="active" {% endif %}>
-	  	<a href="{% url 'results' %}">{% trans 'Exams Results' %}</a>
+	class="active" {% endif %}>
+	<a href="{% url 'results' %}">{% trans 'Exams Results' %}</a>
 </li>
 {% endblock menu %}
 
@@ -135,19 +57,26 @@ label {
 
 	<!-- Exam-->
 
-	<!-- Add new result -->
-	<a href="{% url 'results_add' %}" class="result-add-form-link"><button class ="btn btn-primary">
-		{% trans 'Add Exam Result' %}</button></a>
+  <!-- Add Result Button-->
+  {% if user.is_authenticated %}
 
+	<a href="{% url 'results_add' %}" class="result-add-form-link"><button class ="btn btn-primary"><i class="fa fa-list" aria-hidden="true"></i>{% trans ' Add Exam Result' %}</button></a>
 
+  <!-- Add Result Button without link to modal window -->
+  {% else %}
 
-		<table class="table table-hover table-striped">
-		{% with order_by=request.GET.order_by reverse=request.GET.reverse %}
-			<thead>
-				<tr>
-					<th><a href="{% url 'results' %}">№</a></th>
-					<th>
-        <a href="{% url "results" %}?order_by=exams{% if order_by == 'exams' and reverse != '1' %}&amp;reverse=1{% endif %}">
+    <a href="{% url 'results_add' %}"><button class ="btn btn-primary"><i class="fa fa-list" aria-hidden="true"></i>
+    {% trans ' Add Exam Result' %}</button></a>
+
+  {% endif %}
+
+<table class="table table-hover table-striped">
+{% with order_by=request.GET.order_by reverse=request.GET.reverse %}
+	<thead>
+	<tr>
+		<th><a href="{% url 'results' %}">№</a></th>
+		<th>
+		  <a href="{% url "results" %}?order_by=exams{% if order_by == 'exams' and reverse != '1' %}&amp;reverse=1{% endif %}">
           {% trans 'Exam' %}
           {% if order_by == 'exams' and reverse != '1' %}&uarr;
           {% elif order_by == 'exams' and reverse == '1' %}&darr;
@@ -179,15 +108,19 @@ label {
       </a>
       </th>
 
-					<th>{% trans 'Actions' %}</th>
-				</tr>
-			 {% endwith %}
-			</thead> 
+	  <th>{% trans 'Actions' %}</th>
+	</tr>
+	{% endwith %}
+	</thead> 
 
-	<tbody>
+<tbody>
 
 	{% for result in results %}
 	<tr>
+
+	<!-- Content for authenticated users -->
+	{% if user.is_authenticated %}
+
 		<td>{{ forloop.counter }}</td>
 		<td><a title="{% trans 'Edit' %}" href="{% url 'results_edit' result.id %}" class ="modal-edit-form-link">{{ result.exams }}
 		</a></td>
@@ -220,18 +153,57 @@ label {
 				</ul>
 						
 			</div>
-			</td>
+		</td>
+
+	<!-- Content for anonim users -->
+	<!-- all links redirect to login form -->
+	{% else %}
+
+		<td>{{ forloop.counter }}</td>
+		<td><a title="{% trans 'Edit' %}" href="{% url 'results_edit' result.id %}">{{ result.exams }}
+		</a></td>
+		<td><a title="{% trans 'Edit' %}" href="{% url 'results_edit' result.id %}">{{ result.groups }}</a></td>
+		<td><a title="{% trans 'Edit' %}" href="{% url 'results_edit' result.id %}">{{ result.students }}
+		</a></td>
+		<td><a title="{% trans 'Edit' %}" href="{% url 'results_edit' result.id %}">{{ result.results_exam }}
+		</a></td>
+		<td>
+			<div class="dropdown">
+				<button class="btn btn-default dropdown-toggle"
+							type="button" data-toggle="dropdown">{% trans 'Action' %}
+				<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role ="menu">
+					<li role="presentation">
+						<a role ="menuitem" tabindex ="-1"
+							href ="{% url 'results_edit' result.id %}">{% trans 'Result' %}</a>
+					</li>
+					<li role="presentation">
+						<a role="menuitem" tabindex="-1" 
+						href="{% url 'results_edit' result.id %}">
+						{% trans 'Edit' %}</a>
+					</li>
+					<li role="presentation">
+						<a role="menuitem" tabindex="-1" 
+						href="{% url 'results_delete' result.id %}">{% trans 'Delete' %}</a>
+					</li>
+				</ul>
+						
+			</div>
+		</td>
+
+	{% endif %}
+
 	</tr>
 		
    {% endfor %}
 
-	</tbody>
-	</table>
+</tbody>
+</table>
 
 		<!-- End Exam-->
 
 	{% endblock content %}
-
 
 	{% block pagination %}
 			

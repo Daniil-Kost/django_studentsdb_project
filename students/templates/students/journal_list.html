@@ -11,120 +11,48 @@
 {% block extra_css %}
 
 <style>
- td {
+
+  form {
+    float: left;
+    width: 100%;
+    background-color: #d9edf7;
+    padding-left:15px;
+    padding-top:15px;
+    padding-bottom:15px;
+    color:black;
+
+    }
+
+  td {
     text-align: left;
-  vertical-align: bottom;
+    vertical-align: bottom;
   }
-  table{
+
+  table {
     margin-top: 15px;
   }
  
-  h3{
+  h3 {
     margin-top: 15px;
     margin-bottom: 15px;
   }
 
-form{
-			float: left;
-			width: 100%;
+  .label {
 
-			background-color: #d9edf7;
+    float:center;
+    color: black;
+    display: inline;
+    font-size: 110%;
+    font-weight: 700;
+    line-height: 2;
+    text-align: right;
+    white-space: nowrap;
+      
+    }
 
-			padding-left:15px;
-			padding-top:15px;
-			padding-bottom:15px;
-
-			color:black;
-
-		}
-
-label {
-
-    		float:left; 
-    		padding-right:10px; 
-    		margin-top: 15px; 
-    		margin-bottom: 15px;
-    	}
-
-
-    	input {
-    		margin-top: 15px;
-    	 	margin-bottom: 15px;
-    	 	max-width: 250px;
-    	 
-
-    	}
-
-  select{
-			clear:both;
-			
-			margin-top: 10px;
-    	 	margin-bottom: 15px;
-    	 	width:195px;
-    	 	height: 38px;
-    	 	width: 250px;
-    	 	
-		}
-
-	
-
-		textarea{
-			max-height: 100px;
-			max-width: 200px;
-			
-		}
-
-
-		.form-control{
-
-    		height:50px;
-
- 			padding-right:5px; 
-
- 			padding-left:10px; 
-
- 			width:200px;
-
-
-    		border-color:black;
-
-    		text-align:left;
-
-    		color: #555;
-
-    		box-shadow:none;
-
-    	}
-
-    	
-		.label {
-
-		float:center;
-    
-    	color: black;
-    	display: inline;
-    	font-size: 110%;
-    	font-weight: 700;
-    	line-height: 2;
-    	
-    	text-align: right;
-    	white-space: nowrap;
-			}
-
-		.field {
-    		clear:both;
-    	 text-align:right; 
-    	 line-height:25px;
-    	}
-
-    	#select-groups{
-    		width: 75%;
-    	}
-
-	#photo-clear_id{
+	#photo-clear_id {
     		margin: 0px;
     	}
-
 
 </style>
 
@@ -138,11 +66,6 @@ label {
 
 <div id="journal-content">
 {% if not students %}
-
-  <!--<div class="alert alert-warning">
-    Поки немає жодного студента в базі. Будь-ласка,
-    <a href="{% url 'students_add' %}">додайте</a> першого.
-  </div> -->
 
   <div class="alert alert-warning">
    {% trans 'There are no students in the database yet. Please, ' %}
@@ -172,59 +95,74 @@ label {
     &rarr;</a>
   </p>
 
-    
   <!-- Start Monts Listing -->
   <table class="table table-hover table-striped table-bordered" 
   id ="students-journal">
     <thead>
-      <tr class="header">
-          <th class="num">#</th>
-          <th class="name">{% trans 'Student' %}</th>
-          {% for day in month_header %}
-          <th class="day-header">
-          {% trans day.verbose %}
-          <br>
-          {{ day.day }}
-          </th>
-          {% endfor %}
-        </tr>
-      </thead>
+    <tr class="header">
+      <th class="num">#</th>
+      <th class="name">{% trans 'Student' %}</th>
+        {% for day in month_header %}
+      <th class="day-header">
+        {% trans day.verbose %}
+        <br>
+        {{ day.day }}
+      </th>
+        {% endfor %}
+    </tr>
+    </thead>
 
-      <tbody>
+    <tbody>
         
       {% csrf_token %}
 
       {% for student in students %}
 
-        <tr>
-          <td>
+      <tr>
+        <td>
           {% if is_paginated %}
               {{ page_obj.start_index|add:forloop.counter|add:'-1' }}
           {% else %}
               {{ forloop.counter }}
           {% endif %}
-          </td>
-          <td>
-            <a href="{% url 'students_edit' student.id %}" 
-            title="{% trans 'Edit' %}" class ="modal-edit-form-link">
-            {{ student.fullname }}
-            </a>
-          </td>
+        </td>
+      
+      <!-- Content for authenticated users -->
+      {% if user.is_authenticated %}
 
-          {% for day in student.days %}
-          <td class="day-box">
-            <input type="checkbox" data-student-id="{{ student.id }}"  data-date="{{ day.date }}" data-url="{{ student.update_url }}" value="1" {% if day.present %} checked ="checked"{% endif %}>
-          </td>
-          {% endfor %}
+        <td>
+          <a href="{% url 'students_edit' student.id %}" 
+          title="{% trans 'Edit' %}" class ="modal-edit-form-link">
+          {{ student.fullname }}
+          </a>
+        </td>
+
+      <!-- Content for anonim users -->
+      <!-- all links redirect to login form -->
+      {% else %}
+
+        <td>
+          <a href="{% url 'students_edit' student.id %}" 
+          title="{% trans 'Edit' %}">
+          {{ student.fullname }}
+          </a>
+        </td>
+
+      {% endif %}
+
+        {% for day in student.days %}
+        <td class="day-box">
+          <input type="checkbox" data-student-id="{{ student.id }}"  data-date="{{ day.date }}" data-url="{{ student.update_url }}" value="1" {% if day.present %} checked ="checked"{% endif %}>
+        </td>
+        {% endfor %}
             
-        </tr>
+      </tr>
       {% endfor %}
 
-      </tbody>
-    </table>
+    </tbody>
+  </table>
 
 {% endif %}
-
 
     {% with object_list=students %}
       {% include "students/pagination.html" %}
