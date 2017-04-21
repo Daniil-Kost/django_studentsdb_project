@@ -27,8 +27,9 @@ from students.views.exams import ExamAddView, ResultAddView, exams_results
 from students.views.exams import ResultUpdateView, ResultDeleteView
 from students.views.journals import JournalView
 from django.contrib.auth.decorators import login_required
-
-
+from stud_auth.views import UserRegistrationView, UserRegistrationForm
+from stud_auth.views import ProfileView, ProfileViewEdit
+from stud_auth.views import UserDeleteView
 js_info_dict = {
 	'packages': ('students',),
 }
@@ -39,13 +40,15 @@ urlpatterns = patterns('',
 # Students urls
 url(r'^$', 'students.views.students.students_list', 
 	name = 'home'),
-url(r'^students/add/$', StudentAddView.as_view(), 
+url(r'^students/add/$', login_required(StudentAddView.as_view()), 
 	name = 'students_add'),
 
-url(r'^students/(?P<pk>\d+)/edit/$', StudentUpdateView.as_view(),
+url(r'^students/(?P<pk>\d+)/edit/$', login_required(
+	StudentUpdateView.as_view()),
 	name = 'students_edit'),
 
-url(r'^students/(?P<pk>\d+)/delete/$', StudentDeleteView.as_view(),
+url(r'^students/(?P<pk>\d+)/delete/$', login_required(
+	StudentDeleteView.as_view()),
 	name = 'students_delete'),
 
 
@@ -70,22 +73,27 @@ url(r'^groups/(?P<pk>\d+)/delete/$',
 #Exams urls
 url(r'^exams/$', 'students.views.exams.exams_list', 
 	name = 'exams'),
-url(r'^exams/add/$', ExamAddView.as_view(), 
+url(r'^exams/add/$', login_required(ExamAddView.as_view()), 
 	name = 'exams_add'),
-url(r'^exams/(?P<pk>\d+)/edit/$', ExamUpdateView.as_view(), 
+url(r'^exams/(?P<pk>\d+)/edit/$', login_required(
+	ExamUpdateView.as_view()), 
 	name = 'exams_edit'),
-url(r'^exams/(?P<pk>\d+)/delete/$', ExamDeleteView.as_view(),
+url(r'^exams/(?P<pk>\d+)/delete/$', login_required(
+	ExamDeleteView.as_view()),
 	name = 'exams_delete'),
 
 
 #Results urls
-url(r'^exams/results/$', login_required(exams_results), 
+url(r'^exams/results/$', exams_results, 
 	name = 'results'),
-url(r'^exams/results/add/$', ResultAddView.as_view(), 
+url(r'^exams/results/add/$', login_required(
+	ResultAddView.as_view()), 
 	name = 'results_add'),
-url(r'^exams/results/(?P<pk>\d+)/edit/$', ResultUpdateView.as_view(),
+url(r'^exams/results/(?P<pk>\d+)/edit/$', login_required(
+	ResultUpdateView.as_view()),
 	name = 'results_edit'),
-url(r'^exams/results/(?P<pk>\d+)/delete/$', ResultDeleteView.as_view(),
+url(r'^exams/results/(?P<pk>\d+)/delete/$', login_required(
+	ResultDeleteView.as_view()),
 	name = 'results_delete'),
 
 
@@ -96,9 +104,16 @@ url(r'^contact-admin/$',
 
 
 #User Releted urls
-url(r'^users/profile/$', login_required(TemplateView.as_view(
-	template_name='registration/profile.html')),
-	name='profile'),
+url(r'^accounts/my-profile/$', login_required(TemplateView.as_view(
+	template_name = 'registration/profile.html')),
+	name = 'profile'),
+url(r'^accounts/profile/(?P<pk>\d+)/$', login_required(
+	ProfileView.as_view()),
+	name = 'user_profile'),
+url(r'^accounts/profile/(?P<pk>\d+)/edit/$', login_required(
+	ProfileViewEdit.as_view()),
+	name = 'profile_edit'),
+
 url(r'^users/logout/$', auth_views.logout, 
 	kwargs = {'next_page': 'home'}, 
 	name = 'auth_logout'),
@@ -107,6 +122,15 @@ url(r'^register/complete/$',
 	name = 'registration_complete'),
 url(r'^users/', include('registration.backends.simple.urls',
 	namespace = 'users')),
+url(r'^accounts/register/$',
+	UserRegistrationView.as_view(),
+    name = 'register',),
+
+url(r'^accounts/users/$', 'stud_auth.views.users_list',
+    name = 'users',),
+url(r'^accounts/profile/(?P<pk>\d+)/delete/$', login_required(
+	UserDeleteView.as_view()),
+	name = 'user_delete'),
 
 
 #Social Auth Related urls

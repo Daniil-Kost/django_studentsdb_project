@@ -40,14 +40,11 @@
 
 {% block menu %}
 
-  {% if user.is_authenticated %}
-
 	<li role ="presentation" {% if '/results/' in request.path %}
 	  	class="active" {% endif %}>
 	  	<a href="{% url 'results' %}">{% trans 'Exam Results' %}</a>
-</li>
+	</li>
 
-  {% endif %}
 
 {% endblock menu %}
 
@@ -109,16 +106,20 @@
 				<ul class="dropdown-menu" role ="menu">
 					<li role="presentation">
 						<a role ="menuitem" tabindex ="-1"
-							href ="{% url 'results' %}">{% trans 'Results' %}</a>
+							href ="{% url 'results' %}">
+							<i class="fa fa-list" aria-hidden="true"></i>
+							{% trans 'Results' %}</a>
 					</li>
 					<li role="presentation">
 						<a role="menuitem" tabindex="-1" 
 						href="{% url 'exams_edit' exam.id %}" class ="modal-edit-form-link">
+						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 						{% trans 'Edit' %}</a>
 					</li>
 					<li role="presentation">
 						<a role="menuitem" tabindex="-1" class ="modal-delete-form-link"   
 							href="{% url 'exams_delete' exam.id %}">
+							<i class="fa fa-user-times" aria-hidden="true"></i>
 							{% trans 'Delete' %}</a>
 					</li>
 				</ul>
@@ -150,16 +151,21 @@
 				<ul class="dropdown-menu" role ="menu">
 					<li role="presentation">
 						<a role ="menuitem" tabindex ="-1"
-							href ="{% url 'results' %}">{% trans 'Results' %}</a>
+							href ="{% url 'results' %}">
+							<i class="fa fa-list" aria-hidden="true"></i>
+							{% trans 'Results' %}
+							</a>
 					</li>
 					<li role="presentation">
 						<a role="menuitem" tabindex="-1" 
 						href="{% url 'exams_edit' exam.id %}">
+						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 						{% trans 'Edit' %}</a>
 					</li>
 					<li role="presentation">
 						<a role="menuitem" tabindex="-1"   
 							href="{% url 'exams_delete' exam.id %}">
+							<i class="fa fa-user-times" aria-hidden="true"></i>
 							{% trans 'Delete' %}</a>
 					</li>
 				</ul>

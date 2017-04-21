@@ -1,0 +1,83 @@
+{% extends "students/form.html" %}
+
+{% load i18n %}
+
+{% load static from staticfiles %}
+
+{% load crispy_forms_tags %}
+
+<!-- we use filter 'default' -->
+{% block meta_title %}{{ user.get_full_name|default:user.username }}{% trans ' Edit' %}{% endblock meta_title %}
+
+{% block extra_css %}
+	<style>
+		
+		label {
+    		color: black;
+    		display: inline;
+    		font-size: 110%;
+    		font-weight: 700;
+    		line-height: 2;
+    		float: right;
+    		text-align: left;
+    		white-space: nowrap;
+		}
+
+		#div-btn{
+			float: left;
+    		margin-left: 5px;
+		}
+		
+	</style> 
+	
+{% endblock extra_css %}
+
+{% block users_toolbar %}
+	<!-- Start Toolbar -->
+	<div class="row" id ="toolbar">
+
+	<!-- User’s toolbar for authenticated users -->
+	
+	<div class="col-xs-12" id="user-toolbar">
+	<!-- we use filter 'default' -->
+	<a href="{% url 'users' %}" id="a-users"><i class="fa fa-users" aria-hidden="true"></i>{% trans ' Users' %}</a> |
+	<a href="{% url 'users:auth_logout' %}" id="a-logout"><i class="fa fa-sign-out" aria-hidden="true"></i>{% trans "Logout" %}</a>
+	</div>
+
+	</div>
+	<!-- End Toolbar -->
+
+	{% endblock users_toolbar %}
+
+{% block selector %}{% endblock selector %}
+
+{% block subhead %}{% trans 'Profile Edit' %}{% endblock subhead %}
+
+{% block content %}
+
+	<!-- Start Main Page Content -->
+
+	<div class="row" id ="content-columns">
+		
+	<div class="col-xs-12" id="content-column">
+	  <h3>{{ user.get_full_name|default:user.username }}</h3>
+	</div>
+
+	{% if form.errors %}
+
+	<div class="alert alert-warning" role="alert">
+		<!-- Будь-ласка, виправте наступні помилки -->
+		{% trans 'Please correct the following errors' %}
+	</div>
+
+	{% endif %}
+
+	{% csrf_token %}
+	
+	<div id='ajax_form'>
+    {% crispy form %}
+    </div>
+		
+	</div>
+
+{% endblock content %}

@@ -30,6 +30,23 @@
 	
 {% endblock extra_css %}
 
+{% block users_toolbar %}
+	<!-- Start Toolbar -->
+	<div class="row" id ="toolbar">
+
+	<!-- User’s toolbar for authenticated users -->
+	
+	<div class="col-xs-12" id="user-toolbar">
+	<!-- we use filter 'default' -->
+	<a href="{% url 'users' %}" id="a-users"><i class="fa fa-users" aria-hidden="true"></i>{% trans ' Users' %}</a> |
+	<a href="{% url 'users:auth_logout' %}" id="a-logout"><i class="fa fa-sign-out" aria-hidden="true"></i>{% trans "Logout" %}</a>
+	</div>
+
+	</div>
+	<!-- End Toolbar -->
+
+	{% endblock users_toolbar %}
+
 {% block selector %}{% endblock selector %}
 
 {% block subhead %}{% trans 'Profile' %}{% endblock subhead %}
@@ -44,7 +61,7 @@
 	  <h3>{{ user.get_full_name|default:user.username }}</h3>
 	</div>
 
-<form method="post" accept-charset="utf-8" id="profile_form">
+<form method="post" accept-charset="utf-8" id="ajax_form">
 
 	{% csrf_token %}
 

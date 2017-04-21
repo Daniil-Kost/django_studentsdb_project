@@ -74,6 +74,8 @@
 
 {% else %}
 
+  {% if user.is_authenticated %}
+
   <div class="alert alert-warning" id ="alert-warning">
     <!--Зміни в журнал зберігаються автоматично при кожному кліку в клітинці
     таблиці. -->
@@ -85,6 +87,10 @@
     <!-- Під час обробки даних виникла непередбачувана помилка. Спробуйте заповнити журнал відвідувань пізніше. -->
     {% trans 'When data is unpredictable error occurred. Try to fill the browsing history later.' %}
     </div>
+
+  {% else %}
+
+  {% endif %}
   
   <p id="journal-nav" class="text-center">
     <a href="?month={{ prev_month }}" title="{% trans 'Previous Month' %}">

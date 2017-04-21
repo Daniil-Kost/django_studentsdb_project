@@ -42,10 +42,10 @@ class ContactFormEng(forms.Form):
 		self.helper.field_class ='col-sm-10'
 
 		#from buttons
-		self.helper.add_input(Submit('send_button', "Send"))
+		self.helper.add_input(Submit('send_button', u"Send"))
 
 
-	from_email =forms.EmailField(label ="Your email adress")
+	from_email =forms.EmailField(label = u"Your email adress")
 
 	subject =forms.CharField(
 		label ="Title",
@@ -79,17 +79,17 @@ class ContactFormUkr(forms.Form):
 		self.helper.field_class ='col-sm-10'
 
 		#from buttons
-		self.helper.add_input(Submit('send_button', "Надіслати"))
+		self.helper.add_input(Submit('send_button', u"Надіслати"))
 
 
-	from_email =forms.EmailField(label ="Ваша емайл адресса")
+	from_email =forms.EmailField(label = u"Ваша емайл адресса")
 
 	subject =forms.CharField(
-		label ="Заголовок",
+		label = u"Заголовок",
 		max_length =128)
 
 	message =forms.CharField(
-		label ="Текст повідомлення",
+		label = u"Текст повідомлення",
 		widget =forms.Textarea)
 
 
@@ -116,17 +116,17 @@ class ContactFormRus(forms.Form):
 		self.helper.field_class ='col-sm-10'
 
 		#from buttons
-		self.helper.add_input(Submit('send_button', "Отправить"))
+		self.helper.add_input(Submit('send_button', u"Отправить"))
 
 
-	from_email =forms.EmailField(label ="Ваш емайл адресс")
+	from_email =forms.EmailField(label = u"Ваш емайл адресс")
 
 	subject =forms.CharField(
-		label ="Заголовок",
+		label = u"Заголовок",
 		max_length =128)
 
 	message =forms.CharField(
-		label ="Текст сообщения",
+		label = u"Текст сообщения",
 		widget =forms.Textarea)
 		
 #@permission_required('auth.add_user')		
@@ -145,12 +145,12 @@ def contact_admin(request):
 					send_mail(subject, message, from_email, [ADMIN_EMAIL])
 
 				except Exception:
-					message = "When you send an unexpected"\
+					message = u"When you send an unexpected"\
 					"error occurred. Try this form later."
 					logger =logging.getLogger(__name__)
 					logger.exception(message)
 				else:
-					message = "Message sent successfully !"
+					message = u"Message sent successfully !"
 
 				return HttpResponseRedirect(
 					u'%s?status_message=%s' % (reverse('contact_admin'), message))
@@ -172,13 +172,13 @@ def contact_admin(request):
 					send_mail(subject, message, from_email, [ADMIN_EMAIL])
 
 				except Exception:
-					message = "Під час відправки виникла"\
-					"непередбачувана помилка."\
-					 " Спробуйте скористатись данною формою пізніше."
+					message = u"Під час відправки виникла"\
+					u"непередбачувана помилка."\
+					 u" Спробуйте скористатись данною формою пізніше."
 					logger =logging.getLogger(__name__)
 					logger.exception(message)
 				else:
-					message = "Повідомлення успішно надіслане !"
+					message = u"Повідомлення успішно надіслане !"
 
 				return HttpResponseRedirect(
 					u'%s?status_message=%s' % (reverse('contact_admin'), message))
@@ -200,13 +200,13 @@ def contact_admin(request):
 					send_mail(subject, message, from_email, [ADMIN_EMAIL])
 
 				except Exception:
-					message = "Во время отправки сообщения возникла"\
-					"непредвиденная ошибка. Попробуйте воспользоватся"\
-					"данной формой позже."
+					message = u"Во время отправки сообщения возникла"\
+					u"непредвиденная ошибка. Попробуйте воспользоватся"\
+					u"данной формой позже."
 					logger =logging.getLogger(__name__)
 					logger.exception(message)
 				else:
-					message = "Сообщение успешно отправлено !"
+					message = u"Сообщение успешно отправлено !"
 
 				return HttpResponseRedirect(
 					u'%s?status_message=%s' % (reverse('contact_admin'), message))

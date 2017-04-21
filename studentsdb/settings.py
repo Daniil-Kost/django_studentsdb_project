@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'registration',
     'social.apps.django_app.default',
     'students',
-    'studentsdb',
+    'stud_auth',
 	]
 
 MIDDLEWARE_CLASSES = [
@@ -146,15 +146,16 @@ MEDIA_URL ='/media/'
 MEDIA_ROOT =os.path.join(BASE_DIR, '..', 'media')
 
 
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 ADMIN_EMAIL = 'lemk1997@gmail.com'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = '465'
-EMAIL_HOST_USER = 'lemk1997@gmail.com'
-EMAIL_HOST_PASSWORD = os.getenv('WEBSITE_PASS')
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = True
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = '1025'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
 
 SITE_ID = 1
 SERVER_EMAIL = "lemk1997@gmail.com"
@@ -204,7 +205,6 @@ SOCIAL_AUTH_GOOGLE_PLUS_SCOPE = [
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_USE_DEPRECATED_API = True
 SOCIAL_AUTH_GOOGLE_PLUS_USE_DEPRECATED_API = True
-
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 

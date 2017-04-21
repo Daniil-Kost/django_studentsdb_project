@@ -127,16 +127,20 @@
 							<ul class="dropdown-menu" role ="menu">
 								<li role="presentation">
 									<a role ="menuitem" tabindex ="-1"
-									href ="{% url 'journal' student.id %}">{% trans 'Journal' %}</a>
+									href ="{% url 'journal' student.id %}">
+									<i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+									{% trans 'Journal' %}</a>
 								</li>
 								<li role="presentation">
 									<a class ="modal-edit-form-link" role="menuitem" tabindex="-1" 
 									href="{% url 'students_edit' student.id %}">
+									<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 										{% trans 'Edit' %}</a>
 								</li>
 								<li role="presentation">
 									<a role="menuitem" tabindex="-1" 
 									href="{% url 'students_delete' student.id %}" class ="modal-delete-form-link">
+									<i class="fa fa-user-times" aria-hidden="true"></i>
 										{% trans 'Delete' %}</a>
 								</li>
 							</ul>
@@ -165,16 +169,20 @@
 							<ul class="dropdown-menu" role ="menu">
 								<li role="presentation">
 									<a role ="menuitem" tabindex ="-1"
-									href ="{% url 'journal' student.id %}">{% trans 'Journal' %}</a>
+									href ="{% url 'journal' student.id %}">
+									<i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+									{% trans 'Journal' %}</a>
 								</li>
 								<li role="presentation">
 									<a role="menuitem" tabindex="-1" 
 									href="{% url 'students_edit' student.id %}">
+									<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 										{% trans 'Edit' %}</a>
 								</li>
 								<li role="presentation">
 									<a role="menuitem" tabindex="-1" 
 									href="{% url 'students_delete' student.id %}">
+									<i class="fa fa-user-times" aria-hidden="true"></i>
 										{% trans 'Delete' %}</a>
 								</li>
 							</ul>

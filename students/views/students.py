@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
 from django.utils.translation import ugettext as _
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
@@ -24,71 +23,71 @@ from .dispatch_view import Dispatch
 def students_list(request):
 
 	#check if we need to show only one group of students
-	current_group =get_current_group(request)
+	current_group = get_current_group(request)
 	if current_group:
-		students =Student.objects.filter(
-			student_group=current_group)
+		students = Student.objects.filter(
+			student_group = current_group)
 	else:
 		#otherwise show all students
-		students =Student.objects.all()
+		students = Student.objects.all()
 
 	#try to order students list
 
-	order_by =request.GET.get('order_by', '')
+	order_by = request.GET.get('order_by', '')
 	if order_by in ('last_name', 'first_name', 'ticket'):
-		students =students.order_by(order_by)
-		if request.GET.get('reverse', '' ) =='1':
-			students =students.reverse()
+		students = students.order_by(order_by)
+		if request.GET.get('reverse', '' ) == '1':
+			students = students.reverse()
 
 	#apply pagination, 3 students per page
-	context =paginate(students, 3, request, {}, var_name='students')
+	context = paginate(students, 3, request, {}, var_name = 'students')
 
 	return render(request, 'students/students_list.html', context)
 
 class StudentAddForm(ModelForm):
 
 	class Meta:
-		model =Student
+		model = Student
 
 		#fields ="__all__"
-		exclude=("",)
+		exclude = ("",)
 		
 	def __init__(self, *args, **kwargs):
 		super(StudentAddForm, self).__init__(*args, **kwargs)
 
-		self.helper =FormHelper(self)
+		self.helper = FormHelper(self)
 
 		#set from tag attributes
-		self.helper.form_action =reverse('students_add')
-		self.helper.form_method ='POST'
-		self.helper.form_class ='form-horizontal'
+		self.helper.form_action = reverse('students_add')
+		self.helper.form_method = 'POST'
+		self.helper.form_class = 'form-horizontal'
 		#self.helper.render_unmentioned_fields = True
 
 		#set form field properties
-		self.helper.help_text_inline =True
-		self.helper.html5_required =True
-		self.helper.label_class ='col-sm-4 control label'
-		self.helper.field_class ='col-sm-8'
+		self.helper.help_text_inline = True
+		self.helper.html5_required = True
+		self.helper.label_class = 'col-sm-4 control label'
+		self.helper.field_class = 'col-sm-8'
 
 		#add buttons
-		self.helper.layout[-1] =FormActions(
+		self.helper.layout.append(FormActions(
 			Submit('add_button', _(u'Save'),
-			 css_class ="btn btn-primary"),
+			 css_class = "btn btn-primary"),
 			Submit('student_cancel_button', _(u'Cancel'),
-				css_class ="btn btn-danger"),)
+				css_class = "btn btn-danger"),))
 		
 
 class StudentAddView(SuccessMessageMixin, Dispatch, CreateView):
 	"""docstring for ContactForm"""
 
-	model =Student
-	template_name ='students/students_edit.html'
-	exclude=("",)
+	model = Student
+	template_name = 'students/students_edit.html'
+	exclude = ("",)
 
-	form_class =StudentAddForm
+	form_class = StudentAddForm
 	
 	success_url = '/'
-	success_message =_(u"Student %(first_name)s %(last_name)s added succesfully !")
+	success_message = _(u"Student %(first_name)s %(last_name)s added succesfully !")
 
 	def post(self, request, *args, **kwargs):
 		if request.POST.get('cancel_button'):
@@ -104,48 +103,49 @@ class StudentAddView(SuccessMessageMixin, Dispatch, CreateView):
 class StudentUpdateForm(ModelForm):
 
 	class Meta:
-		model =Student
+		model = Student
 
-		exclude=("",)
+		exclude = ("",)
 		#fields ="__all__"
 		
 	def __init__(self, *args, **kwargs):
 		super(StudentUpdateForm, self).__init__(*args, **kwargs)
 
-		self.helper =FormHelper(self)
+		self.helper = FormHelper(self)
 
 		#set from tag attributes
-		self.helper.form_action =reverse('students_edit', 
-			kwargs ={'pk': kwargs['instance'].id})
-		self.helper.form_method ='POST'
-		self.helper.form_class ='form-horizontal'
+		self.helper.form_action = reverse('students_edit', 
+			kwargs = {'pk': kwargs['instance'].id})
+		self.helper.form_method = 'POST'
+		self.helper.form_class = 'form-horizontal'
 
 		#set form field properties
-		self.helper.help_text_inline =True
-		self.helper.html5_required =True
-		self.helper.label_class ='col-sm-4 control label'
-		self.helper.field_class ='col-sm-8'
+		self.helper.help_text_inline = True
+		self.helper.html5_required = True
+		self.helper.label_class = 'col-sm-4 control label'
+		self.helper.field_class = 'col-sm-8'
 
 		#add buttons
-		self.helper.layout[-1] =FormActions(
+		self.helper.layout.append(FormActions(
 			Submit('add_button', _(u'Save'),
-			 css_class ="btn btn-primary"),
+			 css_class = "btn btn-primary"),
 			Submit('cancel_button', _(u'Cancel'),
-				css_class ="btn btn-danger"),)
+				css_class = "btn btn-danger"),))
 
 
 
 class StudentUpdateView(SuccessMessageMixin, Dispatch, UpdateView):
 	"""docstring for StudentUpdateView"""
-	model =Student
-	template_name ='students/students_edit.html'
 
-	exclude=("",)
+	model = Student
+	template_name = 'students/students_edit.html'
 
-	form_class =StudentUpdateForm
+	exclude = ("",)
+
+	form_class = StudentUpdateForm
 
 	success_url = '/'
-	success_message =_(u"Student %(first_name)s %(last_name)s saved succesfully !")
+	success_message = _(u"Student %(first_name)s %(last_name)s saved succesfully !")
 
 	def post(self, request, *args, **kwargs):
 		if request.POST.get('cancel_button'):
@@ -158,11 +158,11 @@ class StudentUpdateView(SuccessMessageMixin, Dispatch, UpdateView):
 
 class StudentDeleteView(SuccessMessageMixin, Dispatch, DeleteView):
 	"""docstring for StudentDeleteView"""
-	model =Student
-	template_name ='students/students_delete.html'
+	model = Student
+	template_name = 'students/students_delete.html'
 
 	success_url = reverse_lazy('home')
-	success_message =_(u"Student succesfully deleted !")
+	success_message = _(u"Student succesfully deleted !")
 
 	def delete(self, request, *args, **kwargs):
 		messages.success(self.request, self.success_message)

@@ -1,0 +1,7 @@
+Django==1.9.6
+MySQL-python
+django-crispy-forms==1.6.1
+python-dateutil
+django-registration-redux==1.4
+python-social-auth==0.2.12
+django-ulogin-0.3

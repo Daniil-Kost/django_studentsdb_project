@@ -1,0 +1,131 @@
+{% extends "students/form.html" %}
+
+{% load i18n %}
+
+{% load static from staticfiles %}
+
+{% block meta_title %}{% trans 'Users' %}{% endblock meta_title %}
+
+{% block extra_css %}
+	<style>
+		
+		label {
+    		color: black;
+    		display: inline;
+    		font-size: 110%;
+    		font-weight: 700;
+    		line-height: 2;
+    		float: right;
+    		text-align: left;
+    		white-space: nowrap;
+		}
+
+		#div-btn{
+			float: left;
+    		margin-left: 5px;
+		}
+		
+	</style> 
+	
+{% endblock extra_css %}
+
+{% block selector %}{% endblock selector %}
+
+{% block subhead %}{% trans 'Users' %}{% endblock subhead %}
+
+{% block content %}
+
+	<!-- Start Main Page Content -->
+
+<div class="row" id ="content-columns">
+		
+	<div class="col-xs-12" id="content-column">
+	  <h3>{% trans 'Users List' %}</h3>
+	</div>
+
+  <table class="table table-hover table-striped table-bordered" 
+  id ="students-journal">
+    <thead>
+    <tr class="header">
+      <th class="num">#</th>
+      <th class="name">{% trans 'User' %}</th>
+      <th class="name">{% trans 'First Name' %}</th>
+      <th class="name">{% trans 'Last Name' %}</th>
+      <th class="name">{% trans 'Email' %}</th>
+      <th class="name">{% trans 'Actions' %}</th>
+    </tr>
+    </thead>
+
+     <tbody>
+        
+      {% csrf_token %}
+
+	{% for user in users %}
+
+      <tr>
+
+        <td>{{ forloop.counter }}</td>
+      	<td>
+      	 <a href="{% url 'user_profile' user.id %}" 
+          title="{% trans 'Review' %}" class ="modal-edit-form-link">
+          {{ user.username }}
+          </a>
+        </td>
+        <td>
+          {{ user.first_name }}
+        </td>
+        <td>
+          {{ user.last_name }}
+        </td>
+        <td>
+          {{ user.email }}
+        </td>
+        <td>
+			<div class="dropdown">
+				<button class="btn btn-default dropdown-toggle"
+					type="button" data-toggle="dropdown">{% trans 'Action' %}
+				<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role ="menu">
+					<li role="presentation">
+						<a role="menuitem" tabindex="-1" 
+							href="{% url 'profile_edit' user.id %}" class ="modal-edit-form-link">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							{% trans 'Edit' %}</a>
+					</li>
+					<li role="presentation">
+						<a role="menuitem" tabindex="-1" 
+							href="{% url 'user_delete' user.id %}" class ="modal-delete-form-link">
+							<i class="fa fa-user-times" aria-hidden="true"></i>
+							{% trans 'Delete' %}</a>
+					</li>
+				</ul>
+						
+			</div>
+		</td>
+
+      </tr>
+
+       {% endfor %}
+
+      </tbody>
+      </table>
+
+    {% with object_list=users %}
+      {% include "students/pagination.html" %}
+    {% endwith %}
+
+	<div class="form-group" id="div-btn">
+			<button id="submit-id-login_cancel_button" class="btn btn-primary" name="home_button" type="button">
+			<i class="fa fa-home" aria-hidden="true"></i>
+			{% trans ' Home' %}</button>
+	</div>
+	
+
+
+</div>
+
+	<!-- End Main Page Content-->
+
+	
+{% endblock content %}
