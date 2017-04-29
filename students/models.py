@@ -7,6 +7,7 @@ from django.db import models
 from datetime import datetime
 from django.utils.translation import ugettext_lazy as _
 
+
 #Create your models here.
 
 class Student(models.Model):
@@ -82,9 +83,9 @@ class Group(models.Model):
 		on_delete =models.SET_NULL,
 		related_name='+')
 
-	stud = models.ManyToManyField('Student',
-		verbose_name =_(u"Students"),
-		blank =True)
+	students = models.ManyToManyField('Student',
+		verbose_name =_(u"Students"), 
+		blank =True,)
 
 	notes = models.TextField(
 		blank = True,
@@ -118,14 +119,14 @@ class Exam(models.Model):
 		verbose_name =_(u"Time"),
 		null =True)
 
-	gr = models.ForeignKey('Group',
+	group = models.ForeignKey('Group',
 		verbose_name =_(u"Group"),
 		blank =False,
 		null =True,
 		on_delete =models.CASCADE)
 
 	def __unicode__(self):
-		return u"%s (%s)" % (self.science, self.gr)
+		return u"%s (%s)" % (self.science, self.group)
 
 #-----------------------------------------------------------
 
@@ -139,27 +140,27 @@ class Result(models.Model):
 		verbose_name =_(u"Exam Result")
 		verbose_name_plural =_(u"Exams Results")
 			
-	exams = models.ForeignKey('Exam',
+	exam = models.ForeignKey('Exam',
 		verbose_name = _(u"Exam"),
 		blank =False,
 		null =True,
 		max_length =256,
 		on_delete =models.CASCADE)
 
-	groups = models.ForeignKey('Group',
+	group = models.ForeignKey('Group',
 		verbose_name =_(u"Group"),
 		blank =False,
 		null =True,
 		on_delete =models.CASCADE)
 
-	students = models.ForeignKey('Student',
+	student = models.ForeignKey('Student',
 		verbose_name =_(u"Student"),
 		blank =False,
 		null =True,
 		on_delete =models.CASCADE,
 		related_name='+')
 
-	results_exam = models.CharField(
+	result = models.CharField(
 		max_length =256,
 		blank =False,
 		verbose_name = _(u"Result"))

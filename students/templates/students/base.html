@@ -33,14 +33,19 @@
 {% block css %}
   <style type="text/css">.col-xs-12, .col-xs-8, .col-xs-6,.col-xs-4, .col-xs-2 {}>
 
+	 body {
+    background-color: {{BACKGROUND}};
+    color: {{TC}};
+    }
+	
   	form {
 		float: left;
 		width: 100%;
-		background-color: #d9edf7;
+		background-color: {{STYLE}};
 		padding-left:15px;
 		padding-top:15px;
 		padding-bottom:15px;
-		color:black;
+		color: {{TC}};
 
 		}
 
@@ -63,7 +68,6 @@
 		clear:both;
 		margin-top: 10px;
     	margin-bottom: 15px;
-    	width:195px;
     	height: 38px;
     	width: 250px;
 
@@ -156,8 +160,8 @@
 		}
 
 
-    #select-lang{
-    	width: 75%;
+    #select-lang {
+    	width: 100%;
 
     	}
 
@@ -227,7 +231,10 @@
 	<!-- we use filter 'default' -->
 	<a href="{% url 'profile' %}" id="a-username">
 	{{ user.get_full_name|default:user.username }}</a> | 
-	<a href="{% url 'users' %}" id="a-users"><i class="fa fa-users" aria-hidden="true"></i>{% trans ' Users' %}</a> |
+	<a href="{% url 'users' %}" id="a-users"><i class="fa fa-users" aria-hidden="true"></i>{% trans ' Users' %}</a> | 
+
+	<a href="{% url 'user_settings' %}" id="a-settings"><i class="fa fa-cogs" aria-hidden="true"></i>{% trans ' Settings' %}</a> | 
+
 	<a href="{% url 'users:auth_logout' %}" id="a-logout"><i class="fa fa-sign-out" aria-hidden="true"></i>{% trans "Logout" %}</a>
 	</div>
 
@@ -238,7 +245,7 @@
 	<a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}"><button type="button" class="btn btn-fb"><i class="fa fa-facebook left" title="{% trans ' Sign in' %}"></i>{% trans ' Facebook' %}</button></a> | 
 	<a href="{% url 'social:begin' 'google-oauth2' %}" class="registration-form-link"><button type="button" class="btn btn-danger"><i class="fa fa-google-plus left" title="{% trans ' Sign in' %}"></i> {% trans ' Google+' %}</button></a> |
 	<a href="{% url 'users:auth_login' %}" class="login-form-link"><button type="button" class="btn btn-primary"><i class="fa fa-sign-in" aria-hidden="true" title ="{% trans ' Login' %}"></i>{% trans ' Login' %}</button></a> |
-	<a href="{% url 'register' %}" class="registration-form-link"><button type="button" class="btn btn-success"><i class="fa fa-address-card-o" aria-hidden="true"></i>{% trans ' Register' %}</button></a>
+	<a href="{% url 'register' %}" class="registration-form-link"><button type="button" class="btn btn-success"><i class="fa fa-address-card-o" aria-hidden="true"></i>{% trans ' Register' %}</button></a> 
 
 	</div>
 
@@ -274,7 +281,7 @@
 
 	<div class="col-xs-2" id ="lang-selector">
    		<select id="select-lang"> 
-			<option value="">{{PK}}</option>
+			<option value="">{% trans 'Language: ' %}{{PK}}</option>
 			<option value="en">English</option>
 			<option value="uk">Українська</option>
 			<option value="ru">Русский</option>    
@@ -381,8 +388,14 @@
 	<!-- Start Footer -->
 	{% block footer %}
 	<div class="row" id ="footer">
-		<div class="col-xs-12">
+		<div class="col-xs-4">
 			&copy; 2017 {% trans 'Students Accounting Service' %} 
+		</div>
+		<div class="col-xs-4">
+			{% trans 'Developed by ' %} <a href="https://www.facebook.com/daniil.kost.5?ref=bookmarks">Daniil Kostyshak</a>
+		</div>
+		<div class="col-xs-4">
+			 <a href="https://github.com/Daniil-Kost/django_vipod_book"><i class="fa fa-github" aria-hidden="true"></i>Github</a>
 		</div>
 	</div>
 	{% endblock footer %}

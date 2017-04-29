@@ -8,20 +8,48 @@
 
 {% block extra_css %}
 	<style>
+
+	body {
+    	background-color: #FFFAFA;
+    	color: #333;
+
+    	}
 		
-		label {
-    		color: black;
-    		display: inline;
-    		font-size: 110%;
-    		font-weight: 700;
-    		line-height: 2;
-    		float: right;
-    		text-align: left;
-    		white-space: nowrap;
+	label {
+    	color: black;
+    	display: inline;
+    	font-size: 110%;
+    	font-weight: 700;
+    	line-height: 2;
+    	float: right;
+    	text-align: left;
+    	white-space: nowrap;
 
 		}
 
-		.btn-fb {
+	form {
+		float: left;
+		width: 100%;
+		background-color: #d9edf7;
+		padding-left:15px;
+		padding-top:15px;
+		padding-bottom:15px;
+		color: #333;
+
+		}
+
+	.label {
+    	color: #333;
+    	display: inline;
+    	font-size: 110%;
+    	font-weight: 700;
+    	line-height: 2;
+    	text-align: left;
+    	white-space: nowrap;
+	
+	}
+
+	.btn-fb {
     	background-color: #3b5998;
     	color: white;
     	margin-left: 170px;
@@ -30,34 +58,35 @@
 
 		}
 
-		.form-control {
-    border-color: black;
-    box-shadow: none;
-    color: #555;
-    height: 50px;
-    padding-left: 10px;
-    padding-right: 5px;
-    text-align: left;
-    width: 520px;
+	.form-control {
+    	border-color: black;
+    	box-shadow: none;
+    	color: #555;
+    	height: 50px;
+    	padding-left: 10px;
+    	padding-right: 5px;
+    	text-align: left;
+    	width: 520px;
 
 	}
 
-		#btn-google {
+	#btn-google {
     	margin-top: 12px;
     	margin-bottom: 5px;
 
 		}
 
-		#btn-register {
+	#btn-register {
     	margin-top: 12px;
     	margin-bottom: 5px;
 
 		}
 
-		#div-btn{
-			float: center;
-    		margin-left: 50px;
-    		margin-bottom: 10px;
+	#div-btn{
+		float: center;
+    	margin-left: 50px;
+    	margin-bottom: 10px;
+
 		}
 
 	</style> 
@@ -96,7 +125,7 @@
 
 	<div class="form_group">
 	<div class="col-xs-4">
-		<label for="login" id="label_login">{% trans 'Your Username' %}</label></div>
+		<label for="login" id="label_login">{% trans 'Username' %}</label></div>
 	<div class="col-xs-8">
 		<input type="text" name="username" class="form-control" id="login" value="">
 	</div>
@@ -104,7 +133,7 @@
 
 	<div class="form-group">
 	<div class="col-xs-4">
-		<label for="password" id="label_password">{% trans 'Your Passsword' %}</label></div>
+		<label for="password" id="label_password">{% trans 'Passsword' %}</label></div>
 	<div class="col-xs-8">
 		<input type="password" class ="form-control" id="password" value="" name="password">
 	</div>
@@ -116,15 +145,12 @@
 			<input id="submit-id-login_cancel_button" class="btn btn-danger" name="login_cancel_button"
 			value="{% trans 'Cancel' %}" type="button">
 	
-
 	<a href="{% url 'social:begin' 'facebook' %}?next={% url 'home' %}"><button type="button" class="btn btn-fb"><i class="fa fa-facebook left" title="{% trans ' Sign in' %}"></i>{% trans ' Sign in with Facebook' %}</button></a> |
 
 	<a href="{% url 'social:begin' 'google-oauth2' %}" class="registration-form-link"><button type="button" class="btn btn-danger" id ="btn-google"><i class="fa fa-google-plus left" title="{% trans ' Sign in' %}"></i> {% trans ' Sign in with Google+' %}</button></a> |
 
 	<a href="{% url 'register' %}" class="registration-form-link"><button type="button" class="btn btn-success" id="btn-register"><i class="fa fa-address-card-o" aria-hidden="true"></i>{% trans ' Registration' %}</button></a>
 </div>
-
-
 
 </form>
 

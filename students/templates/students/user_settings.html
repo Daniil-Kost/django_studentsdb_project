@@ -1,0 +1,333 @@
+{% extends "students/form.html" %}
+
+{% load i18n %}
+
+{% load static from staticfiles %}
+
+{% block meta_title %}{% trans 'Settings' %}{% endblock meta_title %}
+
+{% block extra_css %}
+	<style>
+
+  body {
+    background-color: {{BACKGROUND}};
+    color: {{TC}};
+    }
+		
+		label {
+    		color: {{TC}};
+    		display: inline;
+    		font-size: 110%;
+    		font-weight: 700;
+    		line-height: 2;
+    		float: left;
+    		text-align: left;
+    		white-space: nowrap;
+        margin-top: 15px;
+		}
+
+      select {
+    clear:both;
+    margin-top: 10px;
+      margin-bottom: 15px;
+      margin-left: 10px;
+
+      height: 50px;
+      width: 250px;
+      color: red;
+      float: left;
+
+    }
+
+    option {
+      height: 32px;
+      font-size: 20px;
+  
+    }
+
+
+  form {
+      float: left;
+      width: 100%;
+
+      background-color: {{STYLE}};
+      
+      padding-left:15px;
+      padding-top:15px;
+      padding-bottom:15px;
+
+      color:black;
+     }
+
+     .alert {
+    border-top: 3px solid #428bca;
+    margin-top: 0px;
+    width: 95%;
+    }
+
+    #select-style{
+    background-color: #f8f8ff;
+    border: 3px solid #428bca;
+    color: black;
+    height: 40px;
+    line-height: 50px;
+    margin-top: 10px;
+    width: 75%;
+      }
+
+    #select-bg{
+    background-color: #f8f8ff;
+    border: 3px solid #428bca;
+    color: black;
+    height: 40px;
+    line-height: 50px;
+    margin-top: 10px;
+    width: 75%;
+}
+
+  #select-text-color{
+    background-color: #f8f8ff;
+    border: 3px solid #428bca;
+    color: black;
+    height: 40px;
+    line-height: 50px;
+    margin-top: 10px;
+    width: 75%;
+}
+
+		#div-btn{
+			float: left;
+    	margin-left: 5px;
+		}
+
+    #gold{
+      background-color: #f0ad4e;
+      color: black;
+    }
+
+    #brown {
+        background-color:  #943126;
+        color: white;
+    }
+
+    #grey {
+       background-color: #ebedef; 
+       color: black;
+    }
+
+    #default {
+      background-color: #d9edf7;
+      color: black;
+    }
+
+    #blue {
+      background-color: #0275d8;
+      color: white;
+    }
+
+    #blue-wave {
+      background-color: #5bc0de;
+      color: black;
+    }
+
+    #green {
+      background-color: #5cb85c;
+      color: black;
+    }
+
+    #black {
+      background-color: #272822;
+      color: white;
+
+    }
+
+    #rose {
+      background-color:  #f9ebea;
+      color: black;
+
+    }
+
+    #sand {
+      background-color: #f9e79f;
+      color: black;
+    }
+
+    #bg-white {
+      background-color: #FFFAFA;
+      color: black;
+    }
+
+    #bg-rose {
+      background-color: #fcf3cf;
+      color: black;
+    }
+
+    #bg-black {
+      background-color: #272822;
+      color: white;
+    }
+
+    #bg-grey {
+      background-color: #efeded;
+      color: black;
+    }
+
+    #bg-bronze {
+      background-color: #7f554f;
+      color: white;
+    }
+
+    #bg-sand {
+      background-color: #f9e79f;
+      color: black;
+    }
+
+    #bg-blue {
+      background-color: #d9edf7;
+      color: black;
+
+    }
+
+    #tc-white {
+      background-color: #ffffff;
+      color: black;
+    }
+
+    #tc-orange {
+      background-color: #ef5a04;
+      color: black;
+    }
+
+    #tc-black {
+      background-color: #333;
+      color: white;
+    }
+
+    #tc-grey {
+      background-color: #cccccc;
+      color: black;
+    }
+
+    #navy {
+      background-color: #226f75;
+      color: white;
+
+    }
+
+     #military {
+      background-color: #d1d88c;
+      color: black;
+
+    }
+
+     #night {
+      background-color: #043b68;
+      color: white;
+
+    }
+
+	</style> 
+	
+{% endblock extra_css %}
+
+{% block selector %}{% endblock selector %}
+
+{% block subhead %}{% trans 'Settings' %}{% endblock subhead %}
+
+{% block content %}
+
+	<!-- Start Main Page Content -->
+
+<div class="row" id ="content-columns">
+		
+	<div class="col-xs-12" id="content-column">
+	  <h3>{% trans 'Settings custom styles' %}</h3>
+	</div>
+
+  <form method="post" accept-charset="utf-8" id="login_form">
+
+   {% if form.errors %}
+
+  <div class="alert alert-danger" role="alert">
+    <!-- Будь-ласка, виправте наступні помилки -->
+    {% trans 'Please correct the following errors' %}
+  </div>
+
+  {% endif %}
+
+  <div class="alert alert-warning" id ="alert-warning">
+    {% trans 'You can edit styles of this site. Changes saved automatically when you selected option at the selector.' %}
+  </div>
+
+  {% csrf_token %}
+  <input type="hidden" name="next" value="{% url 'home' %}">
+
+      <!-- SELECT BACKGROUND  -->
+  <div class="col-xs-1">
+    <label for="select-bg" id="label_bg">{% trans 'Background' %}</label></div>
+  <div class="col-xs-11" id ="bg-selector">
+    <select id ="select-bg"> 
+      <option value="">{% trans 'Current Background Color: ' %}{{BACKGROUND}}</option>
+      <option value="white" id="bg-white">White (#FFFAFA)</option>
+      <option value="rose" id="bg-rose">Rose Gold (#fcf3cf)</option>
+      <option value="black" id="bg-black">Black (#272822)</option>
+      <option value="grey" id="bg-grey">Grey Matter(#efeded)</option>
+      <option value="bronze" id="bg-bronze">Bronze (#7f554f)</option>
+      <option value="sand" id="sand">Sand (#f9e79f)</option>
+      <option value="blue" id="bg-blue">Blue (#d9edf7)</option>
+      <option value="military" id="military">Military (#d1d88c)</option>
+    </select> 
+  </div>
+
+  <!-- SELECT COLOR OF FORMS -->
+  <div class="col-xs-1">
+    <label for="select-style" id="label_style">{% trans 'Form color' %}</label></div>
+  <div class="col-xs-11" id ="style-selector">
+    <select id ="select-style"> 
+      <option value="">{% trans 'Current Form Color: ' %}{{STYLE}}</option>
+      <option value="default" id="default">Default (#d9edf7)</option>
+      <option value="gold" id="gold">Gold (#f0ad4e)</option>
+       <option value="sand" id="sand">Sand (#f9e79f)</option>
+      <option value="brown" id="brown">Brown (#943126)</option>
+      <option value="grey" id="grey">Skylar Grey (#ebedef)</option>
+      <option value="black" id="black">Black (#272822)</option>
+      <option value="rose" id="rose">Rose (#f9ebea)</option>
+      <option value="blue" id="blue">Deep Blue (#0275d8)</option>
+      <option value="blue-w" id="blue-wave">Blue Wave (#5bc0de)</option>
+      <option value="green" id="green">Green (#5cb85c)</option>
+      <option value="night" id="night">Nigth Sky (#043b68)</option>
+      <option value="navy" id="navy">Navy Blue (#226f75)</option>
+    </select> 
+  </div>
+
+  <!-- SELECT COLOR OF TEXT  -->
+  <div class="col-xs-1">
+    <label for="select-text-color" id="label_tc">{% trans 'Text color' %}</label></div>
+  <div class="col-xs-11" id ="text-selector">
+    <select id ="select-text-color"> 
+      <option value="">{% trans 'Current Text Color: ' %}{{TC}}</option>
+      <option value="white" id="tc-white">White (#ffffff)</option>
+      <option value="black" id="tc-black">Shadow Black (#333)</option>
+      <option value="grey" id="tc-grey">Grey (#cccccc)</option>
+      <option value="sand" id="sand">Sand (#f9e79f)</option>
+      <option value="orange" id="tc-orange">Orange (#ef5a04)</option>
+      <option value="blue" id="blue">Blue (#5bc0de)</option>
+      <option value="green" id="green">Green (#5cb85c)</option>
+    </select> 
+  </div>
+
+
+  <div class="col-xs-12" id="div-btn">
+    <button id="submit-id-login_cancel_button" class="btn btn-primary" name="home_button" type="button">
+      <i class="fa fa-home" aria-hidden="true"></i>
+      {% trans ' Home' %}</button>
+  </div>
+
+</form>
+
+</div>
+
+	<!-- End Main Page Content-->
+
+	
+{% endblock content %}

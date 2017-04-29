@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-06 11:37+0000\n"
+"POT-Creation-Date: 2017-04-28 18:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,125 +19,114 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: models.py:18 models.py:184 models.py:215
-#: templates/students/exams_result.html:167
-#: templates/students/journal_list.html:182
+#: models.py:18 models.py:157 models.py:182
+#: templates/students/exams_result.html:143
+#: templates/students/journal_list.html:158
 msgid "Student"
 msgstr "Студент"
 
-#: models.py:19 models.py:94 templates/students/base.html:138
-#: templates/students/journal_list.html:9
+#: models.py:19 models.py:87 templates/students/base.html:303
+#: templates/students/demo.html:7 templates/students/journal_list.html:9
 #: templates/students/students_list.html:7
 msgid "Students"
 msgstr "Студенти"
 
-#: models.py:25 models.py:83 templates/students/groups_list.html:130
+#: models.py:24 models.py:77 templates/students/groups_list.html:110
 msgid "Name"
 msgstr "Імʼя"
 
-#: models.py:30 templates/students/students_list.html:149
+#: models.py:29 templates/students/demo.html:141
+#: templates/students/students_list.html:112
 msgid "Last Name"
 msgstr "Прізвище"
 
-#: models.py:35
+#: models.py:34
 msgid "Middle Name"
 msgstr "По-батькові"
 
-#: models.py:40
+#: models.py:39
 msgid "Birthday"
 msgstr "Дата народження"
 
-#: models.py:45 templates/students/students_list.html:146
+#: models.py:44 templates/students/students_list.html:109
 msgid "Photo"
 msgstr "Фото"
 
-#: models.py:51
+#: models.py:50
 msgid "Ticket"
 msgstr "Білет"
 
-#: models.py:54 models.py:77 models.py:140 models.py:178
-#: templates/students/exams_list.html:142
-#: templates/students/exams_result.html:159
-#: templates/students/students_list.html:171
+#: models.py:53 models.py:71 models.py:123 models.py:151
+#: templates/students/exams_list.html:124
+#: templates/students/exams_result.html:135
+#: templates/students/students_list.html:134
 msgid "Group"
 msgstr "Група"
 
-#: models.py:61 models.py:99
+#: models.py:60 models.py:92
 msgid "Notes"
 msgstr "Нотатки"
 
-#: models.py:66
-msgid "Place Born"
-msgstr "Місце народження"
-
-#: models.py:78 templates/students/base.html:148
-#: templates/students/groups_list.html:7
-#: templates/students/groups_list.html:118
+#: models.py:72 templates/students/base.html:313
+#: templates/students/groups_list.html:7 templates/students/groups_list.html:88
 msgid "Groups"
 msgstr "Групи"
 
-#: models.py:86 templates/students/groups_list.html:131
+#: models.py:80 templates/students/groups_list.html:111
 msgid "Leader"
 msgstr "Староста"
 
-#: models.py:104 models.py:148
-msgid "Audience"
-msgstr "Аудиторія"
-
-#: models.py:118 models.py:170 templates/students/exams_result.html:151
+#: models.py:104 models.py:144 templates/students/exams_result.html:127
 msgid "Exam"
 msgstr "Іспит"
 
-#: models.py:119 templates/students/base.html:155
-#: templates/students/exams_list.html:7 templates/students/exams_list.html:125
-#: templates/students/exams_result.html:121
+#: models.py:105 templates/students/base.html:319
+#: templates/students/exams_list.html:7 templates/students/exams_list.html:98
+#: templates/students/exams_result.html:90
 msgid "Exams"
 msgstr "Іспити"
 
-#: models.py:125 templates/students/exams_list.html:139
+#: models.py:110 templates/students/exams_list.html:121
 msgid "Science"
 msgstr "Предмет"
 
-#: models.py:130 templates/students/exams_list.html:141
+#: models.py:115 templates/students/exams_list.html:123
 msgid "Teacher"
 msgstr "Викладач"
 
-#: models.py:135 templates/students/exams_list.html:140
+#: models.py:119 templates/students/exams_list.html:122
 msgid "Time"
 msgstr "Час проведення"
 
-#: models.py:165
+#: models.py:140
 msgid "Exam Result"
 msgstr "Результат Іспиту"
 
-#: models.py:166 templates/students/exams_result.html:8
-#: templates/students/exams_result.html:128
-#: templates/students/exams_result.html:132
+#: models.py:141 templates/students/exams_result.html:7
+#: templates/students/exams_result.html:97
+#: templates/students/exams_result.html:101
 msgid "Exams Results"
 msgstr "Результати Іспитів"
 
-#: models.py:193 templates/students/exams_result.html:175
-#: templates/students/exams_result.html:208
+#: models.py:166 templates/students/exams_result.html:151
+#: templates/students/exams_result.html:189
+#: templates/students/exams_result.html:229
 msgid "Result"
 msgstr "Результат"
 
-#: models.py:198
-msgid "Test(Yes or No)"
-msgstr "Залік/Незалік"
-
-#: models.py:211 templates/students/journal_list.html:133
+#: models.py:178 templates/students/journal_list.html:109
 msgid "Monthly Journal"
 msgstr "Облік Відвідувань"
 
-#: models.py:212
+#: models.py:179
 msgid "Mounthly Journals"
 msgstr "Обліки Відвідувань"
 
-#: models.py:221
+#: models.py:188
 msgid "Date"
 msgstr "Дата"
 
-#: templates/students/base.html:13 templates/students/form.html:169
+#: templates/students/base.html:13
 msgid "Students Database Service"
 msgstr "База Студентів"
 
@@ -145,75 +134,259 @@ msgstr "База Студентів"
 msgid "App to manage students database"
 msgstr "Система обліку студентів навчального закладу "
 
-#: templates/students/base.html:95
+#: templates/students/base.html:234 templates/students/form.html:232
+msgid " Users"
+msgstr "Користувачі"
+
+#: templates/students/base.html:236 templates/students/form.html:234
+msgid " Settings"
+msgstr "Налаштування"
+
+#: templates/students/base.html:238 templates/students/form.html:236
+msgid "Logout"
+msgstr "Вийти"
+
+#: templates/students/base.html:245 templates/students/base.html:246
+#: templates/students/demo.html:98 templates/students/demo.html:100
+msgid " Sign in"
+msgstr "Вийти"
+
+#: templates/students/base.html:245
+msgid " Facebook"
+msgstr " Facebook"
+
+#: templates/students/base.html:246
+msgid " Google+"
+msgstr " Google+"
+
+#: templates/students/base.html:247
+msgid " Login"
+msgstr "Увійти"
+
+#: templates/students/base.html:248
+msgid " Register"
+msgstr "Реєстрація"
+
+#: templates/students/base.html:263 templates/students/form.html:248
 msgid "Students Accouting Service"
 msgstr "Сервіс Обліку Студентів"
 
-#: templates/students/base.html:103
+#: templates/students/base.html:269
 msgid "Group:"
 msgstr "Група"
 
-#: templates/students/base.html:105
+#: templates/students/base.html:271
 msgid "All Students"
 msgstr "Усі Студенти"
 
-#: templates/students/base.html:143 templates/students/groups_list.html:157
-#: templates/students/students_list.html:209
+#: templates/students/base.html:284 templates/students/form.html:253
+msgid "Language: "
+msgstr "Мова: "
+
+#: templates/students/base.html:308 templates/students/demo.html:207
+#: templates/students/demo.html:249 templates/students/groups_list.html:141
+#: templates/students/groups_list.html:181
+#: templates/students/students_list.html:178
+#: templates/students/students_list.html:220
 msgid "Journal"
 msgstr "Відвідування"
 
-#: templates/students/base.html:163
+#: templates/students/base.html:330
 msgid "Contact"
 msgstr "Контакти"
 
-#: templates/students/base.html:214 templates/students/form.html:11
-#: templates/students/form.html:240
+#: templates/students/base.html:368
+msgid ""
+"To view the full version of the site - you need to log in (you can do this "
+"via Facebook or Google+)."
+msgstr ""
+"Для переглядання повної версії сайту - вам потрібно залогуватись (ви можете "
+"зробити це через Facebook чи Google+)."
+
+#: templates/students/base.html:392 templates/students/form.html:11
+#: templates/students/form.html:306
 msgid "Students Accounting Service"
 msgstr "Сервіс Обліку Студентів"
 
-#: templates/students/contact_admin.html:9
-#: templates/students/contact_admin.html:11
+#: templates/students/contact_admin.html:129
+#: templates/students/contact_admin.html:131
 msgid "Contact with Admin"
 msgstr "Звʼязок із Адміністратором"
 
-#: templates/students/contact_admin.html:17
-#: templates/students/exams_edit.html:91 templates/students/groups_edit.html:93
-#: templates/students/results_edit.html:94
-#: templates/students/students_edit.html:94
+#: templates/students/contact_admin.html:137
+#: templates/students/exams_edit.html:25 templates/students/groups_edit.html:25
+#: templates/students/results_edit.html:25
+#: templates/students/students_edit.html:25
+#: templates/students/user_settings.html:253
 msgid "Please correct the following errors"
 msgstr "Будь-ласка, виправте наступні помилки"
 
+#: templates/students/demo.html:9 templates/students/students_list.html:9
+msgid "Students List"
+msgstr "Список Студентів"
+
+#: templates/students/demo.html:94
+msgid "Registration Form"
+msgstr "Форма Реєстрації"
+
+#: templates/students/demo.html:96
+msgid "Login Form"
+msgstr "Форма Входу"
+
+#: templates/students/demo.html:98
+msgid " Sign in with Facebook"
+msgstr " Увійти через Facebook"
+
+#: templates/students/demo.html:100
+msgid " Sign in with Google+"
+msgstr " Увійти через Google+"
+
+#: templates/students/demo.html:102
+msgid "Users"
+msgstr "Користувачі"
+
+#: templates/students/demo.html:104
+msgid "Joined"
+msgstr "Дата реєстрації"
+
+#: templates/students/demo.html:106
+msgid "Mobile Phone"
+msgstr "Номер Мобільного"
+
+#: templates/students/demo.html:109
+msgid " All Users"
+msgstr "Усі Користувачі"
+
+#: templates/students/demo.html:111
+msgid "Profile"
+msgstr "Профіль"
+
+#: templates/students/demo.html:113
+msgid "Profile Edit"
+msgstr "Редагувати профіль"
+
+#: templates/students/demo.html:115 templates/students/demo.html:219
+msgid "Delete User"
+msgstr "Видалення Користувача"
+
+#: templates/students/demo.html:117
+msgid "Form Delete User"
+msgstr "Форма Видалення Користувача"
+
+#: templates/students/demo.html:128
+msgid "Users List"
+msgstr "Список Користувачів"
+
+#: templates/students/demo.html:138
+msgid "Username"
+msgstr "Ім'я Користувача"
+
+#: templates/students/demo.html:157
+msgid "Passsword"
+msgstr "Пароль"
+
+#: templates/students/demo.html:163
+msgid "Login"
+msgstr "Увійти"
+
+#: templates/students/demo.html:164
+msgid "Registration"
+msgstr "Реєстрація"
+
+#: templates/students/demo.html:188 templates/students/demo.html:190
+#: templates/students/demo.html:194 templates/students/demo.html:213
+#: templates/students/demo.html:230 templates/students/demo.html:232
+#: templates/students/demo.html:236 templates/students/demo.html:255
+#: templates/students/exams_list.html:137
+#: templates/students/exams_list.html:140
+#: templates/students/exams_list.html:142
+#: templates/students/exams_list.html:145
+#: templates/students/exams_list.html:164
+#: templates/students/exams_list.html:182
+#: templates/students/exams_list.html:185
+#: templates/students/exams_list.html:187
+#: templates/students/exams_list.html:190
+#: templates/students/exams_list.html:210
+#: templates/students/exams_result.html:172
+#: templates/students/exams_result.html:174
+#: templates/students/exams_result.html:175
+#: templates/students/exams_result.html:177
+#: templates/students/exams_result.html:195
+#: templates/students/exams_result.html:212
+#: templates/students/exams_result.html:214
+#: templates/students/exams_result.html:215
+#: templates/students/exams_result.html:217
+#: templates/students/exams_result.html:235 templates/students/form.html:268
+#: templates/students/groups_list.html:125
+#: templates/students/groups_list.html:128
+#: templates/students/groups_list.html:147
+#: templates/students/groups_list.html:165
+#: templates/students/groups_list.html:168
+#: templates/students/groups_list.html:187
+#: templates/students/journal_list.html:189
+#: templates/students/journal_list.html:200
+#: templates/students/students_list.html:159
+#: templates/students/students_list.html:161
+#: templates/students/students_list.html:165
+#: templates/students/students_list.html:184
+#: templates/students/students_list.html:201
+#: templates/students/students_list.html:203
+#: templates/students/students_list.html:207
+#: templates/students/students_list.html:226
+msgid "Edit"
+msgstr "Редагувати"
+
+#: templates/students/demo.html:199
+#, python-format
+msgid "Do you really want to delete user: \"%(object)s\" ?"
+msgstr "Ви дійсно бажаєте видалити користувача: \"%(object)s\" ?"
+
+#: templates/students/demo.html:241 templates/students/exams_list.html:150
+#: templates/students/exams_list.html:195
+#: templates/students/exams_result.html:182
+#: templates/students/exams_result.html:222
+#: templates/students/groups_list.html:133
+#: templates/students/groups_list.html:173
+#: templates/students/students_list.html:170
+#: templates/students/students_list.html:212
+msgid "Action"
+msgstr "Дія"
+
+#: templates/students/demo.html:261 templates/students/exams_delete.html:47
+#: templates/students/exams_list.html:170
+#: templates/students/exams_list.html:216
+#: templates/students/exams_result.html:200
+#: templates/students/exams_result.html:241
+#: templates/students/groups_delete.html:47
+#: templates/students/groups_list.html:153
+#: templates/students/groups_list.html:192
+#: templates/students/results_delete.html:47
+#: templates/students/students_delete.html:47
+#: templates/students/students_list.html:190
+#: templates/students/students_list.html:232
+msgid "Delete"
+msgstr "Видалити"
+
 #: templates/students/exams_delete.html:9
-#: templates/students/exams_delete.html:55
+#: templates/students/exams_delete.html:27
 msgid "Delete Exam"
 msgstr "Видалення Іспиту "
 
-#: templates/students/exams_delete.html:68
+#: templates/students/exams_delete.html:39
 msgid "Form delete exam"
 msgstr "Форма видалення іспиту"
 
-#: templates/students/exams_delete.html:73
+#: templates/students/exams_delete.html:44
 #, python-format
 msgid "Do you really want to delete exam: \"%(object)s\" ?"
 msgstr "Ви дійсно бажаєте видалити іспит: \"%(object)s\" ?"
 
-#: templates/students/exams_delete.html:76
-#: templates/students/exams_list.html:181
-#: templates/students/exams_result.html:218
-#: templates/students/groups_delete.html:76
-#: templates/students/groups_list.html:167
-#: templates/students/results_delete.html:76
-#: templates/students/students_delete.html:76
-#: templates/students/students_list.html:219
-msgid "Delete"
-msgstr "Видалити"
-
-#: templates/students/exams_delete.html:78
-#: templates/students/groups_delete.html:78
-#: templates/students/results_delete.html:78
-#: templates/students/students_delete.html:78 views/exams.py:70
-#: views/exams.py:124 views/exams.py:221 views/exams.py:276 views/groups.py:67
-#: views/groups.py:121 views/students.py:79 views/students.py:135
+#: templates/students/exams_delete.html:49
+#: templates/students/groups_delete.html:49
+#: templates/students/results_delete.html:49
+#: templates/students/students_delete.html:49 views/exams.py:72
+#: views/exams.py:126 views/exams.py:223 views/exams.py:278 views/groups.py:68
+#: views/groups.py:122 views/students.py:76 views/students.py:132
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -221,94 +394,46 @@ msgstr "Скасувати"
 msgid "Edit Exam"
 msgstr "Редагування Іспиту"
 
-#: templates/students/exams_edit.html:85
+#: templates/students/exams_edit.html:18
 msgid "Form edit exam"
 msgstr "Форма редагування іспиту"
 
-#: templates/students/exams_list.html:121
+#: templates/students/exams_list.html:92
 msgid "Exam Results"
 msgstr "Результати Іспитів"
 
-#: templates/students/exams_list.html:132
-msgid "Add Exam"
+#: templates/students/exams_list.html:105
+#: templates/students/exams_list.html:112
+msgid " Add Exam"
 msgstr "Додати Іспит"
 
-#: templates/students/exams_list.html:143
-#: templates/students/exams_result.html:182
-#: templates/students/groups_list.html:132
-#: templates/students/students_list.html:172
+#: templates/students/exams_list.html:125
+#: templates/students/exams_result.html:158
+#: templates/students/groups_list.html:112
+#: templates/students/students_list.html:135
 msgid "Actions"
 msgstr "Дії"
 
-#: templates/students/exams_list.html:152
-#: templates/students/exams_list.html:155
-#: templates/students/exams_list.html:157
-#: templates/students/exams_list.html:160
-#: templates/students/exams_list.html:176
-#: templates/students/exams_result.html:192
-#: templates/students/exams_result.html:194
-#: templates/students/exams_result.html:195
-#: templates/students/exams_result.html:197
-#: templates/students/exams_result.html:213 templates/students/form.html:175
-#: templates/students/form.html:176 templates/students/form.html:178
-#: templates/students/form.html:181 templates/students/form.html:184
-#: templates/students/form.html:187 templates/students/form.html:204
-#: templates/students/groups_list.html:142
-#: templates/students/groups_list.html:145
-#: templates/students/groups_list.html:162
-#: templates/students/journal_list.html:209
-#: templates/students/students_list.html:192
-#: templates/students/students_list.html:194
-#: templates/students/students_list.html:198
-#: templates/students/students_list.html:214
-msgid "Edit"
-msgstr "Редагувати"
-
-#: templates/students/exams_list.html:165
-#: templates/students/exams_result.html:202
-#: templates/students/groups_list.html:151
-#: templates/students/students_list.html:203
-msgid "Action"
-msgstr "Дія"
-
-#: templates/students/exams_list.html:171
+#: templates/students/exams_list.html:158
+#: templates/students/exams_list.html:203
 msgid "Results"
 msgstr "Результати"
 
-#: templates/students/exams_result.html:140
-msgid "Add Exam Result"
-msgstr "Додати результат іспиту"
-
-#: templates/students/form.html:173
-msgid "Form"
-msgstr "Форма"
-
-#: templates/students/form.html:179
-msgid "Add student"
-msgstr "Додати студента"
-
-#: templates/students/form.html:182
-msgid "Add group"
-msgstr "Додати групу"
-
-#: templates/students/form.html:185
-msgid "Add exam"
-msgstr "Додати іспит"
-
-#: templates/students/form.html:188
-msgid "Add exam result"
+#: templates/students/exams_result.html:110
+#: templates/students/exams_result.html:116
+msgid " Add Exam Result"
 msgstr "Додати результат іспиту"
 
 #: templates/students/groups_delete.html:9
-#: templates/students/groups_delete.html:55
+#: templates/students/groups_delete.html:27
 msgid "Delete Group"
 msgstr "Видалити групу"
 
-#: templates/students/groups_delete.html:68
+#: templates/students/groups_delete.html:39
 msgid "Form Delete Group"
 msgstr "Форма видалення групи"
 
-#: templates/students/groups_delete.html:73
+#: templates/students/groups_delete.html:44
 #, python-format
 msgid "Do you really want to delete group: \"%(object)s\" ?"
 msgstr "Ви дійсно бажаєте видалити групу: \"%(object)s\" ?"
@@ -317,38 +442,39 @@ msgstr "Ви дійсно бажаєте видалити групу: \"%(object
 msgid "Edit Group"
 msgstr "Редагувати групу"
 
-#: templates/students/groups_edit.html:87
+#: templates/students/groups_edit.html:18
 msgid "Form edit group"
 msgstr "Форма редагування групи"
 
-#: templates/students/groups_list.html:123
-msgid "Add Group"
+#: templates/students/groups_list.html:95
+#: templates/students/groups_list.html:101
+msgid " Add Group"
 msgstr "Додати групу"
 
-#: templates/students/journal_list.html:148
+#: templates/students/journal_list.html:119
 msgid "There are no students in the database yet. Please, "
 msgstr "Поки немає жодного студента в базі. Будь-ласка,"
 
-#: templates/students/journal_list.html:149
+#: templates/students/journal_list.html:120
 msgid "add"
 msgstr "додайте"
 
-#: templates/students/journal_list.html:149
+#: templates/students/journal_list.html:120
 msgid "your first student."
 msgstr "першого."
 
-#: templates/students/journal_list.html:157
+#: templates/students/journal_list.html:130
 msgid ""
 "We automatically save changes into journal while you click inside table "
 "cells."
 msgstr ""
 "Зміни в журнал зберігаються автоматично при кожному кліку в клітинці таблиці."
 
-#: templates/students/journal_list.html:158
+#: templates/students/journal_list.html:131
 msgid "Saving..."
 msgstr "Збереження..."
 
-#: templates/students/journal_list.html:163
+#: templates/students/journal_list.html:136
 msgid ""
 "When data is unpredictable error occurred. Try to fill the browsing history "
 "later."
@@ -356,24 +482,24 @@ msgstr ""
 "Під час обробки даних виникла непередбачувана помилка. Спробуйте заповнити "
 "журнал відвідувань пізніше."
 
-#: templates/students/journal_list.html:167
+#: templates/students/journal_list.html:144
 msgid "Previous Month"
 msgstr "Попередній Місяць"
 
-#: templates/students/journal_list.html:171
+#: templates/students/journal_list.html:148
 msgid "Next Month"
 msgstr "Наступний Місяць"
 
 #: templates/students/results_delete.html:9
-#: templates/students/results_delete.html:55
+#: templates/students/results_delete.html:27
 msgid "Delete exam result"
 msgstr "Видалення результату іспиту"
 
-#: templates/students/results_delete.html:68
+#: templates/students/results_delete.html:39
 msgid "Form delete exam result"
 msgstr "Форма видалення результату іспиту"
 
-#: templates/students/results_delete.html:73
+#: templates/students/results_delete.html:44
 #, python-format
 msgid "Do you really want to delete exam result: \"%(object)s\" ?"
 msgstr "Ви дійсно бажаєте видалити результат іспиту: \"%(object)s\" ?"
@@ -382,20 +508,20 @@ msgstr "Ви дійсно бажаєте видалити результат і�
 msgid "Edit Exam Results"
 msgstr "Редагування результату іспиту"
 
-#: templates/students/results_edit.html:88
+#: templates/students/results_edit.html:18
 msgid "Form edit exam results"
 msgstr "Форма редагування результату іспиту"
 
 #: templates/students/students_delete.html:9
-#: templates/students/students_delete.html:55
+#: templates/students/students_delete.html:27
 msgid "Delete Student"
 msgstr "Видалення студента"
 
-#: templates/students/students_delete.html:68
+#: templates/students/students_delete.html:39
 msgid "Form delete student"
 msgstr "Форма видалення студента"
 
-#: templates/students/students_delete.html:73
+#: templates/students/students_delete.html:44
 #, python-format
 msgid "Do you really want to delete student: \"%(object)s\" ?"
 msgstr "Ви дійсно бажаєте видалити студента: \"%(object)s\" ?"
@@ -404,114 +530,177 @@ msgstr "Ви дійсно бажаєте видалити студента: \"%(
 msgid "Edit Student"
 msgstr "Редагування Студента"
 
-#: templates/students/students_edit.html:88
+#: templates/students/students_edit.html:18
 msgid "Form edit student"
 msgstr "Форма редагування студента"
 
-#: templates/students/students_list.html:132
-msgid "Students List"
-msgstr "Список Студентів"
-
-#: templates/students/students_list.html:138
-msgid "Add Student"
+#: templates/students/students_list.html:94
+#: templates/students/students_list.html:99
+msgid " Add Student"
 msgstr "Додати Студента"
 
-#: templates/students/students_list.html:157
+#: templates/students/students_list.html:120
 msgid "First Name"
 msgstr "Ім'я"
 
-#: templates/students/students_list.html:165
+#: templates/students/students_list.html:128
 msgid "Ticket №"
 msgstr "№ Білету"
 
-#: views/contact_admin.py:44
-msgid "Send"
-msgstr "Відправити"
+#: templates/students/user_settings.html:7
+#: templates/students/user_settings.html:235
+msgid "Settings"
+msgstr "Налаштування"
 
-#: views/contact_admin.py:47
-msgid "Your email adress"
-msgstr "Ваша емейл адресса"
+#: templates/students/user_settings.html:244
+msgid "Settings custom styles"
+msgstr "Налаштування власного стилю"
 
-#: views/contact_admin.py:50
-msgid "Title"
-msgstr "Заголовок"
-
-#: views/contact_admin.py:54
-msgid "Text message"
-msgstr "Текст повідомлення"
-
-#: views/contact_admin.py:75
-msgid "When you send an unexpected error occurred. Try this form later."
+#: templates/students/user_settings.html:259
+msgid ""
+"You can edit styles of this site. Changes saved automatically when you "
+"selected option at the selector."
 msgstr ""
-"Під час відправки виникла непередбачувана помилка. Спробуйте скористатись "
-"данною формою пізніше."
+"Ви можете редагувати стиль цього сайту. Зміни автоматично зберігаются коли "
+"ви обираєте опцію на селекторі."
 
-#: views/contact_admin.py:86
-msgid "Message sent successfully !"
-msgstr "Повідомлення відправлено успішно !"
+#: templates/students/user_settings.html:267
+msgid "Background"
+msgstr "Фон"
 
-#: views/exams.py:68 views/exams.py:122 views/exams.py:219 views/exams.py:274
-#: views/groups.py:65 views/groups.py:119 views/students.py:77
-#: views/students.py:133
+#: templates/students/user_settings.html:270
+msgid "Current Background Color: "
+msgstr "Поточний Колір Фону: "
+
+#: templates/students/user_settings.html:284
+msgid "Form color"
+msgstr "Колір Форми"
+
+#: templates/students/user_settings.html:287
+msgid "Current Form Color: "
+msgstr "Поточний Колір Форми: "
+
+#: templates/students/user_settings.html:305
+msgid "Text color"
+msgstr "Колір Тексту"
+
+#: templates/students/user_settings.html:308
+msgid "Current Text Color: "
+msgstr "Поточий Колір Тексту: "
+
+#: templates/students/user_settings.html:323
+msgid " Home"
+msgstr "На Головну"
+
+#: views/exams.py:70 views/exams.py:124 views/exams.py:221 views/exams.py:276
+#: views/groups.py:66 views/groups.py:120 views/students.py:74
+#: views/students.py:130
 msgid "Save"
 msgstr "Зберегти"
 
-#: views/exams.py:84
+#: views/exams.py:86
 #, python-format
 msgid "Exam %(science)s (%(gr)s) succesfully added !"
 msgstr "Іспит %(science)s (%(gr)s) успішно  додано!"
 
-#: views/exams.py:139
+#: views/exams.py:141
 #, python-format
 msgid "Exam %(science)s (%(gr)s) succesfully saved !"
 msgstr "Іспит %(science)s (%(gr)s) успішно збережено !"
 
-#: views/exams.py:156
+#: views/exams.py:158
 msgid "Exam succesfully deleted !"
 msgstr "Іспит успішно видалено !"
 
-#: views/exams.py:235
+#: views/exams.py:237
 #, python-format
 msgid "Exam result %(exams)s (%(students)s) succesfully added !"
 msgstr "Результат іспиту %(exams)s (%(students)s) успішно додано !"
 
-#: views/exams.py:291
+#: views/exams.py:293
 #, python-format
 msgid "Exam result %(exams)s %(students)s succesfully saved !"
 msgstr "Результат іспиту %(exams)s (%(students)s) успішно збережено"
 
-#: views/exams.py:308
+#: views/exams.py:310
 msgid "Exam result succesfully deleted !"
 msgstr "Резульат іспиту успішно видалено !"
 
-#: views/groups.py:80
+#: views/groups.py:81
 #, python-format
 msgid "Group %(title)s succesfully added !"
 msgstr "Група %(title)s успішно додана !"
 
-#: views/groups.py:136
+#: views/groups.py:137
 #, python-format
 msgid "Group %(title)s succesfully saved !"
 msgstr "Група %(title)s успішно збережена !"
 
-#: views/groups.py:154
+#: views/groups.py:155
 msgid "Group succesfully deleted !"
 msgstr "Групу успішно видалено !"
 
-#: views/students.py:93
+#: views/students.py:90
 #, python-format
 msgid "Student %(first_name)s %(last_name)s added succesfully !"
 msgstr "Студента %(first_name)s %(last_name)s успішно додано !"
 
-#: views/students.py:99
+#: views/students.py:96
 msgid "Student add canceled !"
 msgstr "Додавання студента скасовано"
 
-#: views/students.py:150
+#: views/students.py:148
 #, python-format
 msgid "Student %(first_name)s %(last_name)s saved succesfully !"
 msgstr "Студента %(first_name)s %(last_name)s успішно збережено !"
 
-#: views/students.py:166
+#: views/students.py:165
 msgid "Student succesfully deleted !"
 msgstr "Студента успішно видалено !"
+
+#~ msgid " Registration"
+#~ msgstr "Реєстрація"
+
+#~ msgid "Place Born"
+#~ msgstr "Місце народження"
+
+#~ msgid "Audience"
+#~ msgstr "Аудиторія"
+
+#~ msgid "Test(Yes or No)"
+#~ msgstr "Залік/Незалік"
+
+#~ msgid "Form"
+#~ msgstr "Форма"
+
+#~ msgid "Add student"
+#~ msgstr "Додати студента"
+
+#~ msgid "Add group"
+#~ msgstr "Додати групу"
+
+#~ msgid "Add exam"
+#~ msgstr "Додати іспит"
+
+#~ msgid "Add exam result"
+#~ msgstr "Додати результат іспиту"
+
+#~ msgid "Send"
+#~ msgstr "Відправити"
+
+#~ msgid "Your email adress"
+#~ msgstr "Ваша емейл адресса"
+
+#~ msgid "Title"
+#~ msgstr "Заголовок"
+
+#~ msgid "Text message"
+#~ msgstr "Текст повідомлення"
+
+#~ msgid "When you send an unexpected error occurred. Try this form later."
+#~ msgstr ""
+#~ "Під час відправки виникла непередбачувана помилка. Спробуйте скористатись "
+#~ "данною формою пізніше."
+
+#~ msgid "Message sent successfully !"
+#~ msgstr "Повідомлення відправлено успішно !"

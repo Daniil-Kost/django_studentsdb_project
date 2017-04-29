@@ -72,17 +72,120 @@ def get_current_group(request):
 
 def get_lang(request):
   if request.COOKIES.get('django_language') == 'en':
-     pk = 'English'
+     pk = u'English'
      return pk
   elif request.COOKIES.get('django_language') == 'uk':
-     pk = 'Українська'
+     pk = u'Українська'
      return pk
   elif request.COOKIES.get('django_language') == 'ru':
-     pk = 'Русский'
+     pk = u'Русский'
      return pk
   #if we dont selected language - Ukranian will be default
   else:
-  	 pk = 'Українська'
+  	 pk = u'Українська'
   	 return pk
+
+
+def get_style(request):
+  if request.COOKIES.get('current_style') == 'default':
+     pk = '#d9edf7'
+     return pk
+  elif request.COOKIES.get('current_style') == 'gold':
+     pk = '#f0ad4e'
+     return pk
+  elif request.COOKIES.get('current_style') == 'brown':
+     pk = '#943126'
+     return pk
+  elif request.COOKIES.get('current_style') == 'grey':
+     pk = '#ebedef '
+     return pk
+  elif request.COOKIES.get('current_style') == 'black':
+     pk = '#272822'
+     return pk
+  elif request.COOKIES.get('current_style') == 'blue':
+     pk = '#0275d8'
+     return pk
+  elif request.COOKIES.get('current_style') == 'blue-w':
+     pk = '#5bc0de'
+     return pk
+  elif request.COOKIES.get('current_style') == 'green':
+     pk = '#5cb85c'
+     return pk
+  elif request.COOKIES.get('current_style') == 'rose':
+     pk = '#f9ebea'
+     return pk
+  elif request.COOKIES.get('current_style') == 'sand':
+     pk = '#f9e79f'
+     return pk
+  elif request.COOKIES.get('current_style') == 'night':
+     pk = '#043b68'
+     return pk
+  elif request.COOKIES.get('current_style') == 'navy':
+     pk = '#226f75'
+     return pk
+  #if we dont selected style - blue #d9edf7 will be default
+  else:
+  	 pk = '#d9edf7'
+  	 return pk
+
+
+def get_background(request):
+  if request.COOKIES.get('current_bg') == 'white':
+     pk = '#FFFAFA'
+     return pk
+  elif request.COOKIES.get('current_bg') == 'black':
+     pk = '#272822'
+     return pk
+  elif request.COOKIES.get('current_bg') == 'grey':
+     pk = '#efeded'
+     return pk
+  elif request.COOKIES.get('current_bg') == 'rose':
+     pk = '#fcf3cf'
+     return pk
+  elif request.COOKIES.get('current_bg') == 'bronze':
+     pk = '#7f554f'
+     return pk
+  elif request.COOKIES.get('current_bg') == 'sand':
+     pk = '#f9e79f'
+     return pk
+  elif request.COOKIES.get('current_bg') == 'blue':
+     pk = '#d9edf7'
+     return pk
+  elif request.COOKIES.get('current_bg') == 'military':
+     pk = '#d1d88c'
+     return pk
+  #if we dont selected background - white #FFFAFA will be default
+  else:
+  	 pk = '#FFFAFA'
+  	 return pk
+
+
+def get_color_text(request):
+  if request.COOKIES.get('current_tc') == 'white':
+     pk = '#ffffff'
+     return pk
+  elif request.COOKIES.get('current_tc') == 'black':
+     pk = '#333'
+     return pk
+  elif request.COOKIES.get('current_tc') == 'grey':
+     pk = '#cccccc'
+     return pk
+  elif request.COOKIES.get('current_tc') == 'orange':
+     pk = '#ef5a04'
+     return pk
+  elif request.COOKIES.get('current_tc') == 'green':
+     pk = '#5cb85c'
+     return pk
+  elif request.COOKIES.get('current_tc') == 'sand':
+     pk = '#f9e79f'
+     return pk
+  elif request.COOKIES.get('current_tc') == 'blue':
+     pk = '#5bc0de'
+     return pk
+  #if we dont selected color - black #333 will be default
+  else:
+  	 pk = '#333'
+  	 return pk
+ 
  
 	

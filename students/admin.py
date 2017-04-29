@@ -50,9 +50,9 @@ class GroupAdmin(admin.ModelAdmin):
 	list_display =['title', 'leader']
 	list_display_links =['title', 'leader']
 	ordering =['title']
-	list_filter =['stud']
+	list_filter =['students']
 	list_per_page =5
-	search_fields =['title', 'leader', 'stud', 'notes']
+	search_fields =['title', 'leader', 'students', 'notes']
 
 
 	def view_on_site(self, obj):

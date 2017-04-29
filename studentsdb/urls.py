@@ -133,6 +133,11 @@ url(r'^accounts/profile/(?P<pk>\d+)/delete/$', login_required(
 	name = 'user_delete'),
 
 
+#User Settings
+url(r'^settings/$', 'students.views.user_settings.user_settings', 
+	name = 'user_settings'),
+
+
 #Social Auth Related urls
 url('^social/', include('social.apps.django_app.urls',
 	namespace='social')),

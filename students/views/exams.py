@@ -28,7 +28,7 @@ def exams_list(request):
 	current_group = get_current_group(request)
 	if current_group:
 		exams = Exam.objects.filter(
-			gr = current_group)
+			group = current_group)
 	else:
 		#otherwise show all students
 		exams = Exam.objects.all()
@@ -170,7 +170,7 @@ def exams_results(request):
 	current_group = get_current_group(request)
 	if current_group:
 		results = Result.objects.filter(
-			groups = current_group)
+			group = current_group)
 	else:
 		#otherwise show all students
 		results = Result.objects.all()

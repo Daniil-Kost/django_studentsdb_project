@@ -10,21 +10,30 @@
 
 <style>
 
+	/*personals styles for authenticated users*/
+	{% if user.is_authenticated %}
+
+	body {
+    	background-color: {{BACKGROUND}};
+    	color: {{TC}};
+
+    }
+
 	form {
 		float: left;
 		width: 100%;
-		background-color: #d9edf7;
+		background-color: {{STYLE}};
 		padding-left:15px;
 		padding-top:15px;
 		padding-bottom:15px;
-		color:black;
+		color: {{TC}};
 
 		}
 
 	.label {
 
 		float:center;
-    	color: black;
+    	color: {{TC}};
     	display: inline;
     	font-size: 110%;
     	font-weight: 700;
@@ -33,6 +42,44 @@
     	white-space: nowrap;
 			
 		}
+
+		.modal-title {
+			color: #333;
+		}
+
+	/*styles for anonim users*/
+	{% else %}
+
+	body {
+    	background-color: #FFFAFA;
+   		color: #333;
+
+    }
+
+	form {
+		float: left;
+		width: 100%;
+		background-color: #d9edf7;
+		padding-left:15px;
+		padding-top:15px;
+		padding-bottom:15px;
+		color: #333;
+
+		}
+
+	.label {
+		float:center;
+    	color: #333;
+    	display: inline;
+    	font-size: 110%;
+    	font-weight: 700;
+    	line-height: 2;
+    	text-align: right;
+    	white-space: nowrap;
+			
+		}
+
+	{% endif %}
 	
 </style>
 
@@ -70,7 +117,7 @@
 
   {% endif %}
 
-<table class="table table-hover table-striped">
+<table class="table">
 {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
 	<thead>
 	<tr>
@@ -122,12 +169,12 @@
 	{% if user.is_authenticated %}
 
 		<td>{{ forloop.counter }}</td>
-		<td><a title="{% trans 'Edit' %}" href="{% url 'results_edit' result.id %}" class ="modal-edit-form-link">{{ result.exams }}
+		<td><a title="{% trans 'Edit' %}" href="{% url 'results_edit' result.id %}" class ="modal-edit-form-link">{{ result.exam }}
 		</a></td>
-		<td><a title="{% trans 'Edit' %}" href="{% url 'results_edit' result.id %}" class ="modal-edit-form-link">{{ result.groups }}</a></td>
-		<td><a title="{% trans 'Edit' %}" href="{% url 'results_edit' result.id %}" class ="modal-edit-form-link">{{ result.students }}
+		<td><a title="{% trans 'Edit' %}" href="{% url 'results_edit' result.id %}" class ="modal-edit-form-link">{{ result.group }}</a></td>
+		<td><a title="{% trans 'Edit' %}" href="{% url 'results_edit' result.id %}" class ="modal-edit-form-link">{{ result.student }}
 		</a></td>
-		<td><a title="{% trans 'Edit' %}" href="{% url 'results_edit' result.id %}" class ="modal-edit-form-link">{{ result.results_exam }}
+		<td><a title="{% trans 'Edit' %}" href="{% url 'results_edit' result.id %}" class ="modal-edit-form-link">{{ result.result }}
 		</a></td>
 		<td>
 			<div class="dropdown">
@@ -162,12 +209,12 @@
 	{% else %}
 
 		<td>{{ forloop.counter }}</td>
-		<td><a title="{% trans 'Edit' %}" href="{% url 'results_edit' result.id %}">{{ result.exams }}
+		<td><a title="{% trans 'Edit' %}" href="{% url 'results_edit' result.id %}">{{ result.exam }}
 		</a></td>
-		<td><a title="{% trans 'Edit' %}" href="{% url 'results_edit' result.id %}">{{ result.groups }}</a></td>
-		<td><a title="{% trans 'Edit' %}" href="{% url 'results_edit' result.id %}">{{ result.students }}
+		<td><a title="{% trans 'Edit' %}" href="{% url 'results_edit' result.id %}">{{ result.group }}</a></td>
+		<td><a title="{% trans 'Edit' %}" href="{% url 'results_edit' result.id %}">{{ result.student }}
 		</a></td>
-		<td><a title="{% trans 'Edit' %}" href="{% url 'results_edit' result.id %}">{{ result.results_exam }}
+		<td><a title="{% trans 'Edit' %}" href="{% url 'results_edit' result.id %}">{{ result.result }}
 		</a></td>
 		<td>
 			<div class="dropdown">

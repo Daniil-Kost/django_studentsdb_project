@@ -12,7 +12,7 @@ from django.forms import ModelForm
 from django import forms
 from django.views.generic import UpdateView, CreateView
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, ButtonHolder, Button
+from crispy_forms.layout import Submit, ButtonHolder, Button, HTML
 from crispy_forms.bootstrap import FormActions
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages

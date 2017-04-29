@@ -25,6 +25,11 @@
   	<link rel="stylesheet" href="{% static 'css/main.css' %}">
 
   	<style type="text/css">.col-xs-12, .col-xs-10, .col-xs-11, .col-xs-8, .col-xs-6, .col-xs-4, .col-xs-2, .col-xs-1, {}>
+
+  	 body {
+    	background-color: {{BACKGROUND}};
+    	color: {{TC}}
+    }
    
 	button {
 			margin-top: 15px;
@@ -34,7 +39,7 @@
 			float: left;
 			width: 100%;
 
-			background-color: #d9edf7;
+			background-color: {{STYLE}};
 			
 			padding-left:15px;
 			padding-top:15px;
@@ -47,7 +52,8 @@
 
     		float:left; 
     		padding-right:10px; 
-    		margin-top: 10px; 
+    		margin-top: 10px;
+    		color: {{TC}};
     	  }
 
     input {
@@ -99,7 +105,7 @@
 
     .label {
     
-    	color: black;
+    	color: {{TC}};
     	display: inline;
     	font-size: 110%;
     	font-weight: 700;
@@ -172,17 +178,24 @@
 
 		}
 
-	#lang-selector{
+	#lang-selector {
 			margin-top: 20px;
+
 		}
 
-	#submit-id-add_button{
+	#select-lang {
+    	width: 75%;
+
+    	}
+
+
+	#submit-id-add_button {
     		float: center;
     		margin-left: 50px;
     	}
 
-	#submit-id-cancel_button{
-    		float: center;
+	#submit-id-cancel_button {
+    		float: center; 
     	}
 
 
@@ -217,6 +230,9 @@
 	<!-- we use filter 'default' -->
 	<a href="{% url 'profile' %}" id="a-username">{{ user.get_full_name|default:user.username }}</a> |
 	<a href="{% url 'users' %}" id="a-users"><i class="fa fa-users" aria-hidden="true"></i>{% trans ' Users' %}</a> |
+
+	<a href="{% url 'user_settings' %}" id="a-settings"><i class="fa fa-cogs" aria-hidden="true"></i>{% trans ' Settings' %}</a> | 
+
 	<a href="{% url 'users:auth_logout' %}" id="a-logout"><i class="fa fa-sign-out" aria-hidden="true"></i>{% trans "Logout" %}</a>
 	</div>
 
@@ -232,18 +248,14 @@
 	<div class="col-xs-8"><h1>{% block logo %}{% trans 'Students Accouting Service' %} {% endblock logo %}</h1></div>
 
 	<!-- Groups Seclector -->
-	<div class="col-xs-4" id ="form-selector">
-	  {% block selector %}
-	  <strong>{% trans 'Form' %}</strong>
-		<select id ="select-forms">
-			<option value ="">{% trans 'Edit' %}</option>
-			<option value ="" id="option-student-add">{% trans 'Add student' %}</option>
-			<option value="" id="option-group-add">{% trans 'Add group' %}</option>
-			<option value="" id="option-exam-add">{% trans 'Add exam' %}</option>
-			<option value="" id="option-result-add">{% trans 'Add exam result' %}</option>
-		</select>{% endblock selector %}
-	</div>
-
+	<div class="col-xs-4" id ="lang-selector">
+   		<select id="select-lang"> 
+			<option value="">{% trans 'Language: ' %}{{PK}}</option>
+			<option value="en">English</option>
+			<option value="uk">Українська</option>
+			<option value="ru">Русский</option>    
+		</select> 
+    </div>
 
 	</div>
 	<!-- End Header -->
@@ -290,8 +302,14 @@
 	<!-- Start Footer -->
 	{% block footer %}
 	<div class="row" id ="footer">
-		<div class="col-xs-12">
+		<div class="col-xs-4">
 			&copy; 2017 {% trans 'Students Accounting Service' %} 
+		</div>
+		<div class="col-xs-4">
+			{% trans 'Developed by ' %} <a href="https://www.facebook.com/daniil.kost.5?ref=bookmarks">Daniil Kostyshak</a>
+		</div>
+		<div class="col-xs-4">
+			 <a href="https://github.com/Daniil-Kost/django_vipod_book"><i class="fa fa-github" aria-hidden="true"></i>Github</a>
 		</div>
 	</div>
 	{% endblock footer %}
@@ -336,6 +354,10 @@
 
 <script src ="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/locale/uk.js">
 
+</script>
+
+<script src ="{% static 'js/jquery.cookie.js' %}">
+	
 </script>
 
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js">

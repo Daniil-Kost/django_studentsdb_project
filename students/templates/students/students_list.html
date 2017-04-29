@@ -11,22 +11,30 @@
 {% block extra_css %}
 
 <style>
+	
+	/*personals styles for authenticated users*/
+	{% if user.is_authenticated %}
+
+	body {
+    	background-color: {{BACKGROUND}};
+    	color: {{TC}};
+
+    }
 
 	form {
 		float: left;
 		width: 100%;
-		background-color: #d9edf7;
+		background-color: {{STYLE}};
 		padding-left:15px;
 		padding-top:15px;
 		padding-bottom:15px;
-		color:black;
+		color: {{TC}};
 
 		}
 
 	.label {
-
 		float:center;
-    	color: black;
+    	color: {{TC}};
     	display: inline;
     	font-size: 110%;
     	font-weight: 700;
@@ -35,7 +43,45 @@
     	white-space: nowrap;
 			
 		}
+
+		.modal-title {
+			color: #333;
+		}
 	
+	/*styles for anonim users*/
+	{% else %}
+
+	body {
+    	background-color: #FFFAFA;
+   		color: #333;
+
+    }
+
+	form {
+		float: left;
+		width: 100%;
+		background-color: #d9edf7;
+		padding-left:15px;
+		padding-top:15px;
+		padding-bottom:15px;
+		color: #333;
+
+		}
+
+	.label {
+		float:center;
+    	color: #333;
+    	display: inline;
+    	font-size: 110%;
+    	font-weight: 700;
+    	line-height: 2;
+    	text-align: right;
+    	white-space: nowrap;
+			
+		}
+
+	{% endif %}
+
 </style>
 
 {% endblock extra_css %}
@@ -55,7 +101,7 @@
   {% endif %}
 	
 	<!-- Start Students Listing -->
-		<table class="table table-hover table-striped">
+		<table class="table">
 		{% with order_by=request.GET.order_by reverse=request.GET.reverse %}
 			<thead>
 				<tr>

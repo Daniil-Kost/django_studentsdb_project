@@ -23,7 +23,7 @@
 {% endblock extra_css %}
 
 {% block selector %}<select>
-			<a title="Редагувати" href="#">
+			<a title="{% trans 'Delete User' %}" href="#">
 			<option value ="">{% trans 'Delete User' %}</option>
 			</a>
 		</select>
@@ -43,7 +43,7 @@
 		{% csrf_token %}
 		<p>{% blocktrans %}Do you really want to delete user: "{{ object }}" ?{% endblocktrans %}<p>
 		<div class="controls col-sm-8">
-			<input id="submit-id-add_button"
+			<input id="submit-user-id-add_button"
  			class="btn btn-primary btn btn-primary" name="add_button" value="{% trans 'Delete' %}" type="submit">
 			<input id="submit-id-user_cancel_button" class="btn btn-primary btn btn-danger" name="cancel_button"
 			value="{% trans 'Cancel' %}" type="button">

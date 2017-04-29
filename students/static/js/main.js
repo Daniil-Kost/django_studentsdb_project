@@ -670,27 +670,82 @@ function initGroupSelector(){
   });
 }
 
-function initFormSelector(){
-  $('#option-student-add').click(function(event) {
-    document.location.href ='http://localhost:8000/students/add/';
-  });
-  $('#option-group-add').click(function(event) {
-    document.location.href ='http://localhost:8000/groups/add/';
-  });
-  $('#option-exam-add').click(function(event) {
-    document.location.href ='http://localhost:8000/exams/add/';
-  });
-  $('#option-result-add').click(function(event) {
-    document.location.href ='http://localhost:8000/exams/results/add/';
-  });
+function initStyleSelector(){
+  // Form color selector
+  $('#style-selector select').change(function(event) {
+    //get value of currently selected style option
+    var style =$(this).val();
 
+    if (style){
+      //set cookie with expiration date 1 year since now;
+      //cookie creation function takes period in days
+      $.cookie('current_style', style, {'path': '/', 'expires': 365});
+    }else{
+      //otherwise we  delete the cookie
+      $.removeCookie('current_style', {'path': '/'});
+    }
+
+    //and reload a page
+    location.reload(true);
+
+    return true;
+
+  });
+}
+
+function initBGSelector(){
+  // Background color selector
+  // on field "change" event
+  $('#bg-selector select').change(function(event) {
+    //get value of currently selected bg option
+    var bg =$(this).val();
+
+    if (bg){
+      //set cookie with expiration date 1 year since now;
+      //cookie creation function takes period in days
+      $.cookie('current_bg', bg, {'path': '/', 'expires': 365});
+    }else{
+      //otherwise we  delete the cookie
+      $.removeCookie('current_bg', {'path': '/'});
+    }
+
+    //and reload a page
+    location.reload(true);
+
+    return true;
+
+  });
+}
+
+function initTextSelector(){
+  // Text color selector
+  // on field "change" event
+  $('#text-selector select').change(function(event) {
+    //get value of currently selected color text option
+    var text_color =$(this).val();
+
+    if (text_color){
+      //set cookie with expiration date 1 year since now;
+      //cookie creation function takes period in days
+      $.cookie('current_tc', text_color, {'path': '/', 'expires': 365});
+    }else{
+      //otherwise we  delete the cookie
+      $.removeCookie('current_tc', {'path': '/'});
+    }
+
+    //and reload a page
+    location.reload(true);
+
+    return true;
+
+  });
 }
 
 function initLangSelector() {
     $('#lang-selector select').change(function(event){
-        var lan = $(this).val();
-        if (lan) {
-            $.cookie('django_language', lan, {'path': '/', 'expires': 365});
+        var language = $(this).val();
+        if (language) {
+            $.cookie('django_language', language, {'path': '/', 'expires': 365});
         } else {
             $.removeCookie('django_language', {'path': '/'});
         }
@@ -778,10 +833,11 @@ function initCancelButton(){
 
 $(document).ready(function(){
 	initJournal();
-
   initGroupSelector();
-  initFormSelector();
   initLangSelector();
+  initStyleSelector();
+  initBGSelector();
+  initTextSelector();
   initDateFields();
   initCancelButton();
   initEditModalPage();
