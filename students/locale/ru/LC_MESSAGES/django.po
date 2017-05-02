@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-28 18:35+0000\n"
+"POT-Creation-Date: 2017-05-01 08:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,7 +36,7 @@ msgstr "Студенты"
 msgid "Name"
 msgstr "Имя"
 
-#: models.py:29 templates/students/demo.html:141
+#: models.py:29 templates/students/demo.html:143
 #: templates/students/students_list.html:112
 msgid "Last Name"
 msgstr "Фамилия"
@@ -184,8 +184,8 @@ msgstr "Все Студенты"
 msgid "Language: "
 msgstr "Язык: "
 
-#: templates/students/base.html:308 templates/students/demo.html:207
-#: templates/students/demo.html:249 templates/students/groups_list.html:141
+#: templates/students/base.html:308 templates/students/demo.html:209
+#: templates/students/demo.html:251 templates/students/groups_list.html:141
 #: templates/students/groups_list.html:181
 #: templates/students/students_list.html:178
 #: templates/students/students_list.html:220
@@ -208,6 +208,18 @@ msgstr ""
 #: templates/students/form.html:306
 msgid "Students Accounting Service"
 msgstr "Сервис Учета Студентов"
+
+#: templates/students/base.html:395 templates/students/form.html:309
+msgid "Developed by "
+msgstr "Разработал "
+
+#: templates/students/base.html:395 templates/students/form.html:309
+msgid "Daniil Kostyshak"
+msgstr "Даниил Костышак"
+
+#: templates/students/base.html:398 templates/students/form.html:312
+msgid "View at GitHub"
+msgstr "Смотреть на GitHub"
 
 #: templates/students/contact_admin.html:129
 #: templates/students/contact_admin.html:131
@@ -266,7 +278,7 @@ msgstr "Профиль"
 msgid "Profile Edit"
 msgstr "Редактировать Профиль"
 
-#: templates/students/demo.html:115 templates/students/demo.html:219
+#: templates/students/demo.html:115 templates/students/demo.html:221
 msgid "Delete User"
 msgstr "Удаление Пользователя"
 
@@ -274,30 +286,34 @@ msgstr "Удаление Пользователя"
 msgid "Form Delete User"
 msgstr "Форма Удаления Пользователя"
 
-#: templates/students/demo.html:128
+#: templates/students/demo.html:119
+msgid " Registration"
+msgstr " Регистрация"
+
+#: templates/students/demo.html:130
 msgid "Users List"
 msgstr "Список Пользователей"
 
-#: templates/students/demo.html:138
+#: templates/students/demo.html:140
 msgid "Username"
 msgstr "Имя Пользователя"
 
-#: templates/students/demo.html:157
+#: templates/students/demo.html:159
 msgid "Passsword"
 msgstr "Пароль"
 
-#: templates/students/demo.html:163
+#: templates/students/demo.html:165
 msgid "Login"
 msgstr "Войти"
 
-#: templates/students/demo.html:164
+#: templates/students/demo.html:166
 msgid "Registration"
 msgstr "Регистрация"
 
-#: templates/students/demo.html:188 templates/students/demo.html:190
-#: templates/students/demo.html:194 templates/students/demo.html:213
-#: templates/students/demo.html:230 templates/students/demo.html:232
-#: templates/students/demo.html:236 templates/students/demo.html:255
+#: templates/students/demo.html:190 templates/students/demo.html:192
+#: templates/students/demo.html:196 templates/students/demo.html:215
+#: templates/students/demo.html:232 templates/students/demo.html:234
+#: templates/students/demo.html:238 templates/students/demo.html:257
 #: templates/students/exams_list.html:137
 #: templates/students/exams_list.html:140
 #: templates/students/exams_list.html:142
@@ -337,12 +353,12 @@ msgstr "Регистрация"
 msgid "Edit"
 msgstr "Редактировать"
 
-#: templates/students/demo.html:199
+#: templates/students/demo.html:201
 #, python-format
 msgid "Do you really want to delete user: \"%(object)s\" ?"
 msgstr "Ви действительно хотите удалить пользователя: \"%(object)s\" ?"
 
-#: templates/students/demo.html:241 templates/students/exams_list.html:150
+#: templates/students/demo.html:243 templates/students/exams_list.html:150
 #: templates/students/exams_list.html:195
 #: templates/students/exams_result.html:182
 #: templates/students/exams_result.html:222
@@ -353,7 +369,7 @@ msgstr "Ви действительно хотите удалить пользо
 msgid "Action"
 msgstr "Действия"
 
-#: templates/students/demo.html:261 templates/students/exams_delete.html:47
+#: templates/students/demo.html:263 templates/students/exams_delete.html:47
 #: templates/students/exams_list.html:170
 #: templates/students/exams_list.html:216
 #: templates/students/exams_result.html:200
@@ -659,9 +675,6 @@ msgstr "Студет %(first_name)s %(last_name)s успешно сохране�
 #: views/students.py:165
 msgid "Student succesfully deleted !"
 msgstr "Студент успешно удален !"
-
-#~ msgid " Registration"
-#~ msgstr "Регистрация"
 
 #~ msgid "Place Born"
 #~ msgstr "Место рождения"
