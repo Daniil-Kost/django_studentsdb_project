@@ -97,7 +97,7 @@ def get_style(request):
      pk = '#943126'
      return pk
   elif request.COOKIES.get('current_style') == 'grey':
-     pk = '#ebedef '
+     pk = '#af9090'
      return pk
   elif request.COOKIES.get('current_style') == 'black':
      pk = '#272822'
@@ -137,7 +137,7 @@ def get_background(request):
      pk = '#272822'
      return pk
   elif request.COOKIES.get('current_bg') == 'grey':
-     pk = '#efeded'
+     pk = '#616a6b'
      return pk
   elif request.COOKIES.get('current_bg') == 'rose':
      pk = '#fcf3cf'
@@ -186,6 +186,68 @@ def get_color_text(request):
   else:
   	 pk = '#333'
   	 return pk
+
+
+def set_link(request):
+  if request.COOKIES.get('current_bg') == 'white':
+     link = '#428bca'
+     return link
+  elif request.COOKIES.get('current_bg') == 'black':
+     link = '#5bc0de'
+     return link
+  elif request.COOKIES.get('current_bg') == 'grey':
+     link = '#5bc0de'
+     return link
+  elif request.COOKIES.get('current_bg') == 'rose':
+     link = '#428bca'
+     return link
+  elif request.COOKIES.get('current_bg') == 'bronze':
+     link = '#5bc0de'
+     return link
+  elif request.COOKIES.get('current_bg') == 'sand':
+     link = '#154360'
+     return link
+  elif request.COOKIES.get('current_bg') == 'blue':
+     link = '#154360'
+     return link
+  elif request.COOKIES.get('current_bg') == 'military':
+     link = '#154360'
+     return link
+  #if we dont selected background - white #FFFAFA will be default
+  else:
+  	 link = '#428bca'
+  	 return link
+
+
+def set_focus(request):
+  if request.COOKIES.get('current_bg') == 'white':
+     focus = '#2a6496'
+     return focus
+  elif request.COOKIES.get('current_bg') == 'black':
+     focus = 'white'
+     return focus
+  elif request.COOKIES.get('current_bg') == 'grey':
+     focus = 'white'
+     return focus
+  elif request.COOKIES.get('current_bg') == 'rose':
+     focus = '#2a6496'
+     return focus
+  elif request.COOKIES.get('current_bg') == 'bronze':
+     focus = 'white'
+     return focus
+  elif request.COOKIES.get('current_bg') == 'sand':
+     focus = '#2a6496'
+     return focus
+  elif request.COOKIES.get('current_bg') == 'blue':
+     focus = '#2a6496'
+     return focus
+  elif request.COOKIES.get('current_bg') == 'military':
+     focus = '#2a6496'
+     return focus
+  #if we dont selected background - white #FFFAFA will be default
+  else:
+  	 focus = '#2a6496'
+  	 return focus
  
  
 	

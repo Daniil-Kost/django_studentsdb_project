@@ -22,6 +22,10 @@ body{
     	white-space: nowrap;
 			}
 
+		.bootstrap-datetimepicker-widget {
+			color: black;
+		}
+
 
 /* Корегування повідомлення */
 .alert{

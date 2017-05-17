@@ -85,10 +85,10 @@ def log_exam_updated_added_event(sender, **kwargs):
 	#created -булеанівська змінна вказуюча на новостворений обьект
 	if kwargs['created']:
 		logger.info("Exam added: %s %s (ID: %d)", 
-			exam.science, exam.gr, exam.id)
+			exam.science, exam.groups, exam.id)
 	else:
 		logger.info("Exam updated: %s %s (ID: %d)", 
-			exam.science, exam.gr, exam.id)
+			exam.science, exam.groups, exam.id)
 
 
 @receiver(post_delete, sender =Exam)
@@ -98,7 +98,7 @@ def log_exam_deleted_event(sender, **kwargs):
 
 	exam =kwargs['instance']
 	logger.info("Exam deleted: %s %s (ID: %d)", 
-		exam.science, exam.gr, exam.id)
+		exam.science, exam.groups, exam.id)
 
 
 #-------------------------------------------------------
@@ -122,7 +122,7 @@ def log_result_updated_added_event(sender, **kwargs):
 			result.exams, result.students, result.id)
 
 
-@receiver(post_delete, sender =Exam)
+@receiver(post_delete, sender =Result)
 def log_exam_deleted_event(sender, **kwargs):
 	"""Writes information about deleted result into log file"""
 	logger =logging.getLogger(__name__)

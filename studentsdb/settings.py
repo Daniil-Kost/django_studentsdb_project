@@ -53,6 +53,7 @@ INSTALLED_APPS = [
 	]
 
 MIDDLEWARE_CLASSES = [
+    'studentsdb.middleware.RequestTimeMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -84,6 +85,8 @@ TEMPLATES = [
          "students.context_processors.style_processor",
          "students.context_processors.background_processor",
          "students.context_processors.color_text_processor",
+         "students.context_processors.link_processor",
+         "students.context_processors.focus_processor",
         "social.apps.django_app.context_processors.backends",
         "social.apps.django_app.context_processors.login_redirect",
             ],
@@ -153,20 +156,20 @@ MEDIA_ROOT =os.path.join(BASE_DIR, '..', 'media')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 ADMIN_EMAIL = 'lemk1997@gmail.com'
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = '1025'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '465'
+EMAIL_HOST_USER = 'studentsdb@email.ua'
+EMAIL_HOST_PASSWORD = 'studentsdb-django'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
 
 SITE_ID = 1
-SERVER_EMAIL = "lemk1997@gmail.com"
-DEFAULT_FROM_EMAIL = "admin@studentsdb.uk.to"
-MANAGERS = [('admin','lemk1997@gmail.com')]
-ADMINS = (
-    ('admin', 'lemk1997@gmail.com'),
-)
+#SERVER_EMAIL = "lemk1997@gmail.com"
+#DEFAULT_FROM_EMAIL = "admin@studentsdb.uk.to"
+#MANAGERS = [('admin','lemk1997@gmail.com')]
+#ADMINS = (
+ #   ('admin', 'lemk1997@gmail.com'),
+#)
 
 
 #registration

@@ -45,7 +45,6 @@
   
     }
 
-
   form {
       float: left;
       width: 100%;
@@ -58,6 +57,18 @@
 
       color:black;
      }
+
+     a {
+      color: {{LINK}};
+      text-decoration: none;
+
+    }
+
+    a:hover, a:focus {
+      color: {{FOCUS}};
+      text-decoration: underline;
+
+    }
 
      .alert {
     border-top: 3px solid #428bca;
@@ -72,6 +83,7 @@
     height: 40px;
     line-height: 50px;
     margin-top: 10px;
+    margin-left: 15px;
     width: 75%;
       }
 
@@ -82,6 +94,7 @@
     height: 40px;
     line-height: 50px;
     margin-top: 10px;
+    margin-left: 15px;
     width: 75%;
 }
 
@@ -92,6 +105,7 @@
     height: 40px;
     line-height: 50px;
     margin-top: 10px;
+    margin-left: 15px;
     width: 75%;
 }
 
@@ -111,7 +125,7 @@
     }
 
     #grey {
-       background-color: #ebedef; 
+       background-color: #af9090; 
        color: black;
     }
 
@@ -168,8 +182,8 @@
     }
 
     #bg-grey {
-      background-color: #efeded;
-      color: black;
+      background-color: #616a6b;
+      color: white;
     }
 
     #bg-bronze {
@@ -271,7 +285,7 @@
       <option value="white" id="bg-white">White (#FFFAFA)</option>
       <option value="rose" id="bg-rose">Rose Gold (#fcf3cf)</option>
       <option value="black" id="bg-black">Black (#272822)</option>
-      <option value="grey" id="bg-grey">Grey Matter(#efeded)</option>
+      <option value="grey" id="bg-grey">Grey Matter(#616a6b)</option>
       <option value="bronze" id="bg-bronze">Bronze (#7f554f)</option>
       <option value="sand" id="sand">Sand (#f9e79f)</option>
       <option value="blue" id="bg-blue">Blue (#d9edf7)</option>
@@ -289,7 +303,7 @@
       <option value="gold" id="gold">Gold (#f0ad4e)</option>
        <option value="sand" id="sand">Sand (#f9e79f)</option>
       <option value="brown" id="brown">Brown (#943126)</option>
-      <option value="grey" id="grey">Skylar Grey (#ebedef)</option>
+      <option value="grey" id="grey">Skylar Grey (#af9090)</option>
       <option value="black" id="black">Black (#272822)</option>
       <option value="rose" id="rose">Rose (#f9ebea)</option>
       <option value="blue" id="blue">Deep Blue (#0275d8)</option>
@@ -315,7 +329,6 @@
       <option value="green" id="green">Green (#5cb85c)</option>
     </select> 
   </div>
-
 
   <div class="col-xs-12" id="div-btn">
     <button id="submit-id-login_cancel_button" class="btn btn-primary" name="home_button" type="button">

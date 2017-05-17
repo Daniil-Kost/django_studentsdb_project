@@ -30,6 +30,18 @@
 
 		}
 
+	 a {
+      color: {{LINK}};
+      text-decoration: none;
+
+    }
+
+    a:hover, a:focus {
+      color: {{FOCUS}};
+      text-decoration: underline;
+
+    }
+
 	.label {
 
 		float:center;
@@ -143,7 +155,7 @@
 		href="{% url 'exams_edit' exam.id %}" class ="modal-edit-form-link">
 		{{ exam.teacher }}</a></td>
 		<td><a title="{% trans 'Edit' %}" 
-		href="{% url 'exams_edit' exam.id %}" class ="modal-edit-form-link">{{ exam.group }}</a></td>
+		href="{% url 'exams_edit' exam.id %}" class ="modal-edit-form-link">{{ exam.groups }}</a></td>
 		<td>
 			<div class="dropdown">
 				<button class="btn btn-default dropdown-toggle"
@@ -188,7 +200,7 @@
 		href="{% url 'exams_edit' exam.id %}">
 		{{ exam.teacher }}</a></td>
 		<td><a title="{% trans 'Edit' %}" 
-		href="{% url 'exams_edit' exam.id %}">{{ exam.group }}</a></td>
+		href="{% url 'exams_edit' exam.id %}">{{ exam.groups }}</a></td>
 		<td>
 			<div class="dropdown">
 				<button class="btn btn-default dropdown-toggle"

@@ -9,7 +9,13 @@
 
 {% block extra_css %}
 	<style>
-		
+
+	body {
+    	background-color: {{BACKGROUND}};
+    	color: {{TC}};
+
+    }
+
 		label {
     		color: {{TC}};
     		display: inline;
@@ -20,6 +26,29 @@
     		text-align: left;
     		white-space: nowrap;
 		}
+
+		form {
+		float: left;
+		width: 100%;
+		background-color: {{STYLE}};
+		padding-left:15px;
+		padding-top:15px;
+		padding-bottom:15px;
+		color: {{TC}};
+
+		}
+
+	 a {
+      color: {{LINK}};
+      text-decoration: none;
+
+    }
+
+    a:hover, a:focus {
+      color: {{FOCUS}};
+      text-decoration: underline;
+
+    }
 
 		#div-btn{
 			float: left;
@@ -39,6 +68,9 @@
 	<div class="col-xs-12" id="user-toolbar">
 	<!-- we use filter 'default' -->
 	<a href="{% url 'users' %}" id="a-users"><i class="fa fa-users" aria-hidden="true"></i>{% trans ' Users' %}</a> |
+
+	<a href="{% url 'user_settings' %}" id="a-settings"><i class="fa fa-cogs" aria-hidden="true"></i>{% trans ' Settings' %}</a> | 
+	
 	<a href="{% url 'users:auth_logout' %}" id="a-logout"><i class="fa fa-sign-out" aria-hidden="true"></i>{% trans "Logout" %}</a>
 	</div>
 
@@ -112,9 +144,9 @@
 	</table>
 
 	<div class="form-group" id="div-btn">
-			<button id="submit-id-login_cancel_button" class="btn btn-primary" name="home_button" type="button">
+			<a href="{% url 'home' %}"><button id="submit-id-login_cancel_button" class="btn btn-primary" name="home_button" type="button">
 			<i class="fa fa-home" aria-hidden="true"></i>
-			{% trans ' Home' %}</button>
+			{% trans ' Home' %}</button></a>
 			<button class="btn btn-danger" name="cancel_button" type="button" id="submit-id-user_cancel_button">
 			<i class="fa fa-users" aria-hidden="true"></i>
 			{% trans ' All Users' %}</button>

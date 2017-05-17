@@ -11,6 +11,34 @@
 {% block extra_css %}
 	<style>
 
+	body {
+    background-color: {{BACKGROUND}};
+    color: {{TC}};
+    }
+
+	form {
+		float: left;
+		width: 100%;
+		background-color: {{STYLE}};
+		padding-left:15px;
+		padding-top:15px;
+		padding-bottom:15px;
+		color: {{TC}};
+
+		}
+
+	 a {
+      color: {{LINK}};
+      text-decoration: none;
+
+    }
+
+    a:hover, a:focus {
+      color: {{FOCUS}};
+      text-decoration: underline;
+
+    }s
+
 		p{
 			font-size: 17px;
 		}

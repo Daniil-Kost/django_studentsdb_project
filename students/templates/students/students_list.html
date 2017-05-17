@@ -2,7 +2,10 @@
 
 {% load i18n %}
 
+{% load pagenav %}
+
 {% load static from staticfiles %}
+
 
 {% block meta_title %}{% trans 'Students' %}{% endblock meta_title %}
 
@@ -32,6 +35,18 @@
 
 		}
 
+	 a {
+      color: {{LINK}};
+      text-decoration: none;
+
+    }
+
+    a:hover, a:focus {
+      color: {{FOCUS}};
+      text-decoration: underline;
+
+    }
+
 	.label {
 		float:center;
     	color: {{TC}};
@@ -47,7 +62,7 @@
 		.modal-title {
 			color: #333;
 		}
-	
+
 	/*styles for anonim users*/
 	{% else %}
 
@@ -250,9 +265,11 @@
 
 	{% block pagination %}
 	
-    {% with object_list=students %}
-      {% include "students/pagination.html" %}
-    {% endwith %}
+    <!-- {% with object_list=students %} -->
+      <!-- {% include "students/pagination.html" %} -->
+    <!-- {% endwith %} -->
+
+    {% pagenav object_list=students is_paginated=is_paginated paginator=paginator %}
 
 	{% endblock pagination %}
 

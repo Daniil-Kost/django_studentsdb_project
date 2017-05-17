@@ -11,6 +11,49 @@
 {% block extra_css %}
 	<style>
 
+	body {
+    background-color: {{BACKGROUND}};
+    color: {{TC}};
+    }	
+
+    label {
+    		color: {{TC}};
+    		display: inline;
+    		font-size: 110%;
+    		font-weight: 700;
+    		line-height: 2;
+    		float: left;
+    		text-align: left;
+    		white-space: nowrap;
+        margin-top: 15px;
+
+		}
+
+	form {
+      float: left;
+      width: 100%;
+
+      background-color: {{STYLE}};
+      
+      padding-left:15px;
+      padding-top:15px;
+      padding-bottom:15px;
+
+      color:black;
+     }
+
+     a {
+      color: {{LINK}};
+      text-decoration: none;
+
+    }
+
+    a:hover, a:focus {
+      color: {{FOCUS}};
+      text-decoration: underline;
+
+    }
+
 		p{
 			font-size: 17px;
 		}

@@ -173,7 +173,7 @@ def contact_admin(request):
 
 				except Exception:
 					message = u"Під час відправки виникла"\
-					u"непередбачувана помилка."\
+					u" непередбачувана помилка."\
 					 u" Спробуйте скористатись данною формою пізніше."
 					logger =logging.getLogger(__name__)
 					logger.exception(message)
@@ -201,7 +201,7 @@ def contact_admin(request):
 
 				except Exception:
 					message = u"Во время отправки сообщения возникла"\
-					u"непредвиденная ошибка. Попробуйте воспользоватся"\
+					u" непредвиденная ошибка. Попробуйте воспользоватся"\
 					u"данной формой позже."
 					logger =logging.getLogger(__name__)
 					logger.exception(message)

@@ -119,14 +119,14 @@ class Exam(models.Model):
 		verbose_name =_(u"Time"),
 		null =True)
 
-	group = models.ForeignKey('Group',
+	groups = models.ForeignKey('Group',
 		verbose_name =_(u"Group"),
 		blank =False,
 		null =True,
 		on_delete =models.CASCADE)
 
 	def __unicode__(self):
-		return u"%s (%s)" % (self.science, self.group)
+		return u"%s (%s)" % (self.science, self.groups)
 
 #-----------------------------------------------------------
 
@@ -140,20 +140,20 @@ class Result(models.Model):
 		verbose_name =_(u"Exam Result")
 		verbose_name_plural =_(u"Exams Results")
 			
-	exam = models.ForeignKey('Exam',
+	exams = models.ForeignKey('Exam',
 		verbose_name = _(u"Exam"),
 		blank =False,
 		null =True,
 		max_length =256,
 		on_delete =models.CASCADE)
 
-	group = models.ForeignKey('Group',
+	groups = models.ForeignKey('Group',
 		verbose_name =_(u"Group"),
 		blank =False,
 		null =True,
 		on_delete =models.CASCADE)
 
-	student = models.ForeignKey('Student',
+	students = models.ForeignKey('Student',
 		verbose_name =_(u"Student"),
 		blank =False,
 		null =True,

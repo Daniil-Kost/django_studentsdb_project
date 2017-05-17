@@ -28,7 +28,7 @@ def exams_list(request):
 	current_group = get_current_group(request)
 	if current_group:
 		exams = Exam.objects.filter(
-			group = current_group)
+			groups = current_group)
 	else:
 		#otherwise show all students
 		exams = Exam.objects.all()
@@ -83,7 +83,7 @@ class ExamAddView(SuccessMessageMixin, Dispatch, CreateView):
 	form_class = ExamAddForm
 	
 	success_url = '/exams/'
-	success_message = _(u"Exam %(science)s (%(gr)s) succesfully added !")
+	success_message = _(u"Exam %(science)s (%(groups)s) succesfully added !")
 
 	def post(self, request, *args, **kwargs):
 		if request.POST.get('cancel_button'):
@@ -138,7 +138,7 @@ class ExamUpdateView(SuccessMessageMixin, Dispatch, UpdateView):
 	form_class = ExamUpdateForm
 
 	success_url = '/exams/'
-	success_message = _(u"Exam %(science)s (%(gr)s) succesfully saved !")
+	success_message = _(u"Exam %(science)s (%(groups)s) succesfully saved !")
 
 
 	def post(self, request, *args, **kwargs):
@@ -170,7 +170,7 @@ def exams_results(request):
 	current_group = get_current_group(request)
 	if current_group:
 		results = Result.objects.filter(
-			group = current_group)
+			groups = current_group)
 	else:
 		#otherwise show all students
 		results = Result.objects.all()
@@ -178,7 +178,7 @@ def exams_results(request):
 	#try to order exams result
 
 	order_by = request.GET.get('order_by', '')
-	if order_by in ('exams', 'groups', 'students', 'results_exam'):
+	if order_by in ('exams', 'groups', 'students', 'result'):
 		results = results.order_by(order_by)
 		if request.GET.get('reverse', '' ) == '1':
 			results = results.reverse()

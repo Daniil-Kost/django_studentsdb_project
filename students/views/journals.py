@@ -21,6 +21,7 @@ from ..util import paginate, get_current_group
 import pdb;
 from django.utils.translation import ugettext as _
 
+
 class JournalView(TemplateView):
     template_name = 'students/journal_list.html'
 
