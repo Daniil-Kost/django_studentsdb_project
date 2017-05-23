@@ -82,6 +82,7 @@ body{
 
 }
 
+
 #ajax-progress-indicator {
 	display: none;
 
@@ -90,7 +91,6 @@ body{
 #alert-danger{
 	display: none;
 }
-
 
 /* Journal Table Styles */
 

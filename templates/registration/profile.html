@@ -50,6 +50,10 @@
 
     }
 
+    .save, .home, .cancel {
+		width: 200px;
+	}
+
 		#div-btn{
 			float: left;
     		margin-left: 5px;
@@ -124,10 +128,10 @@
 	</table>
 
 	<div class="form-group" id="div-btn">
-			<button id="submit-id-login_cancel_button" class="btn btn-primary" name="home_button" type="button">
+			<button id="submit-id-login_cancel_button" class="btn home btn-primary" name="home_button" type="button">
 			<i class="fa fa-home" aria-hidden="true"></i>
 			{% trans ' Home' %}</button>
-			<button class="btn btn-danger" name="cancel_button" type="button" id="submit-id-user_cancel_button">
+			<button class="btn cancel btn-danger" name="cancel_button" type="button" id="submit-id-user_cancel_button">
 			<i class="fa fa-users" aria-hidden="true"></i>
 			{% trans ' All Users' %}</button>
 	</div>

@@ -4,4 +4,8 @@ django-crispy-forms==1.6.1
 python-dateutil
 django-registration-redux==1.4
 python-social-auth==0.2.12
-django-ulogin-0.3
+python-bs4
+beautifulsoup4
+python-lxml
+python-html5lib
+

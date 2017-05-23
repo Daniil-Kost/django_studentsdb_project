@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'social.apps.django_app.default',
     'students',
     'stud_auth',
+    'studentsdb',
 	]
 
 MIDDLEWARE_CLASSES = [
@@ -182,15 +183,27 @@ AUTHENTICATION_BACKENDS = (
 	'social.backends.facebook.FacebookOAuth2',
 	'social.backends.google.GoogleOAuth2',
 	'social.backends.google.GoogleOpenId',
+    'social.backends.github.GithubOAuth2',
+    'social.backends.twitter.TwitterOAuth',
 	'django.contrib.auth.backends.ModelBackend',
 	)
 
+#Facebook keys
 SOCIAL_AUTH_FACEBOOK_KEY = '414276622259701'
 SOCIAL_AUTH_FACEBOOK_SECRET = '6fd14960af6473dc246c5cd22a3362ae'
 
 # Google Keys
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '340441235543-jhhbmg5cn4hfst0eaca4djfrimb4tg9m.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'uB1h1COTNY9lt8_oGPeNs8OX'
+
+#GitHub Keys
+SOCIAL_AUTH_GITHUB_KEY = '1d0d4bb26966159e9534'
+SOCIAL_AUTH_GITHUB_SECRET = '1c2e16f3e1d670502ea5d8d0d3f8c6344b3bdf63'
+
+#Twitter Keys
+SOCIAL_AUTH_TWITTER_KEY = 'CjdhI6fCY64kItX6CqKfjZplt'
+SOCIAL_AUTH_TWITTER_SECRET = 'iK3lruIzn7YHQL93gKcXGpqfclaye2S3C8fo3Npj4x3HjqRA46'
+
 
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
 

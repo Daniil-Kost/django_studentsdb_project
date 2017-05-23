@@ -803,6 +803,7 @@ function FormPhoto(){
     photo.html(htmltext);
 }
 
+
 function initCancelButton(){
   //students
   $('#submit-id-student_cancel_button').click(function(event){

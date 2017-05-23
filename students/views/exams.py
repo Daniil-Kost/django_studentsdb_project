@@ -68,9 +68,9 @@ class ExamAddForm(ModelForm):
 		#add buttons
 		self.helper.layout.append(FormActions(
 			Submit('add_button', _(u'Save'),
-			 css_class = "btn btn-primary"),
+			 css_class = "btn save btn-primary"),
 			Submit('exam_cancel_button', _(u'Cancel'),
-				css_class = "btn btn-danger")))
+				css_class = "btn cancel btn-danger")))
 
 
 class ExamAddView(SuccessMessageMixin, Dispatch, CreateView):
@@ -122,9 +122,9 @@ class ExamUpdateForm(ModelForm):
 		#add buttons
 		self.helper.layout.append(FormActions(
 			Submit('add_button', _(u'Save'),
-			 css_class = "btn btn-primary"),
+			 css_class = "btn save btn-primary"),
 			Submit('cancel_button', _(u'Cancel'),
-				css_class = "btn btn-danger"),))
+				css_class = "btn cancel btn-danger"),))
 
 
 
@@ -219,9 +219,9 @@ class ResultAddForm(ModelForm):
 		#add buttons
 		self.helper.layout.append(FormActions(
 			Submit('add_button', _(u'Save'),
-			 css_class = "btn btn-primary"),
+			 css_class = "btn save btn-primary"),
 			Submit('result_cancel_button', _(u'Cancel'),
-				css_class = "btn btn-danger")))
+				css_class = "btn cancel btn-danger")))
 
 
 class ResultAddView(SuccessMessageMixin, Dispatch, CreateView):
@@ -274,9 +274,9 @@ class ResultUpdateForm(ModelForm):
 		#add buttons
 		self.helper.layout.append(FormActions(
 			Submit('add_button', _(u'Save'),
-			 css_class = "btn btn-primary"),
+			 css_class = "btn save btn-primary"),
 			Submit('cancel_button', _(u'Cancel'),
-				css_class = "btn btn-danger"),))
+				css_class = "btn cancel btn-danger"),))
 
 
 

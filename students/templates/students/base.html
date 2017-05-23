@@ -93,6 +93,10 @@
 		font-size: 17px;
 	}
 
+	button {
+		font-weight: 600;
+	}
+
 	.form-control {
 
     	height:50px;
@@ -143,6 +147,40 @@
 
 		}
 
+	.btn-fb:hover, .btn-fb:focus {
+		background-color: #102551;
+		color: white;
+	}
+
+	.btn-git {
+		background-color: #24292e;
+		color: white;
+
+	}
+
+	.btn-tw {
+    	background-color: #55acee;
+    	color: white;
+
+	}
+
+	.btn-tw:hover, .btn-tw:focus {
+		background-color: #3d8bc6;
+		color: white;
+	}
+
+	.btn-git:hover, .btn-git:focus {
+		background-color: black;
+		color: white;
+	}
+
+	.save, .home, .cancel {
+		width: 120px;
+	}
+
+	.del, .del-cancel {
+		width: 120px;
+	}
 
 	.modal {
 		display:    none;
@@ -158,6 +196,11 @@
             no-repeat;
 
 		}
+
+	.btn-fb, .btn-git, .goo, .log, .reg, .btn-tw {
+		width: 130px;
+	}
+
 
 
     #select-lang {
@@ -191,6 +234,13 @@
     	margin-bottom: 15px;
     }
 
+    #request-took {
+    	margin-left: 60px;
+    	margin-bottom: 15px;
+    	color: {{TC}};
+    	float: centre;
+    	font-size: 12px;
+    }
 
 	body.loading {
     	overflow: hidden;
@@ -243,9 +293,11 @@
 	<div class="col-xs-12" id="user-toolbar">
 
 	<a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}"><button type="button" class="btn btn-fb"><i class="fa fa-facebook left" title="{% trans ' Sign in' %}"></i>{% trans ' Facebook' %}</button></a> | 
-	<a href="{% url 'social:begin' 'google-oauth2' %}" class="registration-form-link"><button type="button" class="btn btn-danger"><i class="fa fa-google-plus left" title="{% trans ' Sign in' %}"></i> {% trans ' Google+' %}</button></a> |
-	<a href="{% url 'users:auth_login' %}" class="login-form-link"><button type="button" class="btn btn-primary"><i class="fa fa-sign-in" aria-hidden="true" title ="{% trans ' Login' %}"></i>{% trans ' Login' %}</button></a> |
-	<a href="{% url 'register' %}" class="registration-form-link"><button type="button" class="btn btn-success"><i class="fa fa-address-card-o" aria-hidden="true"></i>{% trans ' Register' %}</button></a> 
+	<a href="{% url 'social:begin' 'google-oauth2' %}" class="registration-form-link"><button type="button" class="btn goo btn-danger"><i class="fa fa-google-plus left" title="{% trans ' Sign in' %}"></i> {% trans ' Google+' %}</button></a> |
+	<a href="{% url 'social:begin' 'twitter' %}"><button type="button" class="btn btn-tw"><i class="fa fa-twitter" aria-hidden="true"></i>{% trans ' Twitter' %}</button></a> |
+	<a href="{% url 'social:begin' 'github' %}"><button type="button" class="btn btn-git"><i class="fa fa-github" aria-hidden="true"></i>{% trans ' GitHub' %}</button></a> |
+	<a href="{% url 'users:auth_login' %}" class="login-form-link"><button type="button" class="btn log btn-primary"><i class="fa fa-sign-in" aria-hidden="true" title ="{% trans ' Login' %}"></i>{% trans ' Login' %}</button></a> |
+	<a href="{% url 'register' %}" class="registration-form-link"><button type="button" class="btn reg btn-success"><i class="fa fa-address-card-o" aria-hidden="true"></i>{% trans ' Register' %}</button></a> 
 
 	</div>
 
@@ -365,7 +417,7 @@
 	{% else %}
 
 	<div class="alert alert-warning">
-   {% trans 'To view the full version of the site - you need to log in (you can do this via Facebook or Google+).' %}
+   {% trans 'To view the full version of the site - you need to log in (you can do this via Facebook, Google+, Twitter or GitHub).' %}
   </div>
 
   {% endif %}
