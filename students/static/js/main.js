@@ -785,6 +785,7 @@ function FormPhotoPage(){
     if (photolink == undefined) {
             photolink = "/static/image/avatar.png";
     }
+
     var htmltext = "<img class='img-circle' src='"+photolink+"' height='150' width='150' /> \
 <br><br><br><br><br><br><br><br><input id='id_photo' class='clearablefileinput' align='left' type='file' name='photo'> \
 <input id='photo-clear_id' type='checkbox' name='photo-clear'> <label id='photo-clear_id'>Очистити</label>";
@@ -797,6 +798,7 @@ function FormPhoto(){
     if (photolink == undefined) {
             photolink = "/static/image/avatar.png";
     }
+
     var htmltext = "<img class='img-circle' id='f_img' src='"+photolink+"' height='100' width='100' /> \
 <br><input id='id_photo' class='clearablefileinput' align='left' type='file' name='photo'> \
 <label id='photo-clear_id'>Очистити</label><input id='photo-clear_id' type='checkbox' name='photo-clear'>";
