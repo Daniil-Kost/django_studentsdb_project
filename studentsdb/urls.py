@@ -34,7 +34,7 @@ js_info_dict = {
 	'packages': ('students',),
 }
 
-urlpatterns = patterns('',
+urlpatterns = [
 
 
 # Students urls
@@ -149,7 +149,7 @@ url(r'^admin/', include(admin.site.urls)),
 
 
 
-)
+]
 
 if DEBUG:
 	#serve files from media folder

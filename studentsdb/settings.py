@@ -156,11 +156,11 @@ MEDIA_ROOT =os.path.join(BASE_DIR, '..', 'media')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-ADMIN_EMAIL = 'lemk1997@gmail.com'
+ADMIN_EMAIL = 'lemk@ukr.net'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '465'
-EMAIL_HOST_USER = 'studentsdb@email.ua'
-EMAIL_HOST_PASSWORD = 'studentsdb-django'
+EMAIL_HOST_USER = 'studentsdb1111@gmail.com'
+EMAIL_HOST_PASSWORD = 'kynhbquucgwxpsdp'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
@@ -168,9 +168,10 @@ SITE_ID = 1
 #SERVER_EMAIL = "lemk1997@gmail.com"
 #DEFAULT_FROM_EMAIL = "admin@studentsdb.uk.to"
 #MANAGERS = [('admin','lemk1997@gmail.com')]
-#ADMINS = (
- #   ('admin', 'lemk1997@gmail.com'),
-#)
+ADMINS = (
+    ('admin', 'lemk1997@gmail.com'),
+    ('lemk', 'lemk@ukr.net'),
+)
 
 
 #registration

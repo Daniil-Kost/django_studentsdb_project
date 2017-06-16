@@ -108,7 +108,11 @@
 
       <tr>
 
-        <td>{{ forloop.counter }}</td>
+        <td>{% if is_paginated %}
+              {{ page_obj.start_index|add:forloop.counter|add:'-1' }}
+          {% else %}
+              {{ forloop.counter }}
+          {% endif %}</td>
       	<td>
       	 <a href="{% url 'user_profile' user.id %}" 
           title="{% trans 'Review' %}" class ="modal-edit-form-link">

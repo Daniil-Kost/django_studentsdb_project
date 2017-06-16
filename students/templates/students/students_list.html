@@ -48,7 +48,7 @@
     }
 
 	.label {
-		float:center;
+		float:left;
     	color: {{TC}};
     	display: inline;
     	font-size: 110%;
@@ -85,7 +85,7 @@
 		}
 
 	.label {
-		float:center;
+		float:left;
     	color: #333;
     	display: inline;
     	font-size: 110%;
@@ -156,7 +156,11 @@
 			
 				{% for student in students %}
 				<tr>
-					<td>{{ forloop.counter }}</td>
+					<td>{% if is_paginated %}
+              {{ page_obj.start_index|add:forloop.counter|add:'-1' }}
+          {% else %}
+              {{ forloop.counter }}
+          {% endif %}</td>
 					<td>
 					{% if student.photo %}
 					<img height="50" width="50" 

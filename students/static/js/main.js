@@ -764,7 +764,6 @@ function initDateFields(){
   }).on('dp.hide', function(event){
     $(this).blur();
   });
-
 }
 
 function initDateTimeFields(){
