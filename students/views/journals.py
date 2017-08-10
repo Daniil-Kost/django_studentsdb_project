@@ -120,7 +120,7 @@ class JournalView(TemplateView):
 			#студент
 			students.append({
 				'fullname': u'%s %s' % (student.last_name,
-				 student.first_name),
+					student.first_name),
 				'days': days,
 				'id': student.id,
 				'update_url' :update_url,
@@ -128,7 +128,7 @@ class JournalView(TemplateView):
 
 		#застосовуємо пагінацію до списку студентів
 		context = paginate(students, 10, self.request, context,
-				var_name ='students')
+			var_name ='students')
 
 		return context 
 
