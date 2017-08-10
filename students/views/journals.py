@@ -89,46 +89,41 @@ class JournalView(TemplateView):
 		#робитимемо його на цю ж вʼюшку; вьюшка журналу
 		#буде і показувати журнал і обслуговувати запити
 		#типу пост на оновлення журналу
-
-		update_url = reverse('journal')
-
-		#пробігаємось по усіх студентах і збираємо 
+    	update_url = reverse('journal')
+    	#пробігаємось по усіх студентах і збираємо 
 		#необхідні дані
-		students = []
-		for student in queryset:
-		#TODO: витягуємо журнал для студента і
-		#вибраного місяця
-			try:
-				journal = MonthJournal.objects.get(
-					student = student, date = month)
-			except Exception:
-				journal = None
+    	students = []
+    	for student in queryset:
+    		#TODO: витягуємо журнал для студента і
+			#вибраного місяця
+    		try:
+    			journal = MonthJournal.objects.get(
+    				student = student, date = month)
+    		except Exception:
+    			journal = None
+    		#набиваємо дні для студента
+    		days = []
+    		for day in range(1, number_of_days+1):
+    			days.append({
+    				'day': day,
+    				'present' : journal and getattr(journal,
+    					'present_day%d' % day, False) or False, 
+    				'date': date(myear, mmonth, day).strftime(
+    					'%Y-%m-%d'),
+    				})
+    		#студент
+    		students.append({
+    			'fullname': u'%s %s' % (student.last_name,
+    				student.first_name),
+    			'days': days,
+    			'id': student.id,
+    			'update_url' :update_url,
+    			})
+    	#застосовуємо пагінацію до списку студентів
+    	context = paginate(students, 10, self.request, context,
+    		var_name ='students')
 
-			#набиваємо дні для студента
-			days = []
-			for day in range(1, number_of_days+1):
-				days.append({
-					'day': day,
-					'present' : journal and getattr(journal,
-						'present_day%d' % day, False) or False, 
-					'date': date(myear, mmonth, day).strftime(
-						'%Y-%m-%d'),
-					})
-
-			#студент
-			students.append({
-				'fullname': u'%s %s' % (student.last_name,
-					student.first_name),
-				'days': days,
-				'id': student.id,
-				'update_url' :update_url,
-				})
-
-		#застосовуємо пагінацію до списку студентів
-		context = paginate(students, 10, self.request, context,
-			var_name ='students')
-
-		return context 
+    	return context 
 
 
     def post(self, request, *args, **kwargs):
