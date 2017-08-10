@@ -26,11 +26,8 @@ class JournalView(TemplateView):
     template_name = 'students/journal_list.html'
 
     def get_context_data(self, **kwargs):
-		#get context data from TemplateView class
-		context = super(JournalView, self).get_context_data(**kwargs)
-
-		#перевіряємо чи передали нам місяць в параметрі
-		if self.request.GET.get('month'):
+    	context = super(JournalView, self).get_context_data(**kwargs)
+    	if self.request.GET.get('month'):
 			month = datetime.strptime(self.request.GET['month'], '%Y-%m-%d').date()
 		else:
 			#якщо ні - вичисляємо поточний;
