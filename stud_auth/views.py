@@ -11,7 +11,6 @@ from crispy_forms.layout import Submit, HTML, Layout
 from crispy_forms.bootstrap import FormActions
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
-from models import StProfile
 from django.forms import ModelForm
 from django.http import HttpResponse, HttpResponseRedirect
 from students.util import paginate
