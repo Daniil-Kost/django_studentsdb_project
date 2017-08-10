@@ -5,7 +5,6 @@ django-crispy-forms==1.6.1
 django-registration-redux==1.4
 django-ulogin==0.3
 gunicorn==19.7.1
-MySQL-python==1.2.5
 oauthlib==2.0.2
 olefile==0.44
 packaging==16.8
