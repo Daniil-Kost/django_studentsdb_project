@@ -28,31 +28,32 @@ class JournalView(TemplateView):
     def get_context_data(self, **kwargs):
     	context = super(JournalView, self).get_context_data(**kwargs)
     	if self.request.GET.get('month'):
-			month = datetime.strptime(self.request.GET['month'], '%Y-%m-%d').date()
-		else:
-			#якщо ні - вичисляємо поточний;
-			today = datetime.today()
-			month = date(today.year, today.month, 1)
+    		month = datetime.strptime(self.request.GET['month'], '%Y-%m-%d').date()
+    	else:
+    		#якщо ні - вичисляємо поточний;
+    		today = datetime.today()
+    		month = date(today.year, today.month, 1)
 
-		today = datetime.today()
+    	today = datetime.today()
 
-		#обчислюємо поточний рік, попередній і наступний місяці
+    	#обчислюємо поточний рік, попередній і наступний місяці
 		#we need this for month navigation element in template
-		next_month = month + relativedelta(months = 1)
-		prev_month = month - relativedelta(months = 1)
-		context['prev_month'] = prev_month.strftime('%Y-%m-%d')
-		context['next_month'] = next_month.strftime('%Y-%m-%d')
-		context['year'] = month.year
+    	next_month = month + relativedelta(months = 1)
+    	prev_month = month - relativedelta(months = 1)
+    	context['prev_month'] = prev_month.strftime('%Y-%m-%d')
+    	context['next_month'] = next_month.strftime('%Y-%m-%d')
+    	context['year'] = month.year
+		
 		#також поточний місяць;
 		#змінну cur_month ми використовуватимемо пізніше
 		#в пагінації; а month_verbose 
 		#в навігації помісячній
 		context['cur_month'] = month.strftime('%Y-%m-%d')
 		context['month_verbose'] = month.strftime('%B')
-
 		myear = month.year
 		mmonth = month.month
 		number_of_days = monthrange(myear, mmonth)[1]
+
 		#передаємо в контекст список днів для заголовку 
 		#таблиці із відвідування. 
 		#передаємо в контекст список днів
@@ -68,11 +69,11 @@ class JournalView(TemplateView):
 		#його назву із словника day_abbr; отриману
 		#назву обрізаємо до двох символів
 		#та запам’ятовуємо в словнику під ключем ‘verbose’
-		context['month_header'] = [
-			{'day':d, 'verbose': day_abbr[weekday(myear,
-				mmonth, d)][:3]}
-			for d in range(1, number_of_days+1)]
 
+		context['month_header'] = [
+		{'day':d, 'verbose': day_abbr[weekday(myear,
+			mmonth, d)][:3]}
+		for d in range(1, number_of_days+1)]
 		#витягуємо усіх студентів по сортованих по прізвищу
 		#або одного студента за id
 		if kwargs.get('pk'):
@@ -85,7 +86,8 @@ class JournalView(TemplateView):
 			else:
 				queryset = Student.objects.all().order_by('last_name')
 
-		#це адреса для посту AJAX запиту, як бачите, ми
+
+				#це адреса для посту AJAX запиту, як бачите, ми
 		#робитимемо його на цю ж вʼюшку; вьюшка журналу
 		#буде і показувати журнал і обслуговувати запити
 		#типу пост на оновлення журналу
@@ -96,8 +98,8 @@ class JournalView(TemplateView):
 		#необхідні дані
 		students = []
 		for student in queryset:
-			#TODO: витягуємо журнал для студента і
-			#вибраного місяця
+		#TODO: витягуємо журнал для студента і
+		#вибраного місяця
 			try:
 				journal = MonthJournal.objects.get(
 					student = student, date = month)
