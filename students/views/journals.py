@@ -42,17 +42,17 @@ class JournalView(TemplateView):
     	prev_month = month - relativedelta(months = 1)
     	context['prev_month'] = prev_month.strftime('%Y-%m-%d')
     	context['next_month'] = next_month.strftime('%Y-%m-%d')
-    	context['year'] = month.year
-		
-		#також поточний місяць;
+    	
+    	#також поточний місяць;
 		#змінну cur_month ми використовуватимемо пізніше
 		#в пагінації; а month_verbose 
 		#в навігації помісячній
-		context['cur_month'] = month.strftime('%Y-%m-%d')
-		context['month_verbose'] = month.strftime('%B')
-		myear = month.year
-		mmonth = month.month
-		number_of_days = monthrange(myear, mmonth)[1]
+    	context['year'] = month.year
+    	context['cur_month'] = month.strftime('%Y-%m-%d')
+    	context['month_verbose'] = month.strftime('%B')
+    	myear = month.year
+    	mmonth = month.month
+    	number_of_days = monthrange(myear, mmonth)[1]
 
 		#передаємо в контекст список днів для заголовку 
 		#таблиці із відвідування. 
