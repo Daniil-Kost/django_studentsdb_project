@@ -1,0 +1,354 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Tem",
+				"TEMPLATES"
+			],
+			[
+				"regist",
+				"registration\t(settings.py)"
+			],
+			[
+				"au",
+				"auth_logout\t(urls.py)"
+			],
+			[
+				"as",
+				"as_view"
+			],
+			[
+				"view",
+				"views"
+			],
+			[
+				"ma",
+				"margin-top"
+			],
+			[
+				"a",
+				"a\tTag"
+			],
+			[
+				"sp",
+				"span\tTag"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"p",
+				"p\tTag"
+			],
+			[
+				"fla",
+				"float"
+			],
+			[
+				"lang",
+				"lang-selector\t(base.html)"
+			],
+			[
+				"col",
+				"col-xs-12"
+			],
+			[
+				"len",
+				"length\t(main.js)"
+			],
+			[
+				"my",
+				"myList"
+			],
+			[
+				"btn-re",
+				"btn-remove-id\t(index.html)"
+			],
+			[
+				"li",
+				"list-id\t(index.html)"
+			],
+			[
+				"inp",
+				"input-id-link\t(index.html)"
+			],
+			[
+				"btn",
+				"btn-id-link\t(index.html)"
+			],
+			[
+				"onc",
+				"onclick\tAttr"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"ty",
+				"type"
+			],
+			[
+				"h",
+				"html\thtml"
+			],
+			[
+				"YYYY",
+				"YYYY-MM-DD"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/localadmin/virtualenvs/demo/src/studentsdb/templates/registration/login.html",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 372.0,
+		"last_filter": "Package Control: ",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Emmet",
+				"Plugin Development: Convert Syntax to .sublime-syntax"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/templates/students/students_edit.html",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/views/students.py",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/static/js/main.js",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/templates/students/students_list.html",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/templates/students/base.html",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/templates/registration/login.html",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/studentsdb/settings.py",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/util.py",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/studentsdb/urls.py",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/models.py",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/templates/students/form.html",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/static/css/main.css",
+		"/home/localadmin/Рабочий стол/demo/demo.js",
+		"/home/localadmin/Рабочий стол/demo/index.html",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/views/journals.py",
+		"/home/localadmin/demo/demo1.py",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/admin.py",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/views/contact_admin.py",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/locale/uk/LC_MESSAGES/django.po",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/views/groups.py",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/views/exams.py",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/views/set_language.py",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/locale/ru/LC_MESSAGES/django.po",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/templates/students/results_edit.html",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/templates/students/journal_list.html",
+		"/home/localadmin/Документы/django_vipod_book-master/students/templates/students/css/main.css",
+		"/home/localadmin/Документы/django_vipod_book-master/students/templates/students/form.html",
+		"/home/localadmin/Документы/django_vipod_book-master/students/templates/students/groups_list.html",
+		"/home/localadmin/Документы/django_vipod_book-master/students/templates/students/groups_edit.html",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/templates/students/groups_delete.html",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/templates/students/exams_delete.html",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/templates/students/students_delete.html",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/templates/students/results_delete.html",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/templates/students/groups_edit.html",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/templates/students/exams_edit.html",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/templates/students/groups_list.html",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/templates/students/exams_list.html",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/templates/students/exams_result.html",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/templates/students/contact_admin.html",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/views.py",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/students/apps.py",
+		"/home/localadmin/Рабочий стол/Django_Recommended/Code/chapter5_html/students/models.py",
+		"/home/localadmin/virtualenvs/demo/src/studentsdb/studentsdb/__init__.py"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"endblock",
+			"\"\""
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/localadmin/virtualenvs/demo/src/studentsdb/templates/registration/login.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 39.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/Python/Python.sublime-build",
+	"project": "django.sublime-project",
+	"replace":
+	{
+		"height": 74.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

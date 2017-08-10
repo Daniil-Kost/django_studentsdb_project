@@ -1,0 +1,675 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-22 18:35+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: models.py:18 models.py:157 models.py:182
+#: templates/students/exams_result.html:155
+#: templates/students/journal_list.html:170
+msgid "Student"
+msgstr ""
+
+#: models.py:19 models.py:87 templates/students/base.html:355
+#: templates/students/demo.html:7 templates/students/journal_list.html:9
+#: templates/students/students_list.html:10
+msgid "Students"
+msgstr ""
+
+#: models.py:24 models.py:77 templates/students/groups_list.html:122
+msgid "Name"
+msgstr ""
+
+#: models.py:29 templates/students/demo.html:143
+#: templates/students/students_list.html:128
+msgid "Last Name"
+msgstr ""
+
+#: models.py:34
+msgid "Middle Name"
+msgstr ""
+
+#: models.py:39
+msgid "Birthday"
+msgstr ""
+
+#: models.py:44 templates/students/students_list.html:125
+msgid "Photo"
+msgstr ""
+
+#: models.py:50
+msgid "Ticket"
+msgstr ""
+
+#: models.py:53 models.py:71 models.py:123 models.py:151
+#: templates/students/exams_list.html:136
+#: templates/students/exams_result.html:147
+#: templates/students/students_list.html:150
+msgid "Group"
+msgstr ""
+
+#: models.py:60 models.py:92
+msgid "Notes"
+msgstr ""
+
+#: models.py:72 templates/students/base.html:365
+#: templates/students/groups_list.html:7
+#: templates/students/groups_list.html:100
+msgid "Groups"
+msgstr ""
+
+#: models.py:80 templates/students/groups_list.html:123
+msgid "Leader"
+msgstr ""
+
+#: models.py:104 models.py:144 templates/students/exams_result.html:139
+msgid "Exam"
+msgstr ""
+
+#: models.py:105 templates/students/base.html:371
+#: templates/students/exams_list.html:7 templates/students/exams_list.html:110
+#: templates/students/exams_result.html:102
+msgid "Exams"
+msgstr ""
+
+#: models.py:110 templates/students/exams_list.html:133
+msgid "Science"
+msgstr ""
+
+#: models.py:115 templates/students/exams_list.html:135
+msgid "Teacher"
+msgstr ""
+
+#: models.py:119 templates/students/exams_list.html:134
+msgid "Time"
+msgstr ""
+
+#: models.py:140
+msgid "Exam Result"
+msgstr ""
+
+#: models.py:141 templates/students/exams_result.html:7
+#: templates/students/exams_result.html:109
+#: templates/students/exams_result.html:113
+msgid "Exams Results"
+msgstr ""
+
+#: models.py:166 templates/students/exams_result.html:163
+#: templates/students/exams_result.html:201
+#: templates/students/exams_result.html:241
+msgid "Result"
+msgstr ""
+
+#: models.py:178 templates/students/journal_list.html:121
+msgid "Monthly Journal"
+msgstr ""
+
+#: models.py:179
+msgid "Mounthly Journals"
+msgstr ""
+
+#: models.py:188
+msgid "Date"
+msgstr ""
+
+#: templates/students/base.html:13
+msgid "Students Database Service"
+msgstr ""
+
+#: templates/students/base.html:15 templates/students/form.html:14
+msgid "App to manage students database"
+msgstr ""
+
+#: templates/students/base.html:284 templates/students/form.html:274
+msgid " Users"
+msgstr ""
+
+#: templates/students/base.html:286 templates/students/form.html:276
+msgid " Settings"
+msgstr ""
+
+#: templates/students/base.html:288 templates/students/form.html:278
+msgid "Logout"
+msgstr ""
+
+#: templates/students/base.html:295 templates/students/base.html:296
+#: templates/students/demo.html:98 templates/students/demo.html:100
+msgid " Sign in"
+msgstr ""
+
+#: templates/students/base.html:295
+msgid " Facebook"
+msgstr ""
+
+#: templates/students/base.html:296
+msgid " Google+"
+msgstr ""
+
+#: templates/students/base.html:297
+msgid " Twitter"
+msgstr ""
+
+#: templates/students/base.html:298
+msgid " GitHub"
+msgstr ""
+
+#: templates/students/base.html:299
+msgid " Login"
+msgstr ""
+
+#: templates/students/base.html:300
+msgid " Register"
+msgstr ""
+
+#: templates/students/base.html:315 templates/students/form.html:290
+msgid "Students Accouting Service"
+msgstr ""
+
+#: templates/students/base.html:321
+msgid "Group:"
+msgstr ""
+
+#: templates/students/base.html:323
+msgid "All Students"
+msgstr ""
+
+#: templates/students/base.html:336 templates/students/form.html:295
+msgid "Language: "
+msgstr ""
+
+#: templates/students/base.html:360 templates/students/demo.html:209
+#: templates/students/demo.html:251 templates/students/groups_list.html:153
+#: templates/students/groups_list.html:193
+#: templates/students/students_list.html:194
+#: templates/students/students_list.html:236
+msgid "Journal"
+msgstr ""
+
+#: templates/students/base.html:382
+msgid "Contact"
+msgstr ""
+
+#: templates/students/base.html:420
+msgid ""
+"To view the full version of the site - you need to log in (you can do this "
+"via Facebook, Google+, Twitter or GitHub)."
+msgstr ""
+
+#: templates/students/base.html:444 templates/students/form.html:11
+#: templates/students/form.html:348
+msgid "Students Accounting Service"
+msgstr ""
+
+#: templates/students/base.html:447 templates/students/form.html:351
+msgid "Developed by "
+msgstr ""
+
+#: templates/students/base.html:447 templates/students/form.html:351
+msgid "Daniil Kostyshak"
+msgstr ""
+
+#: templates/students/base.html:450 templates/students/form.html:354
+msgid "View at GitHub"
+msgstr ""
+
+#: templates/students/contact_admin.html:153
+#: templates/students/contact_admin.html:155
+msgid "Contact with Admin"
+msgstr ""
+
+#: templates/students/contact_admin.html:161
+#: templates/students/exams_edit.html:73 templates/students/groups_edit.html:73
+#: templates/students/results_edit.html:73
+#: templates/students/students_edit.html:73
+#: templates/students/user_settings.html:267
+msgid "Please correct the following errors"
+msgstr ""
+
+#: templates/students/demo.html:9 templates/students/students_list.html:12
+msgid "Students List"
+msgstr ""
+
+#: templates/students/demo.html:94
+msgid "Registration Form"
+msgstr ""
+
+#: templates/students/demo.html:96
+msgid "Login Form"
+msgstr ""
+
+#: templates/students/demo.html:98
+msgid " Sign in with Facebook"
+msgstr ""
+
+#: templates/students/demo.html:100
+msgid " Sign in with Google+"
+msgstr ""
+
+#: templates/students/demo.html:102
+msgid "Users"
+msgstr ""
+
+#: templates/students/demo.html:104
+msgid "Joined"
+msgstr ""
+
+#: templates/students/demo.html:106
+msgid "Mobile Phone"
+msgstr ""
+
+#: templates/students/demo.html:109
+msgid " All Users"
+msgstr ""
+
+#: templates/students/demo.html:111
+msgid "Profile"
+msgstr ""
+
+#: templates/students/demo.html:113
+msgid "Profile Edit"
+msgstr ""
+
+#: templates/students/demo.html:115 templates/students/demo.html:221
+msgid "Delete User"
+msgstr ""
+
+#: templates/students/demo.html:117
+msgid "Form Delete User"
+msgstr ""
+
+#: templates/students/demo.html:119
+msgid " Registration"
+msgstr ""
+
+#: templates/students/demo.html:130
+msgid "Users List"
+msgstr ""
+
+#: templates/students/demo.html:140
+msgid "Username"
+msgstr ""
+
+#: templates/students/demo.html:159
+msgid "Passsword"
+msgstr ""
+
+#: templates/students/demo.html:165
+msgid "Login"
+msgstr ""
+
+#: templates/students/demo.html:166
+msgid "Registration"
+msgstr ""
+
+#: templates/students/demo.html:190 templates/students/demo.html:192
+#: templates/students/demo.html:196 templates/students/demo.html:215
+#: templates/students/demo.html:232 templates/students/demo.html:234
+#: templates/students/demo.html:238 templates/students/demo.html:257
+#: templates/students/exams_list.html:149
+#: templates/students/exams_list.html:152
+#: templates/students/exams_list.html:154
+#: templates/students/exams_list.html:157
+#: templates/students/exams_list.html:176
+#: templates/students/exams_list.html:194
+#: templates/students/exams_list.html:197
+#: templates/students/exams_list.html:199
+#: templates/students/exams_list.html:202
+#: templates/students/exams_list.html:222
+#: templates/students/exams_result.html:184
+#: templates/students/exams_result.html:186
+#: templates/students/exams_result.html:187
+#: templates/students/exams_result.html:189
+#: templates/students/exams_result.html:207
+#: templates/students/exams_result.html:224
+#: templates/students/exams_result.html:226
+#: templates/students/exams_result.html:227
+#: templates/students/exams_result.html:229
+#: templates/students/exams_result.html:247 templates/students/form.html:310
+#: templates/students/groups_list.html:137
+#: templates/students/groups_list.html:140
+#: templates/students/groups_list.html:159
+#: templates/students/groups_list.html:177
+#: templates/students/groups_list.html:180
+#: templates/students/groups_list.html:199
+#: templates/students/journal_list.html:201
+#: templates/students/journal_list.html:212
+#: templates/students/students_list.html:175
+#: templates/students/students_list.html:177
+#: templates/students/students_list.html:181
+#: templates/students/students_list.html:200
+#: templates/students/students_list.html:217
+#: templates/students/students_list.html:219
+#: templates/students/students_list.html:223
+#: templates/students/students_list.html:242
+msgid "Edit"
+msgstr ""
+
+#: templates/students/demo.html:201
+#, python-format
+msgid "Do you really want to delete user: \"%(object)s\" ?"
+msgstr ""
+
+#: templates/students/demo.html:243 templates/students/exams_list.html:162
+#: templates/students/exams_list.html:207
+#: templates/students/exams_result.html:194
+#: templates/students/exams_result.html:234
+#: templates/students/groups_list.html:145
+#: templates/students/groups_list.html:185
+#: templates/students/students_list.html:186
+#: templates/students/students_list.html:228
+msgid "Action"
+msgstr ""
+
+#: templates/students/demo.html:263 templates/students/exams_delete.html:94
+#: templates/students/exams_list.html:182
+#: templates/students/exams_list.html:228
+#: templates/students/exams_result.html:212
+#: templates/students/exams_result.html:253
+#: templates/students/groups_delete.html:94
+#: templates/students/groups_list.html:165
+#: templates/students/groups_list.html:204
+#: templates/students/results_delete.html:94
+#: templates/students/students_delete.html:94
+#: templates/students/students_list.html:206
+#: templates/students/students_list.html:248
+msgid "Delete"
+msgstr ""
+
+#: templates/students/exams_delete.html:9
+#: templates/students/exams_delete.html:74
+msgid "Delete Exam"
+msgstr ""
+
+#: templates/students/exams_delete.html:86
+msgid "Form delete exam"
+msgstr ""
+
+#: templates/students/exams_delete.html:91
+#, python-format
+msgid "Do you really want to delete exam: \"%(object)s\" ?"
+msgstr ""
+
+#: templates/students/exams_delete.html:96
+#: templates/students/groups_delete.html:96
+#: templates/students/results_delete.html:96
+#: templates/students/students_delete.html:96 views/exams.py:72
+#: views/exams.py:126 views/exams.py:223 views/exams.py:278 views/groups.py:68
+#: views/groups.py:122 views/students.py:76 views/students.py:132
+msgid "Cancel"
+msgstr ""
+
+#: templates/students/exams_edit.html:9
+msgid "Edit Exam"
+msgstr ""
+
+#: templates/students/exams_edit.html:66
+msgid "Form edit exam"
+msgstr ""
+
+#: templates/students/exams_list.html:104
+msgid "Exam Results"
+msgstr ""
+
+#: templates/students/exams_list.html:117
+#: templates/students/exams_list.html:124
+msgid " Add Exam"
+msgstr ""
+
+#: templates/students/exams_list.html:137
+#: templates/students/exams_result.html:170
+#: templates/students/groups_list.html:124
+#: templates/students/students_list.html:151
+msgid "Actions"
+msgstr ""
+
+#: templates/students/exams_list.html:170
+#: templates/students/exams_list.html:215
+msgid "Results"
+msgstr ""
+
+#: templates/students/exams_result.html:122
+#: templates/students/exams_result.html:128
+msgid " Add Exam Result"
+msgstr ""
+
+#: templates/students/groups_delete.html:9
+#: templates/students/groups_delete.html:74
+msgid "Delete Group"
+msgstr ""
+
+#: templates/students/groups_delete.html:86
+msgid "Form Delete Group"
+msgstr ""
+
+#: templates/students/groups_delete.html:91
+#, python-format
+msgid "Do you really want to delete group: \"%(object)s\" ?"
+msgstr ""
+
+#: templates/students/groups_edit.html:9
+msgid "Edit Group"
+msgstr ""
+
+#: templates/students/groups_edit.html:66
+msgid "Form edit group"
+msgstr ""
+
+#: templates/students/groups_list.html:107
+#: templates/students/groups_list.html:113
+msgid " Add Group"
+msgstr ""
+
+#: templates/students/journal_list.html:131
+msgid "There are no students in the database yet. Please, "
+msgstr ""
+
+#: templates/students/journal_list.html:132
+msgid "add"
+msgstr ""
+
+#: templates/students/journal_list.html:132
+msgid "your first student."
+msgstr ""
+
+#: templates/students/journal_list.html:142
+msgid ""
+"We automatically save changes into journal while you click inside table "
+"cells."
+msgstr ""
+
+#: templates/students/journal_list.html:143
+msgid "Saving..."
+msgstr ""
+
+#: templates/students/journal_list.html:148
+msgid ""
+"When data is unpredictable error occurred. Try to fill the browsing history "
+"later."
+msgstr ""
+
+#: templates/students/journal_list.html:156
+msgid "Previous Month"
+msgstr ""
+
+#: templates/students/journal_list.html:160
+msgid "Next Month"
+msgstr ""
+
+#: templates/students/results_delete.html:9
+#: templates/students/results_delete.html:74
+msgid "Delete exam result"
+msgstr ""
+
+#: templates/students/results_delete.html:86
+msgid "Form delete exam result"
+msgstr ""
+
+#: templates/students/results_delete.html:91
+#, python-format
+msgid "Do you really want to delete exam result: \"%(object)s\" ?"
+msgstr ""
+
+#: templates/students/results_edit.html:9
+msgid "Edit Exam Results"
+msgstr ""
+
+#: templates/students/results_edit.html:66
+msgid "Form edit exam results"
+msgstr ""
+
+#: templates/students/students_delete.html:9
+#: templates/students/students_delete.html:74
+msgid "Delete Student"
+msgstr ""
+
+#: templates/students/students_delete.html:86
+msgid "Form delete student"
+msgstr ""
+
+#: templates/students/students_delete.html:91
+#, python-format
+msgid "Do you really want to delete student: \"%(object)s\" ?"
+msgstr ""
+
+#: templates/students/students_edit.html:9
+msgid "Edit Student"
+msgstr ""
+
+#: templates/students/students_edit.html:66
+msgid "Form edit student"
+msgstr ""
+
+#: templates/students/students_list.html:110
+#: templates/students/students_list.html:115
+msgid " Add Student"
+msgstr ""
+
+#: templates/students/students_list.html:136
+msgid "First Name"
+msgstr ""
+
+#: templates/students/students_list.html:144
+msgid "Ticket №"
+msgstr ""
+
+#: templates/students/user_settings.html:7
+#: templates/students/user_settings.html:249
+msgid "Settings"
+msgstr ""
+
+#: templates/students/user_settings.html:258
+msgid "Settings custom styles"
+msgstr ""
+
+#: templates/students/user_settings.html:273
+msgid ""
+"You can edit styles of this site. Changes saved automatically when you "
+"selected option at the selector."
+msgstr ""
+
+#: templates/students/user_settings.html:281
+msgid "Background"
+msgstr ""
+
+#: templates/students/user_settings.html:284
+msgid "Current Background Color: "
+msgstr ""
+
+#: templates/students/user_settings.html:298
+msgid "Form color"
+msgstr ""
+
+#: templates/students/user_settings.html:301
+msgid "Current Form Color: "
+msgstr ""
+
+#: templates/students/user_settings.html:319
+msgid "Text color"
+msgstr ""
+
+#: templates/students/user_settings.html:322
+msgid "Current Text Color: "
+msgstr ""
+
+#: templates/students/user_settings.html:336
+msgid " Home"
+msgstr ""
+
+#: views/exams.py:70 views/exams.py:124 views/exams.py:221 views/exams.py:276
+#: views/groups.py:66 views/groups.py:120 views/students.py:74
+#: views/students.py:130
+msgid "Save"
+msgstr ""
+
+#: views/exams.py:86
+#, python-format
+msgid "Exam %(science)s (%(groups)s) succesfully added !"
+msgstr ""
+
+#: views/exams.py:141
+#, python-format
+msgid "Exam %(science)s (%(groups)s) succesfully saved !"
+msgstr ""
+
+#: views/exams.py:158
+msgid "Exam succesfully deleted !"
+msgstr ""
+
+#: views/exams.py:237
+#, python-format
+msgid "Exam result %(exams)s (%(students)s) succesfully added !"
+msgstr ""
+
+#: views/exams.py:293
+#, python-format
+msgid "Exam result %(exams)s %(students)s succesfully saved !"
+msgstr ""
+
+#: views/exams.py:310
+msgid "Exam result succesfully deleted !"
+msgstr ""
+
+#: views/groups.py:81
+#, python-format
+msgid "Group %(title)s succesfully added !"
+msgstr ""
+
+#: views/groups.py:137
+#, python-format
+msgid "Group %(title)s succesfully saved !"
+msgstr ""
+
+#: views/groups.py:155
+msgid "Group succesfully deleted !"
+msgstr ""
+
+#: views/students.py:90
+#, python-format
+msgid "Student %(first_name)s %(last_name)s added succesfully !"
+msgstr ""
+
+#: views/students.py:96
+msgid "Student add canceled !"
+msgstr ""
+
+#: views/students.py:148
+#, python-format
+msgid "Student %(first_name)s %(last_name)s saved succesfully !"
+msgstr ""
+
+#: views/students.py:165
+msgid "Student succesfully deleted !"
+msgstr ""
