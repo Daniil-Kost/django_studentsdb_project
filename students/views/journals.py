@@ -125,26 +125,20 @@ class JournalView(TemplateView):
 
     	return context 
 
-
     def post(self, request, *args, **kwargs):
-		data = request.POST
+    	data = request.POST
 
-		current_date = datetime.strptime(data['date'], 
-			'%Y-%m-%d').date()
-		#pdb.set_trace()
-		#pdb.pm()
-		month = date(current_date.year, current_date.month, 1)
-		present = data['present'] and True or False
-		student = Student.objects.get(pk = data['pk'])
+    	current_date = datetime.strptime(data['date'], 
+    		'%Y-%m-%d').date()
+    	month = date(current_date.year, current_date.month, 1)
+    	present = data['present'] and True or False
+    	student = Student.objects.get(pk = data['pk'])
+    	#get or create journal object for given student and month
+    	journal = MonthJournal.objects.get_or_create(student = student,
+    		date = month)[0]
+    	#set new presence on journal for given student and save result
+    	setattr(journal, 'present_day%d' % current_date.day, present)
+    	journal.save()
 
-		#get or create journal object for given student and month
-		journal = MonthJournal.objects.get_or_create(student = student,
-			date = month)[0]
-
-		#set new presence on journal for given student and save result
-		setattr(journal, 'present_day%d' % current_date.day, present)
-		journal.save()
-
-		#return success status
-		return JsonResponse({'status': 'success'})
+    	return JsonResponse({'status': 'success'})
 
