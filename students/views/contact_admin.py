@@ -17,6 +17,7 @@ import pdb
 import logging
 from django.utils.translation import ugettext as _
 from django.contrib.auth.decorators import permission_required
+from studentsdb.settings import EMAIL_HOST_USER
 
 
 #English locale
@@ -45,14 +46,17 @@ class ContactFormEng(forms.Form):
 		self.helper.add_input(Submit('send_button', u"Send"))
 
 
-	from_email =forms.EmailField(label = u"Your email adress")
+	#from_email =forms.EmailField(label = u"Your email adress")
+	#from_email = EMAIL_HOST_USER
+
+	from_email =forms.EmailField(label = u"Email")
 
 	subject =forms.CharField(
-		label ="Title",
+		label ="Name",
 		max_length =128)
 
 	message =forms.CharField(
-		label ="Text message",
+		label ="Message",
 		widget =forms.Textarea)
 
 
@@ -132,14 +136,17 @@ class ContactFormRus(forms.Form):
 #@permission_required('auth.add_user')		
 def contact_admin(request):
 
+	txt = 'Name: '
+	email =' Email: '
+
 	#if english locale
 	if request.COOKIES.get('django_language') == 'en':
 		if request.method =='POST':
 			form =ContactFormEng(request.POST)
 			if form.is_valid():
-				subject =form.cleaned_data['subject']
-				message =form.cleaned_data['message']
 				from_email =form.cleaned_data['from_email']
+				subject =txt + form.cleaned_data['subject'] + email +from_email
+				message =form.cleaned_data['message']
 
 				try:
 					send_mail(subject, message, from_email, [ADMIN_EMAIL])

@@ -30,6 +30,9 @@ from django.contrib.auth.decorators import login_required
 from stud_auth.views import UserRegistrationView, UserRegistrationForm
 from stud_auth.views import ProfileView, ProfileViewEdit
 from stud_auth.views import UserDeleteView
+from stud_auth.views import users_list
+from students.views.user_settings import user_settings
+
 js_info_dict = {
 	'packages': ('students',),
 }
@@ -84,7 +87,7 @@ url(r'^exams/(?P<pk>\d+)/delete/$', login_required(
 
 
 #Results urls
-url(r'^exams/results/$', exams_results, 
+url(r'^exams/results/$', login_required(exams_results), 
 	name = 'results'),
 url(r'^exams/results/add/$', login_required(
 	ResultAddView.as_view()), 
@@ -126,7 +129,7 @@ url(r'^accounts/register/$',
 	UserRegistrationView.as_view(),
     name = 'register',),
 
-url(r'^accounts/users/$', 'stud_auth.views.users_list',
+url(r'^accounts/users/$', login_required(users_list),
     name = 'users',),
 url(r'^accounts/profile/(?P<pk>\d+)/delete/$', login_required(
 	UserDeleteView.as_view()),
@@ -134,7 +137,7 @@ url(r'^accounts/profile/(?P<pk>\d+)/delete/$', login_required(
 
 
 #User Settings
-url(r'^settings/$', 'students.views.user_settings.user_settings', 
+url(r'^settings/$', login_required(user_settings), 
 	name = 'user_settings'),
 
 

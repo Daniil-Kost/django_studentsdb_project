@@ -75,7 +75,7 @@ class Command(BaseCommand):
 					birthday =datetime.today())
 				student.save()
 				self.stdout.write(
-					u'Objects %s create in database:' % student)
+					u'Objects %s create in database' % student)
 
 		#groups
 		if 'groups' in args:
@@ -88,7 +88,7 @@ class Command(BaseCommand):
 						0, Student.objects.count()-1)],)
 				group.save()
 				self.stdout.write(
-					u'Objects %s create in database:' % group)
+					u'Objects %s create in database' % group)
 
 		#exams
 		if 'exams' in args:
@@ -103,12 +103,12 @@ class Command(BaseCommand):
 						0, Group.objects.count()-1)])
 				exam.save()
 				self.stdout.write(
-					u'Objects %s create in database:' % exam)
+					u'Objects %s create in database' % exam)
 
 		#results
 		if 'results' in args:
 			number = int(raw_input(
-				u'Input the number of exam results: '))
+				u'Input the number of exam results '))
 			for i in range(number):
 				result = Result(
 					exams = Exam.objects.all()[random.randint(
@@ -120,5 +120,5 @@ class Command(BaseCommand):
 					result = random.choice(self.results))
 				result.save()
 				self.stdout.write(
-					u'Objects %s create in database:' % result)
+					u'Objects %s create in database' % result)
 		

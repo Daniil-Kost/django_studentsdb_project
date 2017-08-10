@@ -125,6 +125,9 @@ class Exam(models.Model):
 		null =True,
 		on_delete =models.CASCADE)
 
+	file = models.FileField(upload_to='uploads', 
+		max_length =100)
+
 	def __unicode__(self):
 		return u"%s (%s)" % (self.science, self.groups)
 

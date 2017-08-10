@@ -2,6 +2,9 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils.translation import ugettext as _
 from studentsdb.settings import LANGUAGE_CODE
+from django.utils.translation import activate
+from django.utils import translation
+
 
 def paginate(objects, size, request, context, var_name='object_list'):
 	"""Paginate objects provided by view"""
@@ -81,19 +84,21 @@ def get_lang(request):
   elif request.COOKIES.get('django_language') == 'ru':
      pk = u'Русский'
      return pk
-  #if we dont selected language - get LANGUAGE_CODE from settings
-  #LANGUAGE_CODE сontains value of language in user browser
   else:
-  	 if LANGUAGE_CODE == 'uk':
-  	 	pk = u'Українська'
-  	 elif LANGUAGE_CODE == 'ru':
-  	 	pk = u'Русский'
-  	 elif LANGUAGE_CODE == 'en':
-  	 	pk = u'English'
-  	 #if user browser use another lang - we write 'select' 
-  	 else:
-  	 	pk = u'select'
-  	 return pk
+    language = translation.get_language_from_request(request)
+    translation.activate(language)
+    request.LANGUAGE_CODE = translation.get_language()
+    if request.LANGUAGE_CODE == 'uk':
+      pk = u'Українська'
+    elif request.LANGUAGE_CODE == 'ru':
+      pk = u'Русский'
+    elif request.LANGUAGE_CODE == 'en':
+      pk = u'English'
+    #if user browser use another lang - we write 'select'
+    else:
+      pk = u'select'
+
+    return pk
 
 
 def get_style(request):

@@ -509,15 +509,7 @@ function initEditModalForm(form, modal){
     return false;
   });
 
-   //close modal window on Cancel button click
-  form.find('button[name="cancel_button"]').click(function(event){
-    //переменная modal взята из функции initEditStudentPage
-    //в JS есть возможность использовать переменные 
-    //обьявленные вне функции
-    modal.modal('hide');
-    return false;
-  });
-
+ 
   //make form work in AJAX mode from jQuery Form
   form.ajaxForm({
     'dataType': 'html',
