@@ -110,9 +110,8 @@ WSGI_APPLICATION = 'studentsdb.wsgi.application'
 #}
 
 # Parse database configuration from $DATABASE_URL
-db_from_env = dj_database_url.config()
-DATABASES['default'] = dj_database_url.config()
-DATABASES['default']['CONN_MAX_AGE'] = 500
+DATABASES = {'default': dj_database_url.parse('postgres://...')}
+HEROKU_POSTGRESQL_ONYX_URL = 'postgres://...'
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
