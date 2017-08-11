@@ -1,12 +1,12 @@
 appdirs==1.4.0
 beautifulsoup4==4.6.0
+dj-database-url==0.4.2
 Django==1.9.6
+whitenoise-3.3.0
 django-crispy-forms==1.6.1
 django-registration-redux==1.4
 django-ulogin==0.3
 gunicorn==19.7.1
-dj-database-url
-whitenoise
 oauthlib==2.0.2
 olefile==0.44
 packaging==16.8
@@ -16,7 +16,6 @@ pyparsing==2.1.10
 python-dateutil==2.6.0
 python-openid==2.2.5
 python-social-auth==0.2.12
-psycopg2
 requests==2.13.0
 requests-oauthlib==0.8.0
 six==1.10.0
