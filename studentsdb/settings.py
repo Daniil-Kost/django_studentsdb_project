@@ -35,6 +35,8 @@ SECRET_KEY = '91i_4a-y_@q7i9*yxzzw^+xnh94h6n^j$2)o99cb27-t@ix@@w'
 DEBUG = True
 
 #ALLOWED_HOSTS = []
+# Allow all host headers
+ALLOWED_HOSTS = [u'lemk.herokuapp.com']
 
 
 # Application definition
@@ -118,8 +120,7 @@ DATABASES['default'] =  dj_database_url.config()
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# Allow all host headers
-ALLOWED_HOSTS = ['*']
+
 
 # Enable Connection Pooling
 #DATABASES['default']['ENGINE'] = 'django_postgrespool'
@@ -176,7 +177,8 @@ DISABLE_COLLECTSTATIC=1
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-PORTAL_URL = 'http://localhost:8000'
+#PORTAL_URL = 'http://localhost:8000'
+PORTAL_URL = 'https://lemk.herokuapp.com/'
 
 MEDIA_URL ='/media/'
 
