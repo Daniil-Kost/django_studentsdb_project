@@ -1,1 +1,1 @@
-web: gunicorn studentsdb.wsgi:application -b "0.0.0.0:$PORT" -w 3 -k gevent --preload
+web: gunicorn studentsdb.wsgi --log-file -
