@@ -36,7 +36,7 @@ DEBUG = True
 
 #ALLOWED_HOSTS = []
 # Allow all host headers
-ALLOWED_HOSTS = [u'lemk.herokuapp.com']
+ALLOWED_HOSTS = [u'lemkapp.herokuapp.com']
 
 
 # Application definition
@@ -177,7 +177,7 @@ STATICFILES_DIRS = (
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 #PORTAL_URL = 'http://localhost:8000'
-PORTAL_URL = 'https://lemk.herokuapp.com/'
+PORTAL_URL = 'https://lemkapp.herokuapp.com/'
 
 MEDIA_URL ='/media/'
 
