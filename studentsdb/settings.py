@@ -36,8 +36,7 @@ DEBUG = True
 
 #ALLOWED_HOSTS = []
 # Allow all host headers
-ALLOWED_HOSTS = [u'lemkapp.herokuapp.com']
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
