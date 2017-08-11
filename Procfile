@@ -1,2 +1,3 @@
-web: gunicorn gettingstarted.wsgi --log-file -
+web: gunicorn studentsdb.wsgi:application
 worker: python worker.py
+
