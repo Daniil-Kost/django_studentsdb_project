@@ -118,7 +118,7 @@ HEROKU_POSTGRESQL_ONYX_URL = 'postgres://...'
 DATABASES['default'] =  dj_database_url.config()
 
 # Enable Connection Pooling
-DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
+DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
