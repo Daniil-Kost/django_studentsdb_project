@@ -1,3 +1,3 @@
-web: gunicorn studentsdb.wsgi
+web: gunicorn studentsdb.wsgi -b 0.0.0.0:$PORT
 
 
