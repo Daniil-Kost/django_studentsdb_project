@@ -8,189 +8,236 @@ from datetime import datetime
 from django.utils.translation import ugettext_lazy as _
 
 
-#Create your models here.
+# Create your models here.
+class Page(models.Model):
+    """Page Model"""
+
+    class Meta(object):
+        """docstring for Meta"""
+        verbose_name = _(u"Page")
+        verbose_name_plural = _(u"Page")
+
+    name = models.CharField(
+        max_length=256,
+        blank=False,
+        verbose_name=_(u"Name of Page"))
+
+    description = models.CharField(
+        max_length=256,
+        blank=True,
+        verbose_name=_(u"SEO Meta Description"))
+
+    title = models.CharField(
+        max_length=256,
+        blank=False,
+        verbose_name=_(u"Title"))
+
+    styles = models.TextField(
+        blank=True,
+        verbose_name=_(u"CSS styles"))
+
+    url_field = models.CharField(
+        max_length=256,
+        blank=False,
+        verbose_name=_(u"URL"))
+
+    slug = models.SlugField(
+        unique=False,
+        default='default')
+
+    content = models.TextField(
+        blank=True,
+        verbose_name=_(u"HTML content"))
+
+    active_link = models.BooleanField(default=False)
+
+    def __unicode__(self):
+        return u"%s" % (self.name)
+
 
 class Student(models.Model):
-	"""Student Model"""
+    """Student Model"""
 
-	class Meta(object):
-		"""docstring for Meta"""
-		verbose_name =_(u"Student")
-		verbose_name_plural =_(u"Students")
-			
-	first_name = models.CharField(
-		max_length =256,
-		blank =False,
-		verbose_name =_(u"Name"))
+    class Meta(object):
+        """docstring for Meta"""
+        verbose_name = _(u"Student")
+        verbose_name_plural = _(u"Students")
 
-	last_name = models.CharField(
-		max_length =256,
-		blank =False,
-		verbose_name =_(u"Last Name"))
+    first_name = models.CharField(
+        max_length=256,
+        blank=False,
+        verbose_name=_(u"Name"))
 
-	middle_name = models.CharField(
-		max_length =256,
-		blank =True,
-		verbose_name =_(u"Middle Name"),
-		default ='')
+    last_name = models.CharField(
+        max_length=256,
+        blank=False,
+        verbose_name=_(u"Last Name"))
 
-	birthday = models.DateField(
-		blank =False,
-		verbose_name =_(u"Birthday"),
-		null =True)
+    middle_name = models.CharField(
+        max_length=256,
+        blank=True,
+        verbose_name=_(u"Middle Name"),
+        default='')
 
-	photo = models.ImageField(
-		blank =True,
-		verbose_name =_(u"Photo"),
-		null =True)
+    birthday = models.DateField(
+        blank=False,
+        verbose_name=_(u"Birthday"),
+        null=True)
 
-	ticket = models.CharField(
-		max_length =256,
-		blank =False,
-		verbose_name =_(u"Ticket"))
+    photo = models.ImageField(
+        blank=True,
+        verbose_name=_(u"Photo"),
+        null=True)
 
-	student_group = models.ForeignKey('Group',
-		verbose_name =_(u"Group"),
-		blank =False,
-		null =True,
-		on_delete =models.PROTECT)
+    ticket = models.CharField(
+        max_length=256,
+        blank=False,
+        verbose_name=_(u"Ticket"))
 
-	notes =models.TextField(
-		blank = True,
-		verbose_name =_(u"Notes"))
+    student_group = models.ForeignKey('Group',
+                                      verbose_name=_(u"Group"),
+                                      blank=False,
+                                      null=True,
+                                      on_delete=models.PROTECT)
 
-	def __unicode__(self):
-		return u"%s %s" % (self.first_name, self.last_name)
+    notes = models.TextField(
+        blank=True,
+        verbose_name=_(u"Notes"))
 
-#--------------------------------------------------------------
+    def __unicode__(self):
+        return u"%s %s" % (self.first_name, self.last_name)
+
+
+# --------------------------------------------------------------
 class Group(models.Model):
-	"""Group Model"""
+    """Group Model"""
 
-	class Meta(object):
-		"""docstring for Meta"""
-		verbose_name =_(u"Group")
-		verbose_name_plural =_(u"Groups")
-			
-	title = models.CharField(
-		max_length =256,
-		blank =False,
-		verbose_name = _(u"Name"))
+    class Meta(object):
+        """docstring for Meta"""
+        verbose_name = _(u"Group")
+        verbose_name_plural = _(u"Groups")
 
-	leader = models.OneToOneField('Student',
-		verbose_name =_(u"Leader"),
-		blank =True,
-		null =True,
-		on_delete =models.SET_NULL,
-		related_name='+')
+    title = models.CharField(
+        max_length=256,
+        blank=False,
+        verbose_name=_(u"Name"))
 
-	students = models.ManyToManyField('Student',
-		verbose_name =_(u"Students"), 
-		blank =True,)
+    leader = models.OneToOneField('Student',
+                                  verbose_name=_(u"Leader"),
+                                  blank=True,
+                                  null=True,
+                                  on_delete=models.SET_NULL,
+                                  related_name='+')
 
-	notes = models.TextField(
-		blank = True,
-		verbose_name =_(u"Notes"))
+    students = models.ManyToManyField('Student',
+                                      verbose_name=_(u"Students"),
+                                      blank=True, )
 
-	def __unicode__(self):
-			return u"%s" % (self.title)
+    notes = models.TextField(
+        blank=True,
+        verbose_name=_(u"Notes"))
 
-#------------------------------------------------
+    def __unicode__(self):
+        return u"%s" % (self.title)
+
+
+# ------------------------------------------------
 
 class Exam(models.Model):
-	"""Exam Model"""
+    """Exam Model"""
 
-	class Meta(object):
-		"""docstring for Meta"""
-		verbose_name =_(u"Exam")
-		verbose_name_plural =_(u"Exams")
-			
-	science = models.CharField(
-		max_length =256,
-		blank =False,
-		verbose_name =_(u"Science"))
+    class Meta(object):
+        """docstring for Meta"""
+        verbose_name = _(u"Exam")
+        verbose_name_plural = _(u"Exams")
 
-	teacher = models.CharField(
-		max_length =256,
-		blank =False,
-		verbose_name =_(u"Teacher"))
+    science = models.CharField(
+        max_length=256,
+        blank=False,
+        verbose_name=_(u"Science"))
 
-	date = models.DateTimeField(
-		blank =False,
-		verbose_name =_(u"Time"),
-		null =True)
+    teacher = models.CharField(
+        max_length=256,
+        blank=False,
+        verbose_name=_(u"Teacher"))
 
-	groups = models.ForeignKey('Group',
-		verbose_name =_(u"Group"),
-		blank =False,
-		null =True,
-		on_delete =models.CASCADE)
+    date = models.DateTimeField(
+        blank=False,
+        verbose_name=_(u"Time"),
+        null=True)
 
-	file = models.FileField(upload_to='uploads', 
-		max_length =100)
+    groups = models.ForeignKey('Group',
+                               verbose_name=_(u"Group"),
+                               blank=False,
+                               null=True,
+                               on_delete=models.CASCADE)
 
-	def __unicode__(self):
-		return u"%s (%s)" % (self.science, self.groups)
+    file = models.FileField(upload_to='uploads',
+                            max_length=100)
 
-#-----------------------------------------------------------
+    def __unicode__(self):
+        return u"%s (%s)" % (self.science, self.groups)
+
+
+# -----------------------------------------------------------
 
 
 class Result(models.Model):
+    """Result Model"""
 
-	"""Result Model"""
+    class Meta(object):
+        """docstring for Meta"""
+        verbose_name = _(u"Exam Result")
+        verbose_name_plural = _(u"Exams Results")
 
-	class Meta(object):
-		"""docstring for Meta"""
-		verbose_name =_(u"Exam Result")
-		verbose_name_plural =_(u"Exams Results")
-			
-	exams = models.ForeignKey('Exam',
-		verbose_name = _(u"Exam"),
-		blank =False,
-		null =True,
-		max_length =256,
-		on_delete =models.CASCADE)
+    exams = models.ForeignKey('Exam',
+                              verbose_name=_(u"Exam"),
+                              blank=False,
+                              null=True,
+                              max_length=256,
+                              on_delete=models.CASCADE)
 
-	groups = models.ForeignKey('Group',
-		verbose_name =_(u"Group"),
-		blank =False,
-		null =True,
-		on_delete =models.CASCADE)
+    groups = models.ForeignKey('Group',
+                               verbose_name=_(u"Group"),
+                               blank=False,
+                               null=True,
+                               on_delete=models.CASCADE)
 
-	students = models.ForeignKey('Student',
-		verbose_name =_(u"Student"),
-		blank =False,
-		null =True,
-		on_delete =models.CASCADE,
-		related_name='+')
+    students = models.ForeignKey('Student',
+                                 verbose_name=_(u"Student"),
+                                 blank=False,
+                                 null=True,
+                                 on_delete=models.CASCADE,
+                                 related_name='+')
 
-	result = models.CharField(
-		max_length =256,
-		blank =False,
-		verbose_name = _(u"Result"))
+    result = models.CharField(
+        max_length=256,
+        blank=False,
+        verbose_name=_(u"Result"))
 
-	def __unicode__(self):
-		return u"%s %s" % (self.exams, self.students)
+    def __unicode__(self):
+        return u"%s %s" % (self.exams, self.students)
 
 
-#----------------------------------------------------------------
+# ----------------------------------------------------------------
 
 class MonthJournal(models.Model):
     """Student Month Journal"""
 
     class Meta:
-        verbose_name =_(u"Monthly Journal")
-        verbose_name_plural =_(u"Mounthly Journals")
+        verbose_name = _(u"Monthly Journal")
+        verbose_name_plural = _(u"Mounthly Journals")
 
     student = models.ForeignKey('Student',
-        verbose_name=_(u"Student"),
-        blank=False,
-        unique_for_month='date')
+                                verbose_name=_(u"Student"),
+                                blank=False,
+                                unique_for_month='date')
 
     # we only need year and month, so always set day to first day of the month
     date = models.DateField(
         verbose_name=_(u"Date"),
         blank=False,
-        default =datetime.today)
+        default=datetime.today)
 
     # list of days, each says whether student was present or not
     present_day1 = models.BooleanField(default=False)
@@ -226,8 +273,8 @@ class MonthJournal(models.Model):
     present_day31 = models.BooleanField(default=False)
 
     def __getitem__(self, key):
-    	return self.date[key]
+        return self.date[key]
 
     def __unicode__(self):
         return u'%s: %d, %d' % (self.student.last_name,
-         self.date.month, self.date.year)
+                                self.date.month, self.date.year)

@@ -1,0 +1,94 @@
+[
+{
+    "fields": {
+        "first_name": "Vitaliy",
+        "last_name": "Podoba",
+        "middle_name": "Ivanovych",
+        "photo": "",
+        "notes": "",
+        "student_group": 1,
+        "birthday": "1984-06-17",
+        "ticket": "0001"
+    },
+    "model": "students.student",
+    "pk": 1
+},
+{
+    "fields": {
+        "first_name": "Dmutro",
+        "last_name": "Illin",
+        "middle_name": "Alexeich",
+        "photo": "",
+        "notes": "Notes 1",
+        "student_group": 1,
+        "birthday": "1980-10-19",
+        "ticket": "111"
+    },
+    "model": "students.student",
+    "pk": 2
+},
+{
+    "fields": {
+        "first_name": "Igor",
+        "last_name": "Sergeevich",
+        "middle_name": "Shapkosnikov",
+        "photo": "",
+        "notes": "",
+        "student_group": 1,
+        "birthday": "1978-03-02",
+        "ticket": "2223"
+    },
+    "model": "students.student",
+    "pk": 3
+},
+{
+    "fields": {
+        "first_name": "Denis",
+        "last_name": "Nikolaevich",
+        "middle_name": "Dolgonenko",
+        "photo": "",
+        "notes": "",
+        "student_group": 2,
+        "birthday": "1970-09-20",
+        "ticket": "3335"
+    },
+    "model": "students.student",
+    "pk": 4
+},
+{
+    "fields": {
+        "notes": "",
+        "leader": 1,
+        "title": "Group1"
+    },
+    "model": "students.group",
+    "pk": 1
+},
+{
+    "fields": {
+        "notes": "",
+        "leader": null,
+        "title": "Group2"
+    },
+    "model": "students.group",
+    "pk": 2
+},
+{
+    "fields": {
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": true,
+        "is_staff": true,
+        "last_login": "2016-11-19T00:17:12.803Z",
+        "groups": [],
+        "user_permissions": [],
+        "password": "demo",
+        "email": "lemk@ukr.net",
+        "date_joined": "2016-11-01T12:59:32.011Z"
+    },
+    "model": "auth.user",
+    "pk": 1
+}
+]

@@ -115,7 +115,7 @@
   {% endif %}
 
 <!-- Start Groups Listing -->
-<table class="table">
+<table class="table" id="table">
 	<thead>
 	<tr>
 		<th><a href="#">№</a></th>
@@ -216,6 +216,17 @@
 
 	</tbody>
 </table>
+
+<script>
+	import tableDragger from 'table-dragger'
+	tableDragger(el, options?)
+
+	tableDragger(document.querySelector("#row-table"), { mode: "row" });
+        
+        
+
+
+</script>
 
 		<!-- End Groups Listing -->
 

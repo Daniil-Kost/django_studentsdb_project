@@ -2,6 +2,8 @@
 
 {% load static from staticfiles %}
 
+{% load active_link_tags %}
+
 <!DOCTYPE html>
 
 <html lang="uk">
@@ -383,10 +385,23 @@
 	  	</li>
 
 	  {% endif %}
+		
+		{% for p in all_pages %}
+		{% if p.active_link == True %}
+		<li role ="presentation"  class="active" id="cms-li">
+	  	<a href="/page/{{ p.slug }}">{{ p.name }}</a>
+	  	</li>
+	  	{% else %}
+	  	<li role ="presentation" id="cms-li">
+	  	<a href="/page/{{ p.slug }}">{{ p.name }}</a>
+	  	</li>
+	  	{% endif %}
+		{% endfor %}
 
 	  </ul>
 	  </div>
 	</div>
+
 	  <!-- End SubHeader -->
 
 	<!-- Start Main Page Content -->
@@ -509,6 +524,10 @@
 
 <script src ='{% url "django.views.i18n.javascript_catalog" %}'>
 
+</script>
+
+<script src ="{% static 'js/table-dragger.min.js' %}">
+	
 </script>
 
 <script src ="{% static 'js/main.js' %}">

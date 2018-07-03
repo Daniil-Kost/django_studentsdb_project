@@ -1,0 +1,122 @@
+{% extends "students/base.html" %}
+
+{% load i18n %}
+
+{% load static from staticfiles %}
+
+
+{% block meta_title %}{{ page.description }}{% endblock meta_title %}
+
+{% block title %}{{ page.title }}{% endblock title %}
+
+{% block extra_css %}
+
+<style>
+	
+	/*personals styles for authenticated users*/
+	{% if user.is_authenticated %}
+
+	body {
+    	background-color: {{BACKGROUND}};
+    	color: {{TC}};
+
+    }
+
+	form {
+		float: left;
+		width: 100%;
+		background-color: {{STYLE}};
+		padding-left:15px;
+		padding-top:15px;
+		padding-bottom:15px;
+		color: {{TC}};
+
+		}
+
+	 a {
+      color: {{LINK}};
+      text-decoration: none;
+
+    }
+
+    a:hover, a:focus {
+      color: {{FOCUS}};
+      text-decoration: underline;
+
+    }
+
+	.label {
+		float:left;
+    	color: {{TC}};
+    	display: inline;
+    	font-size: 110%;
+    	font-weight: 700;
+    	line-height: 2;
+    	text-align: right;
+    	white-space: nowrap;
+			
+		}
+
+		.modal-title {
+			color: #333;
+		}
+
+	/*styles for anonim users*/
+	{% else %}
+
+	body {
+    	background-color: #FFFAFA;
+   		color: #333;
+
+    }
+
+
+	form {
+		float: left;
+		width: 100%;
+		background-color: #d9edf7;
+		padding-left:15px;
+		padding-top:15px;
+		padding-bottom:15px;
+		color: #333;
+
+		}
+
+	.label {
+		float:left;
+    	color: #333;
+    	display: inline;
+    	font-size: 110%;
+    	font-weight: 700;
+    	line-height: 2;
+    	text-align: right;
+    	white-space: nowrap;
+			
+		}
+
+	{% endif %}
+
+	{{ page.styles }}
+
+</style>
+
+
+
+{% endblock extra_css %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+	
+</script>
+
+<div id="none_db" style="display: none;">{{ page.content }}</div>
+<div id="div_db"></div>
+<script type="text/javascript" charset="utf-8">
+var txt = $("#none_db").text();
+document.getElementById("div_db").innerHTML = txt;
+</script>
+
+{% endblock content %}
+
+	
